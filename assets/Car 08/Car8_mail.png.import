@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ch1w2178sua8i"
-path="res://.godot/imported/Car8_mail.png-fd252c5bb0cfc183b2a3ec114f2bf0f0.ctex"
+path="res://.godot/imported/Car8_mail.png-3b88c52382597d9b57167a15461e8d9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Car 08/Car8_mail.png"
-dest_files=["res://.godot/imported/Car8_mail.png-fd252c5bb0cfc183b2a3ec114f2bf0f0.ctex"]
+source_file="res://Assets/Car 08/Car8_mail.png"
+dest_files=["res://.godot/imported/Car8_mail.png-3b88c52382597d9b57167a15461e8d9e.ctex"]
 
 [params]
 

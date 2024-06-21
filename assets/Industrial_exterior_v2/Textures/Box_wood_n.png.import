@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1d86a3ywlyt3"
-path="res://.godot/imported/Box_wood_n.png-1d317a2e8cc76b402158c1ef9b5c8a73.ctex"
+path="res://.godot/imported/Box_wood_n.png-688b8f305b1f4a9ead7682b80fd5cfb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2/Textures/Box_wood_n.png"
-dest_files=["res://.godot/imported/Box_wood_n.png-1d317a2e8cc76b402158c1ef9b5c8a73.ctex"]
+source_file="res://Assets/Industrial_exterior_v2/Textures/Box_wood_n.png"
+dest_files=["res://.godot/imported/Box_wood_n.png-688b8f305b1f4a9ead7682b80fd5cfb2.ctex"]
 
 [params]
 

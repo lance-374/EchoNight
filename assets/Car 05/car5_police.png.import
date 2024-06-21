@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b702l8yvkm1ya"
-path.s3tc="res://.godot/imported/car5_police.png-39e6d381a6411560055fd4e4a2d77ceb.s3tc.ctex"
+path.s3tc="res://.godot/imported/car5_police.png-7a500478e548eff79e27a6d6aa79aa54.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Car 05/car5_police.png"
-dest_files=["res://.godot/imported/car5_police.png-39e6d381a6411560055fd4e4a2d77ceb.s3tc.ctex"]
+source_file="res://Assets/Car 05/car5_police.png"
+dest_files=["res://.godot/imported/car5_police.png-7a500478e548eff79e27a6d6aa79aa54.s3tc.ctex"]
 
 [params]
 

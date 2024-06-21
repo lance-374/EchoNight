@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ylmnjndnraa2"
-path="res://.godot/imported/Industrial_exterior_v2_Metal_cabinet_1.png-a000a3c70f34d9d11ae85c91678a5961.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Metal_cabinet_1.png-2bc4a9abd9d514001882af3066d11a3d.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2_Metal_cabinet_1.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Metal_cabinet_1.png-a000a3c70f34d9d11ae85c91678a5961.ctex"]
+source_file="res://Assets/Industrial_exterior_v2_Metal_cabinet_1.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Metal_cabinet_1.png-2bc4a9abd9d514001882af3066d11a3d.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
