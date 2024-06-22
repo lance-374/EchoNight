@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv2vostggt557"
-path.s3tc="res://.godot/imported/Industrial_exterior_v2_Building_13.png-e158ea2025ca6799ac87a7f86a418102.s3tc.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Building_13.png-2d3791962b931a96aa7ceaeb26330b0f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2_Building_13.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Building_13.png-e158ea2025ca6799ac87a7f86a418102.s3tc.ctex"]
+source_file="res://assets/Industrial_exterior_v2_Building_13.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Building_13.png-2d3791962b931a96aa7ceaeb26330b0f.s3tc.ctex"]
 
 [params]
 

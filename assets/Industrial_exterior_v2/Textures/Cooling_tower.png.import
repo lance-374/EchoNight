@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlmcp0pnoxusu"
-path="res://.godot/imported/Cooling_tower.png-08ca29f06675ca469534f81ef7a5b3d8.ctex"
+path="res://.godot/imported/Cooling_tower.png-0b2c494cf1109a77c64f438f5e033159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2/Textures/Cooling_tower.png"
-dest_files=["res://.godot/imported/Cooling_tower.png-08ca29f06675ca469534f81ef7a5b3d8.ctex"]
+source_file="res://assets/Industrial_exterior_v2/Textures/Cooling_tower.png"
+dest_files=["res://.godot/imported/Cooling_tower.png-0b2c494cf1109a77c64f438f5e033159.ctex"]
 
 [params]
 

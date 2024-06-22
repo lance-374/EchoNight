@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0hctgk45xqe5"
-path.s3tc="res://.godot/imported/Industrial_exterior_v2_Bridges.png-3d1fb2ed8a491cd67721f893386820a3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Bridges.png-5647675c7acc071f4843af74d3ac573b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2_Bridges.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Bridges.png-3d1fb2ed8a491cd67721f893386820a3.s3tc.ctex"]
+source_file="res://assets/Industrial_exterior_v2_Bridges.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Bridges.png-5647675c7acc071f4843af74d3ac573b.s3tc.ctex"]
 
 [params]
 

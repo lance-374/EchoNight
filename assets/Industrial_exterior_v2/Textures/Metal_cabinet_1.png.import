@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyn11mygdlx7b"
-path="res://.godot/imported/Metal_cabinet_1.png-e37b0ae9f2cd4e01b3b5c84d204aabfd.ctex"
+path="res://.godot/imported/Metal_cabinet_1.png-9425137478a95b2bd8fb9b0e187724ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2/Textures/Metal_cabinet_1.png"
-dest_files=["res://.godot/imported/Metal_cabinet_1.png-e37b0ae9f2cd4e01b3b5c84d204aabfd.ctex"]
+source_file="res://assets/Industrial_exterior_v2/Textures/Metal_cabinet_1.png"
+dest_files=["res://.godot/imported/Metal_cabinet_1.png-9425137478a95b2bd8fb9b0e187724ef.ctex"]
 
 [params]
 

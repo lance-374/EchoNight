@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtq1txwrirt4j"
-path="res://.godot/imported/Cargo_2.png-2ad226e42199840473c00c8db4aebb0b.ctex"
+path="res://.godot/imported/Cargo_2.png-2f0a4560e57d6572b2dd000fcdd2b42b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2/Textures/Cargo_2.png"
-dest_files=["res://.godot/imported/Cargo_2.png-2ad226e42199840473c00c8db4aebb0b.ctex"]
+source_file="res://assets/Industrial_exterior_v2/Textures/Cargo_2.png"
+dest_files=["res://.godot/imported/Cargo_2.png-2f0a4560e57d6572b2dd000fcdd2b42b.ctex"]
 
 [params]
 

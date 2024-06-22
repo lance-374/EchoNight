@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyuyojlirbokh"]
+[gd_scene load_steps=12 format=3 uid="uid://dyuyojlirbokh"]
 
 [ext_resource type="PackedScene" uid="uid://cro48d7ek0xv4" path="res://Player.tscn" id="1_lwoeb"]
 [ext_resource type="Script" path="res://Map/Scripts/omnilight_3d_script.gd" id="1_nq57u"]
+[ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://assets/Cars/Car 01/Car.obj" id="3_ogk52"]
+[ext_resource type="Texture2D" uid="uid://dxp5fxmlsdds1" path="res://assets/Cars/Car 01/car_red.png" id="3_xoce7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,24 +23,42 @@ size = Vector2(10, 10)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_60pdq"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4t4c2"]
+albedo_texture = ExtResource("3_xoce7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vn4p"]
+size = Vector3(2.29648, 2.02368, 5.86987)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ktasc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94082, 0.501201)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36455, 1.93696, 2.72202)
+light_energy = 0.0
 light_specular = 1.0
 distance_fade_enabled = true
 script = ExtResource("1_nq57u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="floor_mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_4fh0f")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="floor_body" type="StaticBody3D" parent="floor_mesh"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="floor_collision" type="CollisionShape3D" parent="floor_mesh/floor_body"]
 shape = SubResource("ConcavePolygonShape3D_60pdq")
 
 [node name="Player" parent="." instance=ExtResource("1_lwoeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103947, 2.04412, -1.94273)
+
+[node name="Car" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14359, -2.38419e-07, 2.41358)
+material_override = SubResource("StandardMaterial3D_4t4c2")
+mesh = ExtResource("3_ogk52")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Car"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00341415, 1.05841, -0.014569)
+shape = SubResource("BoxShape3D_3vn4p")

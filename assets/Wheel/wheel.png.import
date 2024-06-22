@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo64ybbu0y4ib"
-path.s3tc="res://.godot/imported/wheel.png-0d2f28abd1e007453a4ce5997a31baf4.s3tc.ctex"
+path.s3tc="res://.godot/imported/wheel.png-652ead9b58833a568d58667edaac7a6e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Wheel/wheel.png"
-dest_files=["res://.godot/imported/wheel.png-0d2f28abd1e007453a4ce5997a31baf4.s3tc.ctex"]
+source_file="res://assets/Wheel/wheel.png"
+dest_files=["res://.godot/imported/wheel.png-652ead9b58833a568d58667edaac7a6e.s3tc.ctex"]
 
 [params]
 

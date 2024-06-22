@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmyldfcadp778"
-path.s3tc="res://.godot/imported/car_shadow.png-c23aa149bc1a95a371584a4b5db3b3a1.s3tc.ctex"
+path.s3tc="res://.godot/imported/car_shadow.png-64b8b4d34fe9d9ba390cb145262596d5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Shadow (3D)/car_shadow.png"
-dest_files=["res://.godot/imported/car_shadow.png-c23aa149bc1a95a371584a4b5db3b3a1.s3tc.ctex"]
+source_file="res://assets/Shadow (3D)/car_shadow.png"
+dest_files=["res://.godot/imported/car_shadow.png-64b8b4d34fe9d9ba390cb145262596d5.s3tc.ctex"]
 
 [params]
 

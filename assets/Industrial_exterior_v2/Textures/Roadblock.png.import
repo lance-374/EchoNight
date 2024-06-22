@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5kynnmjqlvo0"
-path="res://.godot/imported/Roadblock.png-43eaff1e8f7038106d4a9a8560881da6.ctex"
+path="res://.godot/imported/Roadblock.png-9763ab116a0ebf84bcaa65f143b70594.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2/Textures/Roadblock.png"
-dest_files=["res://.godot/imported/Roadblock.png-43eaff1e8f7038106d4a9a8560881da6.ctex"]
+source_file="res://assets/Industrial_exterior_v2/Textures/Roadblock.png"
+dest_files=["res://.godot/imported/Roadblock.png-9763ab116a0ebf84bcaa65f143b70594.ctex"]
 
 [params]
 
