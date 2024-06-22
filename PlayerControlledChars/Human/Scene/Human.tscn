@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3oa3ph6m687b"]
+
+[ext_resource type="Script" path="res://PlayerControlledChars/Human/Scripts/Human.gd" id="1_fbt8g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hf2x"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p45w6"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera3D:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Human" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
+collision_layer = 2
+script = ExtResource("1_fbt8g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_x8wjk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0hf2x")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569586, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_p45w6")

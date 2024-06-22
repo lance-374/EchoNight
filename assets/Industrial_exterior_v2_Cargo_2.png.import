@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bst16sru7gi6n"
-path="res://.godot/imported/Industrial_exterior_v2_Cargo_2.png-3e931f5405c0e3c677e84dc4d2b386f3.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Cargo_2.png-34b263ef1a7ef51c07549dbebbb4932b.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2_Cargo_2.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Cargo_2.png-3e931f5405c0e3c677e84dc4d2b386f3.ctex"]
+source_file="res://Assets/Industrial_exterior_v2_Cargo_2.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Cargo_2.png-34b263ef1a7ef51c07549dbebbb4932b.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

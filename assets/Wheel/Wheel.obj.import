@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://4bvkn3kml3kp"
-path="res://.godot/imported/Wheel.obj-36aabc32fef55a5b45206c4a91dec074.mesh"
+path="res://.godot/imported/Wheel.obj-a00f2df2824285d7d2340cd1fd915848.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Wheel.obj-36aabc32fef55a5b45206c4a91dec074.mesh"]
+files=["res://.godot/imported/Wheel.obj-a00f2df2824285d7d2340cd1fd915848.mesh"]
 
-source_file="res://assets/Wheel/Wheel.obj"
-dest_files=["res://.godot/imported/Wheel.obj-36aabc32fef55a5b45206c4a91dec074.mesh", "res://.godot/imported/Wheel.obj-36aabc32fef55a5b45206c4a91dec074.mesh"]
+source_file="res://Assets/Wheel/Wheel.obj"
+dest_files=["res://.godot/imported/Wheel.obj-a00f2df2824285d7d2340cd1fd915848.mesh", "res://.godot/imported/Wheel.obj-a00f2df2824285d7d2340cd1fd915848.mesh"]
 
 [params]
 

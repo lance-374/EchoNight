@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnajgniusxtnt"
-path="res://.godot/imported/Ventilation_2.png-7a3c2a145054476d190b2bbf2d2a496c.ctex"
+path="res://.godot/imported/Ventilation_2.png-885a8724597a92bee21f5c893950459c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2/Textures/Ventilation_2.png"
-dest_files=["res://.godot/imported/Ventilation_2.png-7a3c2a145054476d190b2bbf2d2a496c.ctex"]
+source_file="res://Assets/Industrial_exterior_v2/Textures/Ventilation_2.png"
+dest_files=["res://.godot/imported/Ventilation_2.png-885a8724597a92bee21f5c893950459c.ctex"]
 
 [params]
 
