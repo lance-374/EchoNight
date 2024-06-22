@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyuyojlirbokh"]
+[gd_scene load_steps=8 format=3 uid="uid://dyuyojlirbokh"]
 
 [ext_resource type="PackedScene" uid="uid://cro48d7ek0xv4" path="res://Player.tscn" id="1_lwoeb"]
+[ext_resource type="Script" path="res://Map/Scripts/omnilight_3d_script.gd" id="1_nq57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,9 +26,11 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ktasc")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94082, 0.501201)
+light_specular = 1.0
+distance_fade_enabled = true
+script = ExtResource("1_nq57u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_4fh0f")
