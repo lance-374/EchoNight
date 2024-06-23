@@ -1,7 +1,7 @@
 extends Node
 
-@onready var main_menu = $CanvasLayer/MainMenu
-@onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
+@onready var main_menu = $MainMenu
+
 #@onready var hud = $CanvasLayer/HUD
 #@onready var health_bar = $CanvasLayer/HUD/HealthBar
 
@@ -10,11 +10,15 @@ const Player = preload("res://PlayerControlledChars/Human/Scene/Human.tscn")
 const PORT = 3000
 var enet_peer = ENetMultiplayerPeer.new()
 
+func _ready():
+	main_menu.connect("addressEntered",  joinAdressEntered)
+	main_menu.connect("hostWorldStart", startHost )
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
 
-func _on_host_button_pressed():
+func startHost():
 	main_menu.hide()
 	#hud.show()
 	
@@ -27,11 +31,11 @@ func _on_host_button_pressed():
 	
 	#upnp_setup()
 
-func _on_join_button_pressed():
+func joinAdressEntered(address):
 	main_menu.hide()
 	#hud.show()
 	
-	enet_peer.create_client(address_entry.text, PORT)
+	enet_peer.create_client(address, PORT)
 	multiplayer.multiplayer_peer = enet_peer
 
 func add_player(peer_id):
@@ -68,3 +72,5 @@ func upnp_setup():
 		"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address())
+
+
