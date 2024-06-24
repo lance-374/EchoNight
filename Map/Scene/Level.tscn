@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=10 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="PackedScene" uid="uid://cvxc5ix0t2i32" path="res://PlayerControlledChars/Human/Scene/Player.tscn" id="1_fy27q"]
+[ext_resource type="MeshLibrary" uid="uid://db441jecj676h" path="res://Assets/Map/Industrial_ext_meshLib2.tres" id="2_0uncb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,3 +50,9 @@ shape = SubResource("ConcavePolygonShape3D_60pdq")
 
 [node name="Player" parent="." instance=ExtResource("1_fy27q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_0uncb")
+data = {
+"cells": PackedInt32Array(0, 65535, 56)
+}
