@@ -42,6 +42,10 @@ shape = SubResource("ConcavePolygonShape3D_60pdq")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_hymrl")]
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn")
+[node name="MultiplayerSpawnerHuman" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Human/Scene/Human.tscn")
+spawn_path = NodePath("..")
+
+[node name="MultiplayerSpawnerZombie" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
 spawn_path = NodePath("..")

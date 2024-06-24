@@ -1,0 +1,123 @@
+[gd_scene load_steps=2 format=3 uid="uid://5mi8oenvbjka"]
+
+[ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_5rakn"]
+
+[node name="MainMenu" type="MenuBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -67.0
+offset_right = -897.0
+offset_bottom = -524.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5rakn")
+
+[node name="AddressEntry" type="LineEdit" parent="."]
+layout_mode = 2
+offset_left = 451.0
+offset_top = 307.0
+offset_right = 727.0
+offset_bottom = 338.0
+placeholder_text = "Enter Address to Join Here"
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 306.0
+offset_bottom = 191.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MainMenu" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainMenu"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 244.0
+offset_right = 714.0
+offset_bottom = 267.0
+text = "EchoNight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenu"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 282.0
+offset_right = 714.0
+offset_bottom = 313.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenu"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 328.0
+offset_right = 714.0
+offset_bottom = 359.0
+text = "Join"
+
+[node name="CharacterSelection" type="Control" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Display Currently Playing" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 297.0
+offset_top = 152.0
+offset_right = 573.0
+offset_bottom = 202.0
+grow_horizontal = 2
+fit_content = true
+scroll_following = true
+
+[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 389.0
+offset_right = 614.0
+offset_bottom = 420.0
+text = "Confirm"
+
+[node name="Choose Human" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 279.0
+offset_right = 714.0
+offset_bottom = 287.0
+text = "Human"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 244.0
+offset_right = 714.0
+offset_bottom = 264.0
+
+[node name="Choose Zombie" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 244.0
+offset_right = 714.0
+offset_bottom = 252.0
+text = "Zombie"
+
+[connection signal="text_submitted" from="AddressEntry" to="." method="_on_address_entry_text_submitted"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenu/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenu/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Choose Human" to="." method="_on_choose_human_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Choose Zombie" to="." method="_on_choose_zombie_pressed"]
