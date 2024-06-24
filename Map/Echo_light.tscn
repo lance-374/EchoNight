@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://iwxd2pmr5ou6"]
+
+[node name="EchoLight" type="SpotLight3D"]
+distance_fade_enabled = true
+spot_range = 4.8494
+spot_angle = 2.5975

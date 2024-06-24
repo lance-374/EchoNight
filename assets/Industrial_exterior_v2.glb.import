@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://tv1yyiydhr46"
-path="res://.godot/imported/Industrial_exterior_v2.glb-01751e099a6cb25672695dba456e252f.scn"
+path="res://.godot/imported/Industrial_exterior_v2.glb-5b176e7091a63414cb97fb6dec6f7540.scn"
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2.glb"
-dest_files=["res://.godot/imported/Industrial_exterior_v2.glb-01751e099a6cb25672695dba456e252f.scn"]
+source_file="res://Assets/Industrial_exterior_v2.glb"
+dest_files=["res://.godot/imported/Industrial_exterior_v2.glb-5b176e7091a63414cb97fb6dec6f7540.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drythkimhpwtc"
-path.s3tc="res://.godot/imported/Industrial_exterior_v2_Cargo_4.png-67f41bd1ce26c7526106d300d0017419.s3tc.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Cargo_4.png-0084dd9a59cfe606cc2d5a0ca15f55a1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2_Cargo_4.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Cargo_4.png-67f41bd1ce26c7526106d300d0017419.s3tc.ctex"]
+source_file="res://Assets/Industrial_exterior_v2_Cargo_4.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Cargo_4.png-0084dd9a59cfe606cc2d5a0ca15f55a1.s3tc.ctex"]
 
 [params]
 
