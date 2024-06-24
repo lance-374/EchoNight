@@ -17,6 +17,8 @@ var gravity = 9.8
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
+	print(name)
+	print_tree_pretty()
 
 func _ready():
 	if not is_multiplayer_authority(): return
@@ -41,7 +43,6 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

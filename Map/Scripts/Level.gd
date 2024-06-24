@@ -1,31 +1,21 @@
 extends Node
 
 @onready var main_menu = $MainMenu
-
 #@onready var hud = $CanvasLayer/HUD
 #@onready var health_bar = $CanvasLayer/HUD/HealthBar
 
 
-const Human = preload("res://PlayerControlledChars/Human/Scene/Human.tscn")
-const Zombie = preload("res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
+
 const PORT = 3000
+const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
-var hasHost = false
+var player_character_choices = {} 
+
 func _ready():
 	main_menu.connect("addressEntered",  joinAdressEntered)
 	main_menu.connect("hostWorldStart", startHost )
-	main_menu.connect("characterType", playerType)
 
-
-
-
-func playerType(type):
-	print(type)
-	latestPlayerType = type
-	if(!hasHost):
-		add_player(multiplayer.get_unique_id())
-		hasHost = true
 
 
 func _unhandled_input(_event):
@@ -36,30 +26,26 @@ func startHost():
 	main_menu.hide()
 	#hud.show()
 	enet_peer.create_server(PORT)
+	#multiplayer is the name of the server variable
 	multiplayer.multiplayer_peer = enet_peer
+	add_player(multiplayer.get_unique_id())
 	multiplayer.peer_disconnected.connect(remove_player)
 	
-	
+	#when a new player connects run add_player
+	multiplayer.peer_connected.connect(add_player)
 	
 	#upnp_setup()
 
 func joinAdressEntered(address):
 	main_menu.hide()
 	#hud.show()
-	
-	
 	enet_peer.create_client(address, PORT)
 	multiplayer.multiplayer_peer = enet_peer
 
 
 func add_player(peer_id):
-	var player
-	if (latestPlayerType == ("Zombie")):
-		player= Zombie.instantiate()
-		print("Player Zombie")
-	elif(latestPlayerType == ("Human")):
-		player = Human.instantiate()
-		print("Player Human")
+	var player = PlayerSelection.instantiate()
+	print(peer_id)
 	player.name = str(peer_id)
 	add_child(player)
 	
@@ -93,5 +79,4 @@ func upnp_setup():
 		"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address())
-
 
