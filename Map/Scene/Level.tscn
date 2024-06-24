@@ -54,5 +54,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_0uncb")
 data = {
-"cells": PackedInt32Array(0, 65535, 56)
+"cells": PackedInt32Array(0, 65535, 56, 3, 65533, 47, 65533, 65534, 12)
 }
