@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bdsgfsvotc21f"
-path="res://.godot/imported/Car_Parking_Brake.ogg-f8042da6669747ab9b09587679cabe5c.oggvorbisstr"
+path="res://.godot/imported/Car_Parking_Brake.ogg-2d322a2127420431489d3112f35a807c.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/Sound effects/Car_Parking_Brake.ogg"
-dest_files=["res://.godot/imported/Car_Parking_Brake.ogg-f8042da6669747ab9b09587679cabe5c.oggvorbisstr"]
+source_file="res://Assets/Sound effects/Car_Parking_Brake.ogg"
+dest_files=["res://.godot/imported/Car_Parking_Brake.ogg-2d322a2127420431489d3112f35a807c.oggvorbisstr"]
 
 [params]
 

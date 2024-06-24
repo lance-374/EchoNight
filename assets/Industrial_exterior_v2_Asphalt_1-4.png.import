@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3df651f4sd0n"
-path="res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-75bfaabe80b44d034c0ba4978dd2c2bf.ctex"
+path.s3tc="res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-c350c11b217713020322a678eb63d1b6.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2_Asphalt_1-4.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-75bfaabe80b44d034c0ba4978dd2c2bf.ctex"]
+source_file="res://Assets/Industrial_exterior_v2_Asphalt_1-4.png"
+dest_files=["res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-c350c11b217713020322a678eb63d1b6.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

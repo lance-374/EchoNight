@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2bwwfkeg7bgm"
-path="res://.godot/imported/Palet.png-e9ce056e5c89a5af7261a2212db4eb6a.ctex"
+path="res://.godot/imported/Palet.png-764bb296342e8ecc88679213e6341d03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Industrial_exterior_v2/Textures/Palet.png"
-dest_files=["res://.godot/imported/Palet.png-e9ce056e5c89a5af7261a2212db4eb6a.ctex"]
+source_file="res://Assets/Industrial_exterior_v2/Textures/Palet.png"
+dest_files=["res://.godot/imported/Palet.png-764bb296342e8ecc88679213e6341d03.ctex"]
 
 [params]
 

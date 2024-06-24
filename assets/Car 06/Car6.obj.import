@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://dvskbulvu3sk2"
-path="res://.godot/imported/Car6.obj-26b579240f1e7a054d47603ea315773d.mesh"
+path="res://.godot/imported/Car6.obj-03b1846266046b263d70e60c9e0464fa.mesh"
 
 [deps]
 
-files=["res://.godot/imported/Car6.obj-26b579240f1e7a054d47603ea315773d.mesh"]
+files=["res://.godot/imported/Car6.obj-03b1846266046b263d70e60c9e0464fa.mesh"]
 
-source_file="res://assets/Car 06/Car6.obj"
-dest_files=["res://.godot/imported/Car6.obj-26b579240f1e7a054d47603ea315773d.mesh", "res://.godot/imported/Car6.obj-26b579240f1e7a054d47603ea315773d.mesh"]
+source_file="res://Assets/Car 06/Car6.obj"
+dest_files=["res://.godot/imported/Car6.obj-03b1846266046b263d70e60c9e0464fa.mesh", "res://.godot/imported/Car6.obj-03b1846266046b263d70e60c9e0464fa.mesh"]
 
 [params]
 

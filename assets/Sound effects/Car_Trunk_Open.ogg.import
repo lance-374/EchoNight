@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cr3em73v48rsj"
-path="res://.godot/imported/Car_Trunk_Open.ogg-b72cb97b2d063927935ae28b98a2e327.oggvorbisstr"
+path="res://.godot/imported/Car_Trunk_Open.ogg-b0820f4d3ada4fbd9cc271f07a10a9db.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/Sound effects/Car_Trunk_Open.ogg"
-dest_files=["res://.godot/imported/Car_Trunk_Open.ogg-b72cb97b2d063927935ae28b98a2e327.oggvorbisstr"]
+source_file="res://Assets/Sound effects/Car_Trunk_Open.ogg"
+dest_files=["res://.godot/imported/Car_Trunk_Open.ogg-b0820f4d3ada4fbd9cc271f07a10a9db.oggvorbisstr"]
 
 [params]
 
