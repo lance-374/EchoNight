@@ -36,6 +36,3 @@ shape = SubResource("CapsuleShape3D_w6o8u")
 
 [node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_7esiu")
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("..")
