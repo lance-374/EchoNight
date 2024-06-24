@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="PackedScene" uid="uid://cvxc5ix0t2i32" path="res://PlayerControlledChars/Human/Scene/Player.tscn" id="1_fy27q"]
 
@@ -13,6 +13,15 @@ sky_material = SubResource("ProceduralSkyMaterial_upk0a")
 background_mode = 2
 sky = SubResource("Sky_h1h6j")
 tonemap_mode = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5abrs"]
+load_path = "res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-7247922be873e06a8a5c5bc23ad46b42.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmsrb"]
+resource_name = "Alphalt_Floor"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_5abrs")
+texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4fh0f"]
 size = Vector2(10, 10)
@@ -30,6 +39,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jmsrb")
 mesh = SubResource("PlaneMesh_4fh0f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
