@@ -7,6 +7,16 @@ signal health_changed(health_value)
 #@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 #@onready var raycast = $Camera3D/RayCast3D
 
+var is_paused = false
+
+func toggle_pause():
+	if is_paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		is_paused = false
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		is_paused = true
+
 var health = 3
 
 const SPEED = 5.0
@@ -19,18 +29,21 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	if not is_multiplayer_authority(): return
+	if not is_multiplayer_authority() or is_paused: return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
-	
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * .005)
-		camera.rotate_x(-event.relative.y * .005)
-		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+	if not is_paused:
+		if event is InputEventMouseMotion:
+			rotate_y(-event.relative.x * .005)
+			camera.rotate_x(-event.relative.y * .005)
+			camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		
+	if Input.is_action_just_pressed("escape"):
+		toggle_pause()
 	
 	#if Input.is_action_just_pressed("shoot") \
 			#and anim_player.current_animation != "shoot":
@@ -47,19 +60,20 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_paused:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if not is_paused:
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	#if anim_player.current_animation == "shoot":
 		#pass
