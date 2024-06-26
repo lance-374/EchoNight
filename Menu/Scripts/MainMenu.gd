@@ -12,6 +12,7 @@ func _ready():
 	$MarginContainer/VBoxContainer/CharacterSelection.hide()
 	textBoxForCharSelection.add_text("Please choose to play as a human or zombie")
 	
+	
 
 
 

@@ -17,21 +17,19 @@ properties/2/path = NodePath("Camera3D:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
 
-[node name="Node" type="Node"]
-
-[node name="Human" type="CharacterBody3D" parent="."]
+[node name="Human" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
 collision_layer = 2
 script = ExtResource("1_fbt8g")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Human"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_x8wjk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Human"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0hf2x")
 
-[node name="Camera3D" type="Camera3D" parent="Human"]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569586, 0)
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Human"]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_p45w6")

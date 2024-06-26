@@ -15,6 +15,8 @@ func _ready():
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	print_tree_pretty()
+	if !is_multiplayer_authority():
+		self.hide()
 
 
 func _on_confirm_pressed():
@@ -24,13 +26,13 @@ func _on_confirm_pressed():
 		var Zombieplayer = Zombie.instantiate()
 		Zombieplayer.name = name
 		$MarginContainer.hide()
-		get_tree().get_root().add_child(Zombieplayer)
+		add_child(Zombieplayer)
 
 	if type == "Human":
 		var Humanplayer = Human.instantiate()
 		Humanplayer.name = name
 		$MarginContainer.hide()
-		get_tree().get_root().add_child(Humanplayer)
+		add_child(Humanplayer)
 		
 	
 	
