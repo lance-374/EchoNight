@@ -47,7 +47,7 @@ func _unhandled_input(event):
 		toggle_pause()
 	
 	if Input.is_action_just_pressed("shoot") \
-			and anim_player.current_animation != "shoot":
+			and not sound.playing:
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
