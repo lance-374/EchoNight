@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
-@onready var camera = $Camera3D
+@onready var camera = $PS1_Zombie/Armature/Skeleton3D/Camera3D
+@onready var aniPlayer = $PS1_Zombie/AnimationPlayer
 #@onready var anim_player = $AnimationPlayer
 #@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 #@onready var raycast = $Camera3D/RayCast3D
@@ -14,6 +15,14 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
+@rpc("call_local")
+func playWalk():
+	aniPlayer.play("WalkZ")
+	
+
+@rpc("call_local")
+func playIdle():
+	aniPlayer.play("IdleZ")
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -32,7 +41,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
-		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		camera.rotation.x = clamp(camera.rotation.x, -PI/4.6, PI/9)
 	
 	#if Input.is_action_just_pressed("shoot") \
 			#and anim_player.current_animation != "shoot":
@@ -58,9 +67,11 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		playWalk.rpc()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		playIdle.rpc()
 
 	#if anim_player.current_animation == "shoot":
 		#pass

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy5ik3e4tgy5n"]
+[gd_scene load_steps=3 format=3 uid="uid://cy5ik3e4tgy5n"]
 
+[ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_8slnw"]
 [ext_resource type="Script" path="res://Menu/Scripts/CharacterSelection.gd" id="1_tq3if"]
 
 [node name="MainMenu" type="MenuBar"]
@@ -12,6 +13,7 @@ offset_right = -897.0
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8slnw")
 script = ExtResource("1_tq3if")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

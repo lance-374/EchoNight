@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvxc5ix0t2i32"]
+[gd_scene load_steps=7 format=3 uid="uid://cvxc5ix0t2i32"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
+[ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
 
@@ -24,12 +25,16 @@ properties/2/replication_mode = 1
 collision_layer = 4
 script = ExtResource("1_81amh")
 
+[node name="PS1_Zombie" parent="." instance=ExtResource("2_t0aq3")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 layers = 8
 mesh = SubResource("CapsuleMesh_2km28")
 surface_material_override/0 = SubResource("StandardMaterial3D_epghw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape3D_w6o8u")
 
 [node name="Camera3D" type="Camera3D" parent="."]
