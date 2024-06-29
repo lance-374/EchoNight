@@ -1,40 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3oa3ph6m687b"]
+[gd_scene load_steps=5 format=3 uid="uid://c3oa3ph6m687b"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Human/Scripts/Human.gd" id="1_fbt8g"]
-[ext_resource type="ArrayMesh" uid="uid://j8f1qip7ohoj" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="2_ehbqm"]
-[ext_resource type="Texture2D" uid="uid://b4rilk3tl63ly" path="res://Assets/spark_particle.png" id="3_s76oe"]
-[ext_resource type="AudioStream" uid="uid://dyjpelnbk5c7o" path="res://SoundEffects/shotgun.wav" id="4_e0liu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hf2x"]
-
-[sub_resource type="Gradient" id="Gradient_6xkyb"]
-offsets = PackedFloat32Array(0, 0.127273, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4j0t3"]
-gradient = SubResource("Gradient_6xkyb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x45qa"]
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_4j0t3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5twp"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 0.686275, 1)
-albedo_texture = ExtResource("3_s76oe")
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_70yys"]
-material = SubResource("StandardMaterial3D_m5twp")
-size = Vector2(0.5, 0.5)
-orientation = 0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p45w6"]
 properties/0/path = NodePath(".:position")
@@ -46,113 +16,6 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Camera3D:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
-
-[sub_resource type="Animation" id="Animation_jm5r2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.674712, -1.25561, -0.147322)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kjlp5"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.674712, -1.25561, -0.147322), Vector3(0.674712, -1.25561, -0.147322)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0), Vector3(3.20439e-09, 1.5708, -0.0733736)]
-}
-
-[sub_resource type="Animation" id="Animation_m3mdl"]
-resource_name = "move"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector3(0.674712, -1.25561, -0.147322), Vector3(0.636204, -1.31078, -0.147322), Vector3(0.674712, -1.25561, -0.147322), Vector3(0.706106, -1.19363, -0.147322)]
-}
-
-[sub_resource type="Animation" id="Animation_ak2v3"]
-resource_name = "shoot"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Shotgun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.674712, -1.08296, -0.147322), Vector3(0.674712, -1.25561, -0.147322)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Shotgun:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.09591e-06, 1.5708, 0.763372), Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_humof"]
-_data = {
-"RESET": SubResource("Animation_jm5r2"),
-"idle": SubResource("Animation_kjlp5"),
-"move": SubResource("Animation_m3mdl"),
-"shoot": SubResource("Animation_ak2v3")
-}
 
 [node name="Human" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
@@ -168,34 +31,5 @@ shape = SubResource("CapsuleShape3D_0hf2x")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.569586, 0)
 
-[node name="Shotgun" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(-1.80999e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.81e-06, 0.674712, -1.25561, -0.147322)
-mesh = ExtResource("2_ehbqm")
-skeleton = NodePath("../..")
-
-[node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Shotgun"]
-transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 1.63639, 1.84709, 1.19209e-07)
-emitting = false
-amount = 1
-lifetime = 0.25
-one_shot = true
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_x45qa")
-draw_pass_1 = SubResource("PlaneMesh_70yys")
-
-[node name="Sound" type="AudioStreamPlayer3D" parent="Camera3D/Shotgun"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.43748, 1.7462, 5.24521e-06)
-stream = ExtResource("4_e0liu")
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, 0, -50)
-collision_mask = 2
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_p45w6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_humof")
-}
-playback_default_blend_time = 0.05
