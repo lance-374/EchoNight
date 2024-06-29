@@ -3,9 +3,10 @@ extends CharacterBody3D
 signal health_changed(health_value)
 
 @onready var camera = $Camera3D
-#@onready var anim_player = $AnimationPlayer
-#@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
-#@onready var raycast = $Camera3D/RayCast3D
+@onready var anim_player = $AnimationPlayer
+@onready var muzzle_flash = $Camera3D/Shotgun/MuzzleFlash
+@onready var raycast = $Camera3D/RayCast3D
+@onready var sound = $Camera3D/Shotgun/Sound
 
 var is_paused = false
 
@@ -45,12 +46,12 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape"):
 		toggle_pause()
 	
-	#if Input.is_action_just_pressed("shoot") \
-			#and anim_player.current_animation != "shoot":
-		#play_shoot_effects.rpc()
-		#if raycast.is_colliding():
-			#var hit_player = raycast.get_collider()
-			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+	if Input.is_action_just_pressed("shoot") \
+			and not sound.playing:
+		play_shoot_effects.rpc()
+		if raycast.is_colliding():
+			var hit_player = raycast.get_collider()
+			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -75,21 +76,22 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
-	#if anim_player.current_animation == "shoot":
-		#pass
-	#elif input_dir != Vector2.ZERO and is_on_floor():
-		#anim_player.play("move")
-	#else:
-		#anim_player.play("idle")
+	if anim_player.current_animation == "shoot":
+		pass
+	elif input_dir != Vector2.ZERO and is_on_floor():
+		anim_player.play("move")
+	else:
+		anim_player.play("idle")
 
 	move_and_slide()
 
-#@rpc("call_local")
-#func play_shoot_effects():
-	#anim_player.stop()
-	#anim_player.play("shoot")
-	#muzzle_flash.restart()
-	#muzzle_flash.emitting = true
+@rpc("call_local")
+func play_shoot_effects():
+	anim_player.stop()
+	anim_player.play("shoot")
+	sound.play()
+	muzzle_flash.restart()
+	muzzle_flash.emitting = true
 
 @rpc("any_peer")
 func receive_damage():
@@ -99,6 +101,6 @@ func receive_damage():
 		position = Vector3.ZERO
 	health_changed.emit(health)
 
-#func _on_animation_player_animation_finished(anim_name):
-	#if anim_name == "shoot":
-		#anim_player.play("idle")
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "shoot":
+		anim_player.play("idle")

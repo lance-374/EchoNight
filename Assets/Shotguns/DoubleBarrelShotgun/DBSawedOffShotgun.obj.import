@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwixl8o3y828r"
+path="res://.godot/imported/DBSawedOffShotgun.obj-3b4ddffa2e4d4eeff4c4278344e96715.mesh"
+
+[deps]
+
+files=["res://.godot/imported/DBSawedOffShotgun.obj-3b4ddffa2e4d4eeff4c4278344e96715.mesh"]
+
+source_file="res://Assets/Shotguns/DoubleBarrelShotgun/DBSawedOffShotgun.obj"
+dest_files=["res://.godot/imported/DBSawedOffShotgun.obj-3b4ddffa2e4d4eeff4c4278344e96715.mesh", "res://.godot/imported/DBSawedOffShotgun.obj-3b4ddffa2e4d4eeff4c4278344e96715.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
