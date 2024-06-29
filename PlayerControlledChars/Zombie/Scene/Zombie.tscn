@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvxc5ix0t2i32"]
+[gd_scene load_steps=8 format=3 uid="uid://cvxc5ix0t2i32"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
+[ext_resource type="Script" path="res://Map/Scripts/omnilight_3d_script.gd" id="4_toqvb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
 
@@ -38,6 +39,12 @@ visible = false
 shape = SubResource("CapsuleShape3D_w6o8u")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06736, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
 [node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_7esiu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+script = ExtResource("4_toqvb")
