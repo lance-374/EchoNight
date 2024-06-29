@@ -40,7 +40,7 @@ func _unhandled_input(event):
 	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * .005)
-		camera.rotate_x(-event.relative.y * .005)
+		camera.rotate_x(event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/4.6, PI/9)
 	
 	#if Input.is_action_just_pressed("shoot") \
