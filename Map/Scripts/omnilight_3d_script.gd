@@ -9,6 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("clap"):
-		light_energy = 5
+		var sLight = GlobalSound.spawnLight()
 		await get_tree().create_timer(1).timeout
-		light_energy = 0
+		remove_child(sLight)
