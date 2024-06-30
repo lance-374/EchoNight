@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5sejkvodg3pu"
+path="res://.godot/imported/idle.mp3-de0673f1e7e715a7ebe67877e46a0560.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound effects/idle.mp3"
+dest_files=["res://.godot/imported/idle.mp3-de0673f1e7e715a7ebe67877e46a0560.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
