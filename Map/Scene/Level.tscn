@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="2_hymrl"]
-[ext_resource type="Texture2D" uid="uid://cfayxkpcwgv5m" path="res://Assets/circle_02.png" id="3_to872"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -79,7 +78,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_to872")
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1
