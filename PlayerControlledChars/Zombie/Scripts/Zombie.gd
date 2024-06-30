@@ -4,7 +4,7 @@ signal health_changed(health_value)
 
 @onready var camera = $PS1_Zombie/Armature/Skeleton3D/Camera3D
 @onready var aniPlayer = $PS1_Zombie/AnimationPlayer
-@onready var zombieGroan = $AudioStreamPlayer3D_groaning
+@onready var ArtiSound = $AudioStreamPlayer3D_groaning
 @onready var liReady = true
 #@onready var anim_player = $AnimationPlayer
 #@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
@@ -86,7 +86,7 @@ func _physics_process(delta):
 		if liReady == true:
 			liReady = false
 			GlobalSound.spawnLight($Camera3D_zombie.global_position)
-			zombieGroan.play()
+			ArtiSound.play()
 			await get_tree().create_timer(2).timeout
 			GlobalSound.removeLight()
 			liReady = true

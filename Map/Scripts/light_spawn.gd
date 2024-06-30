@@ -9,4 +9,4 @@ func _ready():
 func _process(delta):
 	volume = spectrum.get_magnitude_for_frequency_range(0, 10000).length()
 	self.omni_range = volume * 500
-	self.light_energy = volume * 50
+	#self.light_energy = volume * 50
