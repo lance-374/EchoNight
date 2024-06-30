@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://cetwdxhh842om"]
+[gd_scene load_steps=2 format=3 uid="uid://cetwdxhh842om"]
+
+[ext_resource type="Script" path="res://Map/Scripts/light_spawn.gd" id="1_q51cm"]
 
 [node name="LightSpawn" type="OmniLight3D"]
+light_color = Color(0.0514957, 0.149942, 0.458974, 1)
+light_energy = 1.485
+omni_range = 7.61
+script = ExtResource("1_q51cm")
