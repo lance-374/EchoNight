@@ -1,8 +1,8 @@
 extends Node
 
 @onready var main_menu = $MainMenu
-#@onready var hud = $CanvasLayer/HUD
-#@onready var health_bar = $CanvasLayer/HUD/HealthBar
+@onready var hud = $CanvasLayer/HUD
+@onready var health_bar = $CanvasLayer/HUD/HealthBar
 
 
 
@@ -57,12 +57,12 @@ func remove_player(peer_id):
 	if player:
 		player.queue_free()
 
-#func update_health_bar(health_value):
-	#health_bar.value = health_value
+func update_health_bar(health_value):
+	health_bar.value = health_value
 
-#func _on_multiplayer_spawner_spawned(node):
-	#if node.is_multiplayer_authority():
-		#node.health_changed.connect(update_health_bar)
+func _on_multiplayer_spawner_spawned(node):
+	if node.is_multiplayer_authority():
+		node.health_changed.connect(update_health_bar)
 
 func upnp_setup():
 	var upnp = UPNP.new()
