@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
-@onready var camera = $Camera3D
+@onready var camera = $Camera3D_human
 @onready var anim_player = $AnimationPlayer
-@onready var muzzle_flash = $Camera3D/Shotgun/MuzzleFlash
-@onready var raycast = $Camera3D/RayCast3D
-@onready var sound = $Camera3D/Shotgun/Sound
+@onready var muzzle_flash = $Camera3D_human/Shotgun/MuzzleFlash
+@onready var raycast = $Camera3D_human/RayCast3D
+@onready var sound = $Camera3D_human/Shotgun/Sound
+@onready var ArtiSound = $AudioStreamPlayer3D_human_whistle
+var liReady = true
 
 var is_paused = false
 
@@ -88,6 +90,17 @@ func _physics_process(delta):
 		anim_player.play("move")
 	else:
 		anim_player.play("idle")
+		
+	if Input.is_action_just_pressed("clap"):
+		if liReady == true:
+			liReady = false
+			GlobalSound.spawnLight($Camera3D_human.global_position)
+			ArtiSound.play()
+			await get_tree().create_timer(0.5).timeout
+			GlobalSound.removeLight()
+			liReady = true
+	if liReady == false:
+		GlobalSound.setLightPosition($Camera3D_human.global_position)
 
 	move_and_slide()
 
@@ -103,7 +116,10 @@ func receive_damage():
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
-	sound.play()
+	sound.play(0.5)
+	GlobalSound.spawnLight($Camera3D_human/Shotgun/Sound.global_position)
+	await get_tree().create_timer(1.15).timeout
+	GlobalSound.removeLight()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 

@@ -1,19 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=8 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="2_hymrl"]
+[ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="3_uvqn8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_h1h6j"]
-sky_material = SubResource("ProceduralSkyMaterial_upk0a")
-
-[sub_resource type="Environment" id="Environment_ktasc"]
-background_mode = 2
-sky = SubResource("Sky_h1h6j")
-tonemap_mode = 2
+[sub_resource type="Environment" id="Environment_vjujj"]
+background_mode = 1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4fh0f"]
 size = Vector2(10, 10)
@@ -28,11 +20,7 @@ bg_color = Color(0.686275, 0, 0, 1)
 script = ExtResource("1_ttpee")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ktasc")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+environment = SubResource("Environment_vjujj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.948782, 0)
@@ -96,3 +84,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tnsru")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="Car" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98964, -0.948782, 0.747967)
+mesh = ExtResource("3_uvqn8")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0aaujduuap7s"
-path.s3tc="res://.godot/imported/DBShotgunText.png-440f37d44cf3a2442a9baa8c8e1c41fa.s3tc.ctex"
+uid="uid://cn1wqve5kcay"
+path.s3tc="res://.godot/imported/car4_lightgrey.png-720192e7d5f79b59e480a6a2d4895946.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Shotguns/DoubleBarrelShotgun/Textures/DBShotgunText.png"
-dest_files=["res://.godot/imported/DBShotgunText.png-440f37d44cf3a2442a9baa8c8e1c41fa.s3tc.ctex"]
+source_file="res://Assets/Cars/Car 04/car4_lightgrey.png"
+dest_files=["res://.godot/imported/car4_lightgrey.png-720192e7d5f79b59e480a6a2d4895946.s3tc.ctex"]
 
 [params]
 

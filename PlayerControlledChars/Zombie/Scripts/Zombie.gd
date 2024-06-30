@@ -4,6 +4,8 @@ signal health_changed(health_value)
 
 @onready var camera = $PS1_Zombie/Armature/Skeleton3D/Camera3D
 @onready var aniPlayer = $PS1_Zombie/AnimationPlayer
+@onready var ArtiSound = $AudioStreamPlayer3D_groaning
+@onready var liReady = true
 #@onready var anim_player = $AnimationPlayer
 #@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 #@onready var raycast = $Camera3D/RayCast3D
@@ -79,6 +81,17 @@ func _physics_process(delta):
 		#anim_player.play("move")
 	#else:
 		#anim_player.play("idle")
+
+	if Input.is_action_just_pressed("clap"):
+		if liReady == true:
+			liReady = false
+			GlobalSound.spawnLight($Camera3D_zombie.global_position)
+			ArtiSound.play()
+			await get_tree().create_timer(2).timeout
+			GlobalSound.removeLight()
+			liReady = true
+	if liReady == false:
+		GlobalSound.setLightPosition($Camera3D_zombie.global_position)
 
 	move_and_slide()
 
