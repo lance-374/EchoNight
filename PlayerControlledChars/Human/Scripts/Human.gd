@@ -121,16 +121,17 @@ func _physics_process(delta):
 
 @rpc("call_local")
 func makeSound():
+	if not is_multiplayer_authority(): return
 	if Input.is_action_just_pressed("clap"):
 		if liReady == true:
 			liReady = false
-			spawnLight($Camera3D_human.global_position)
+			spawnLight($Camera3D_human.position)
 			ArtiSound.play()
 			await get_tree().create_timer(0.5).timeout
 			removeLight()
 			liReady = true
 	if liReady == false:
-		setLightPosition($Camera3D_human.global_position)
+		setLightPosition($Camera3D_human.position)
 		
 		
 
@@ -144,10 +145,11 @@ func receive_damage():
 
 @rpc("call_local")
 func play_shoot_effects():
+	if not is_multiplayer_authority(): return
 	anim_player.stop()
 	anim_player.play("shoot")
 	sound.play(0.5)
-	spawnLight($Camera3D_human/Shotgun/Sound.global_position)
+	spawnLight($Camera3D_human/Shotgun/Sound.position)
 	await get_tree().create_timer(1.15).timeout
 	removeLight()
 	muzzle_flash.restart()

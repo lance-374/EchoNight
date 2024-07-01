@@ -200,3 +200,7 @@ playback_default_blend_time = 0.05
 
 [node name="AudioStreamPlayer3D_human_whistle" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_qf4kq")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
+spawn_path = NodePath("..")

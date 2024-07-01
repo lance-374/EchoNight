@@ -54,16 +54,17 @@ func setLightPosition(pos):
 
 @rpc("call_local")
 func makeSound():
+	if not is_multiplayer_authority(): return
 	if Input.is_action_just_pressed("clap"):
 		if liReady == true:
 			liReady = false
-			spawnLight(camera.global_position)
+			spawnLight(camera.position)
 			ArtiSound.play()
 			await get_tree().create_timer(2).timeout
 			removeLight()
 			liReady = true
 	if liReady == false:
-		setLightPosition(camera.global_position)
+		setLightPosition(camera.position)
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	print(name)
