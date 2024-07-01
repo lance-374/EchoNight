@@ -28,6 +28,44 @@ func playWalk():
 func playIdle():
 	aniPlayer.play("IdleZ")
 
+
+
+@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
+var instance
+# Called when the node enters the scene tree for the first time.
+
+func spawnLight(pos):
+	instance = lightNode.instantiate()
+	instance.position = pos
+	add_child(instance)
+
+
+func removeLight():
+	instance.queue_free()
+	instance = load("res://Map/Scene/light_spawn.tscn")
+	
+func setLightPosition(pos):
+	instance.position = pos
+
+
+
+
+
+
+
+
+@rpc("call_local")
+func makeSound():
+	if Input.is_action_just_pressed("clap"):
+		if liReady == true:
+			liReady = false
+			spawnLight(camera.global_position)
+			ArtiSound.play()
+			await get_tree().create_timer(2).timeout
+			removeLight()
+			liReady = true
+	if liReady == false:
+		setLightPosition(camera.global_position)
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	print(name)
@@ -76,26 +114,16 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		playIdle.rpc()
-
+		makeSound.rpc()
 	#if anim_player.current_animation == "shoot":
 		#pass
 	#elif input_dir != Vector2.ZERO and is_on_floor():
 		#anim_player.play("move")
 	#else:
 		#anim_player.play("idle")
-
-	if Input.is_action_just_pressed("clap"):
-		if liReady == true:
-			liReady = false
-			GlobalSound.spawnLight($Camera3D_zombie/Shotgun/Sound.global_position)
-			ArtiSound.play()
-			await get_tree().create_timer(2).timeout
-			GlobalSound.removeLight()
-			liReady = true
-	if liReady == false:
-		GlobalSound.setLightPosition($Camera3D_zombie.global_position)
-
+	
 	move_and_slide()
+
 
 #@rpc("call_local")
 #func play_shoot_effects():
