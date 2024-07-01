@@ -16,12 +16,6 @@ func _ready():
 	main_menu.connect("addressEntered",  joinAdressEntered)
 	main_menu.connect("hostWorldStart", startHost )
 
-
-
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("escape"):
-		get_tree().quit()
-
 func startHost():
 	main_menu.hide()
 	#hud.show()
