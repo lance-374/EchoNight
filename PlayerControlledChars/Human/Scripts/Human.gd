@@ -91,17 +91,7 @@ func _physics_process(delta):
 	else:
 		anim_player.play("idle")
 		
-	if Input.is_action_just_pressed("clap"):
-		if liReady == true:
-			liReady = false
-			GlobalSound.spawnLight($Camera3D_human.global_position)
-			ArtiSound.play()
-			await get_tree().create_timer(0.5).timeout
-			GlobalSound.removeLight()
-			liReady = true
-	if liReady == false:
-		GlobalSound.setLightPosition($Camera3D_human.global_position)
-
+	lighting()
 	move_and_slide()
 
 @rpc("any_peer")
@@ -111,6 +101,19 @@ func receive_damage():
 		health = 3
 		position = Vector3.ZERO
 	health_changed.emit(health)
+	
+@rpc("any_peer")
+func lighting():
+	if Input.is_action_just_pressed("clap"):
+		if liReady == true:
+			liReady = false
+			GlobalSound.spawnLight(camera.global_position)
+			ArtiSound.play()
+			await get_tree().create_timer(0.5).timeout
+			GlobalSound.removeLight()
+			liReady = true
+	if liReady == false:
+		GlobalSound.setLightPosition(camera.global_position)
 
 @rpc("call_local")
 func play_shoot_effects():

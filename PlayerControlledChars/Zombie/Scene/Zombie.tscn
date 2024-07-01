@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
-[ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
+[ext_resource type="AudioStream" uid="uid://cg5irnce6buf1" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
 
