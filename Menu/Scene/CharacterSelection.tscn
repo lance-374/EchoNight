@@ -79,7 +79,7 @@ offset_bottom = 252.0
 text = "Zombie"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
+_spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn", "res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Confirm" to="." method="_on_confirm_pressed"]

@@ -8,9 +8,34 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D_human/RayCast3D
 @onready var sound = $Camera3D_human/Shotgun/Sound
 @onready var ArtiSound = $AudioStreamPlayer3D_human_whistle
+
 var liReady = true
 
 var is_paused = false
+
+
+@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
+var instance
+# Called when the node enters the scene tree for the first time.
+
+func spawnLight(pos):
+	instance = lightNode.instantiate()
+	instance.position = pos
+	add_child(instance)
+
+
+func removeLight():
+	instance.queue_free()
+	instance = load("res://Map/Scene/light_spawn.tscn")
+	
+func setLightPosition(pos):
+	instance.position = pos
+
+
+
+
+
+
 
 func toggle_pause():
 	if is_paused:
@@ -91,18 +116,23 @@ func _physics_process(delta):
 	else:
 		anim_player.play("idle")
 		
+	makeSound.rpc()
+	move_and_slide()
+
+@rpc("call_local")
+func makeSound():
 	if Input.is_action_just_pressed("clap"):
 		if liReady == true:
 			liReady = false
-			GlobalSound.spawnLight($Camera3D_human.global_position)
+			spawnLight($Camera3D_human.global_position)
 			ArtiSound.play()
 			await get_tree().create_timer(0.5).timeout
-			GlobalSound.removeLight()
+			removeLight()
 			liReady = true
 	if liReady == false:
-		GlobalSound.setLightPosition($Camera3D_human.global_position)
-
-	move_and_slide()
+		setLightPosition($Camera3D_human.global_position)
+		
+		
 
 @rpc("any_peer")
 func receive_damage():
@@ -117,9 +147,9 @@ func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	sound.play(0.5)
-	GlobalSound.spawnLight($Camera3D_human/Shotgun/Sound.global_position)
+	spawnLight($Camera3D_human/Shotgun/Sound.global_position)
 	await get_tree().create_timer(1.15).timeout
-	GlobalSound.removeLight()
+	removeLight()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 

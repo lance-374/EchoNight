@@ -8,7 +8,8 @@ func spawnLight(pos):
 	instance = lightNode.instantiate()
 	instance.position = pos
 	add_child(instance)
-	
+
+
 func removeLight():
 	instance.queue_free()
 	instance = load("res://Map/Scene/light_spawn.tscn")
