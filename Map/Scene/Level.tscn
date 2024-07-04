@@ -32,10 +32,6 @@ mesh = SubResource("PlaneMesh_4fh0f")
 shape = SubResource("ConcavePolygonShape3D_60pdq")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_hymrl")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn", "res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
