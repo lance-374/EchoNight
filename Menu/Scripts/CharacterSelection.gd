@@ -10,7 +10,6 @@ var my_peer_id
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_peer_id = self.name.to_int()
-	
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
