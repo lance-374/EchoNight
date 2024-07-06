@@ -31,12 +31,6 @@ func removeLight():
 func setLightPosition(pos):
 	instance.position = pos
 
-
-
-
-
-
-
 func toggle_pause():
 	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -73,7 +67,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape"):
 		toggle_pause()
 	
-	if Input.is_action_just_pressed("shoot") and not sound.playing:
+	if Input.is_action_just_pressed("shoot") and not sound.playing and not is_paused:
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
@@ -121,16 +115,17 @@ func _physics_process(delta):
 
 @rpc("call_local")
 func makeSound():
-	if Input.is_action_just_pressed("clap"):
+	if not is_multiplayer_authority(): return
+	if Input.is_action_just_pressed("clap") and not is_paused:
 		if liReady == true:
 			liReady = false
-			spawnLight($Camera3D_human.global_position)
+			spawnLight($Camera3D_human.position)
 			ArtiSound.play()
 			await get_tree().create_timer(0.5).timeout
 			removeLight()
 			liReady = true
 	if liReady == false:
-		setLightPosition($Camera3D_human.global_position)
+		setLightPosition($Camera3D_human.position)
 		
 		
 
@@ -157,10 +152,11 @@ func lighting():
 
 @rpc("call_local")
 func play_shoot_effects():
+	if not is_multiplayer_authority(): return
 	anim_player.stop()
 	anim_player.play("shoot")
 	sound.play(0.5)
-	spawnLight($Camera3D_human/Shotgun/Sound.global_position)
+	spawnLight($Camera3D_human/Shotgun/Sound.position)
 	await get_tree().create_timer(1.15).timeout
 	removeLight()
 	muzzle_flash.restart()

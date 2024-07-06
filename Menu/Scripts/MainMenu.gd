@@ -20,7 +20,6 @@ func _on_join_button_pressed():
 func _on_address_entry_text_submitted(address):
 	emit_signal("addressEntered",address)
 	emit_signal("characterType", type)
-	emit_signal("joinedWorld")
 
 func _on_host_button_pressed():
 	emit_signal("hostWorldStart")
