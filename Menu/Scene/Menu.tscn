@@ -1,0 +1,186 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqbjuixk6ew"]
+
+[ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_0h8p5"]
+[ext_resource type="Texture2D" uid="uid://dpkrox7nwpxcj" path="res://Assets/Menu/main_menu_background.png" id="2_6o3ge"]
+[ext_resource type="Script" path="res://Menu/Scripts/Menu.gd" id="2_ykd71"]
+[ext_resource type="Texture2D" uid="uid://p1pdp6d1u1e6" path="res://Assets/Menu/human.png" id="4_f8euc"]
+[ext_resource type="Texture2D" uid="uid://df3vis6qghg0g" path="res://Assets/Menu/zombie.png" id="5_a0qjb"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2lcc"]
+properties/0/path = NodePath(".:visible")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0h8p5")
+script = ExtResource("2_ykd71")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(573, 343)
+texture = ExtResource("2_6o3ge")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = -236.0
+offset_right = 462.0
+offset_bottom = -172.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ECHO NIGHT
+"
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 291.0
+offset_right = 400.0
+offset_bottom = 342.0
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 363.0
+offset_right = 400.0
+offset_bottom = 414.0
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 435.0
+offset_right = 400.0
+offset_bottom = 486.0
+text = "QUIT"
+
+[node name="MultiplayerScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 291.0
+offset_right = 400.0
+offset_bottom = 342.0
+text = "HOST"
+
+[node name="JoinButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 363.0
+offset_right = 400.0
+offset_bottom = 414.0
+text = "JOIN"
+
+[node name="AddressEntry" type="LineEdit" parent="MultiplayerScreen"]
+visible = false
+layout_mode = 0
+offset_left = 57.0
+offset_top = 435.0
+offset_right = 400.0
+offset_bottom = 486.0
+theme = ExtResource("1_0h8p5")
+placeholder_text = "Enter Address to Join Here"
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MultiplayerScreen"]
+visible = false
+layout_mode = 0
+offset_left = 58.0
+offset_top = 507.0
+offset_right = 400.0
+offset_bottom = 558.0
+text = "START SERVER"
+
+[node name="BackButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 579.0
+offset_right = 400.0
+offset_bottom = 630.0
+text = "BACK"
+
+[node name="CharacterSelectionScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ZombieButton" type="Button" parent="CharacterSelectionScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 291.0
+offset_right = 400.0
+offset_bottom = 342.0
+text = "ZOMBIE"
+
+[node name="HumanButton" type="Button" parent="CharacterSelectionScreen"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 363.0
+offset_right = 400.0
+offset_bottom = 414.0
+text = "HUMAN"
+
+[node name="ConfirmButton" type="Button" parent="CharacterSelectionScreen"]
+visible = false
+layout_mode = 0
+offset_left = 58.0
+offset_top = 435.0
+offset_right = 400.0
+offset_bottom = 486.0
+text = "CONFIRM"
+
+[node name="HumanSprite" type="Sprite2D" parent="CharacterSelectionScreen"]
+visible = false
+position = Vector2(809, 363)
+texture = ExtResource("4_f8euc")
+
+[node name="ZombieSprite" type="Sprite2D" parent="CharacterSelectionScreen"]
+visible = false
+position = Vector2(803, 363)
+texture = ExtResource("5_a0qjb")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_g2lcc")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TitleScreen/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="TitleScreen/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MultiplayerScreen/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MultiplayerScreen/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="MultiplayerScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MultiplayerScreen/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CharacterSelectionScreen/ZombieButton" to="." method="_on_zombie_button_pressed"]
+[connection signal="pressed" from="CharacterSelectionScreen/HumanButton" to="." method="_on_human_button_pressed"]
+[connection signal="pressed" from="CharacterSelectionScreen/ConfirmButton" to="." method="_on_confirm_button_pressed"]

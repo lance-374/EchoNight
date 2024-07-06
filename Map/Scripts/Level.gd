@@ -1,20 +1,20 @@
 extends Node
 
-@onready var main_menu = $MainMenu
+@onready var main_menu = $Menu
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
 
 
 const PORT = 3000
-const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
+const PlayerSelection = preload("res://Menu/Scene/CharacterSelectionScreen.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
 var player_character_choices = {} 
 
 func _ready():
-	main_menu.connect("addressEntered",  joinAdressEntered)
-	main_menu.connect("hostWorldStart", startHost )
+	main_menu.connect("addressEntered", joinAddressEntered)
+	main_menu.connect("hostWorldStart", startHost)
 
 func startHost():
 	main_menu.hide()
@@ -30,7 +30,7 @@ func startHost():
 	
 	#upnp_setup()
 
-func joinAdressEntered(address):
+func joinAddressEntered(address):
 	main_menu.hide()
 	#hud.show()
 	enet_peer.create_client(address, PORT)
