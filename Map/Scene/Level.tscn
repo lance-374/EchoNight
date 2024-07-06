@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="3_uvqn8"]
 
 [sub_resource type="Environment" id="Environment_vjujj"]
-background_mode = 1
+background_color = Color(0, 0, 0, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4fh0f"]
 size = Vector2(10, 10)
