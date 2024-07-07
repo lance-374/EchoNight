@@ -12,6 +12,8 @@ var my_peer_id
 @onready var aniplayer = $Container/AnimationPlayer
 @onready var container = $Container
 @onready var human = $Container/Human
+@onready var confirm = $Container/MarginContainer/VBoxContainer/CharacterSelection/Confirm
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_peer_id = self.name.to_int()
@@ -53,6 +55,8 @@ func _on_confirm_pressed():
 func _on_choose_zombie_pressed():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
 	audio.play()
+	confirm.show()
+	
 	type = "Zombie" # Replace with function body.
 	textBoxForCharSelection.clear()
 	textBoxForCharSelection.add_text("You are currently playing as a : " + type)
@@ -66,6 +70,7 @@ func _on_choose_human_pressed():
 	type = "Human" 
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
 	audio.play()
+	confirm.show()
 	textBoxForCharSelection.clear()
 	textBoxForCharSelection.add_text("You are currently playing as a : " + type)
 	aniplayer.play("spinHuman")

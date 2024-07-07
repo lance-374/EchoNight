@@ -48,12 +48,9 @@ _data = {
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -67.0
-offset_right = -897.0
-offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_8slnw")
 script = ExtResource("1_tq3if")
 
@@ -87,6 +84,7 @@ theme_override_constants/separation = 15
 
 [node name="CharacterSelection" type="Control" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Display Currently Playing" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 custom_minimum_size = Vector2(50, 50)
@@ -94,10 +92,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 288.0
-offset_top = 136.0
-offset_right = 663.0
-offset_bottom = 198.0
+offset_left = 43.0
+offset_top = 201.0
+offset_right = 418.0
+offset_bottom = 251.0
 grow_horizontal = 2
 text = "Please select your type."
 fit_content = true
@@ -105,11 +103,11 @@ scroll_following = true
 
 [node name="Choose Human" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 layout_mode = 0
-offset_left = 891.0
-offset_top = 254.0
-offset_right = 1186.0
-offset_bottom = 303.0
-text = "Human"
+offset_left = 43.0
+offset_top = 348.0
+offset_right = 385.0
+offset_bottom = 402.0
+text = "HUMAN"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 custom_minimum_size = Vector2(20, 20)
@@ -120,20 +118,36 @@ offset_right = 714.0
 offset_bottom = 264.0
 
 [node name="Confirm" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
+visible = false
 layout_mode = 0
-offset_left = 513.0
-offset_top = 499.0
-offset_right = 673.0
-offset_bottom = 550.0
-text = "Confirm"
+offset_left = 43.0
+offset_top = 420.0
+offset_right = 385.0
+offset_bottom = 471.0
+text = "CONFIRM
+"
 
 [node name="Choose Zombie" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 267.0
-offset_right = 366.0
-offset_bottom = 319.0
-text = "Zombie"
+offset_left = 43.0
+offset_top = 276.0
+offset_right = 385.0
+offset_bottom = 329.0
+text = "ZOMBIE"
+
+[node name="Title" type="Label" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 73.0
+offset_right = 447.0
+offset_bottom = 137.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ECHO NIGHT
+"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Container"]
 _spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn", "res://Map/Scene/light_spawn.tscn")
