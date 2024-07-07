@@ -7,7 +7,7 @@ extends Node
 
 
 const PORT = 3000
-const PlayerSelection = preload("res://Menu/Scene/CharacterSelectionScreen.tscn")
+const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
 var player_character_choices = {} 

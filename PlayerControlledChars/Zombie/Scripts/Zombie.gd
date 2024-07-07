@@ -6,6 +6,7 @@ signal health_changed(health_value)
 @onready var aniPlayer = $PS1_Zombie/AnimationPlayer
 @onready var ArtiSound = $AudioStreamPlayer3D_groaning
 @onready var liReady = true
+@onready var audio = $Audio
 
 var health = 3
 var is_paused = false
@@ -39,6 +40,8 @@ func setLightPosition(pos):
 	instance.position = pos
 
 func toggle_pause():
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
+	audio.play()
 	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		is_paused = false

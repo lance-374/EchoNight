@@ -49,3 +49,5 @@ stream = ExtResource("4_k01k8")
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]

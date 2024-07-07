@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
-[ext_resource type="PackedScene" uid="uid://dqbjuixk6ew" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
+[ext_resource type="PackedScene" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="2_hymrl"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="3_uvqn8"]
 
