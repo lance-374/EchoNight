@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddybfe5gnc2t8"]
+
+[ext_resource type="PackedScene" uid="uid://dew7i7xn6m5qi" path="res://Assets/Map/Industrial_exterior_v2/Industrial_exterior_v2.glb" id="1_hmk74"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="Industrial_exterior_v2" parent="." instance=ExtResource("1_hmk74")]
