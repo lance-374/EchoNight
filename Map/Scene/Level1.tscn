@@ -11,13 +11,11 @@
 environment = ExtResource("1_lt3yd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144396, -0.0164261, 3.89135, 0.0846208)
+transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144396, -0.0164261, 24.6227, 0.0846208)
 light_color = Color(0.403922, 0.423529, 0.466667, 1)
-light_energy = 4.054
+light_energy = 8.085
 light_volumetric_fog_energy = 1.366
 shadow_enabled = true
-shadow_opacity = 0.65
-shadow_blur = 1.916
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_0im5c")]
