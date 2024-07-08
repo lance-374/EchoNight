@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://1c4ihmbyalm4"]
+[gd_scene load_steps=4 format=3 uid="uid://1c4ihmbyalm4"]
 
-[ext_resource type="PackedScene" uid="uid://cvxc5ix0t2i32" path="res://PlayerControlledChars/Zombie/Scene/Zombie.tscn" id="1_0im5c"]
 [ext_resource type="Environment" uid="uid://dhnwq5io26fe4" path="res://BlueFog.tres" id="1_lt3yd"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
@@ -16,9 +15,6 @@ light_color = Color(0.156863, 0.180392, 0.301961, 1)
 light_volumetric_fog_energy = 1.366
 shadow_enabled = true
 directional_shadow_blend_splits = true
-
-[node name="Player" parent="." instance=ExtResource("1_0im5c")]
-transform = Transform3D(0.649912, 0, -0.760009, 0, 1, 0, 0.760009, 0, 0.649912, -78.9388, 4.87177, -14.4808)
 
 [node name="Map" type="GridMap" parent="."]
 mesh_library = ExtResource("2_07j2x")

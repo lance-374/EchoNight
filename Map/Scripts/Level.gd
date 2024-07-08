@@ -10,7 +10,7 @@ const PORT = 3000
 const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
-var player_character_choices = {} 
+var player_character_choices = {}
 
 func _ready():
 	main_menu.connect("addressEntered", joinAddressEntered)
