@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
+[ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="2_hymrl"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="3_uvqn8"]
 
 [sub_resource type="Environment" id="Environment_vjujj"]
-background_mode = 1
+background_color = Color(0, 0, 0, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4fh0f"]
 size = Vector2(10, 10)
@@ -31,11 +32,10 @@ mesh = SubResource("PlaneMesh_4fh0f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_60pdq")
 
+[node name="Menu" parent="." instance=ExtResource("2_eeuul")]
+
 [node name="MainMenu" parent="." instance=ExtResource("2_hymrl")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+visible = false
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn", "res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")

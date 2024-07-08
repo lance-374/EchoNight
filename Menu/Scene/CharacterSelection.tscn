@@ -1,68 +1,115 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy5ik3e4tgy5n"]
+[gd_scene load_steps=8 format=3 uid="uid://cy5ik3e4tgy5n"]
 
 [ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_8slnw"]
 [ext_resource type="Script" path="res://Menu/Scripts/CharacterSelection.gd" id="1_tq3if"]
+[ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="3_52se5"]
+[ext_resource type="PackedScene" uid="uid://c3oa3ph6m687b" path="res://PlayerControlledChars/Human/Scene/Human.tscn" id="3_fte10"]
+
+[sub_resource type="Animation" id="Animation_5qqmb"]
+resource_name = "spin"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/PS1_Zombie:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0, 12.5664, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e751f"]
+resource_name = "spinHuman"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Human:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 11.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 12.5664, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0prda"]
+_data = {
+"spin": SubResource("Animation_5qqmb"),
+"spinHuman": SubResource("Animation_e751f")
+}
 
 [node name="MainMenu" type="MenuBar"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -67.0
-offset_right = -897.0
-offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_8slnw")
 script = ExtResource("1_tq3if")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Human" parent="Container" instance=ExtResource("3_fte10")]
+transform = Transform3D(0.802712, 0, 0.596367, 0, 1, 0, -0.596367, 0, 0.802712, 0, 0.983017, 0)
+
+[node name="PS1_Zombie" parent="Container" instance=ExtResource("3_52se5")]
+transform = Transform3D(-0.348735, 0, 0.358307, 0, 0.5, 0, -0.358307, 0, -0.348735, 0, 1.18305, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
 layout_mode = 2
-offset_right = 306.0
-offset_bottom = 191.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="CharacterSelection" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="CharacterSelection" type="Control" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Display Currently Playing" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+[node name="Display Currently Playing" type="RichTextLabel" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 297.0
-offset_top = 152.0
-offset_right = 573.0
-offset_bottom = 202.0
+offset_left = 43.0
+offset_top = 201.0
+offset_right = 418.0
+offset_bottom = 251.0
 grow_horizontal = 2
+text = "Please select your type."
 fit_content = true
 scroll_following = true
 
-[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+[node name="Choose Human" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 layout_mode = 0
-offset_left = 543.0
-offset_top = 389.0
-offset_right = 614.0
-offset_bottom = 420.0
-text = "Confirm"
+offset_left = 43.0
+offset_top = 348.0
+offset_right = 385.0
+offset_bottom = 402.0
+text = "HUMAN"
 
-[node name="Choose Human" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
-layout_mode = 0
-offset_left = 438.0
-offset_top = 279.0
-offset_right = 714.0
-offset_bottom = 287.0
-text = "Human"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_left = 438.0
@@ -70,18 +117,53 @@ offset_top = 244.0
 offset_right = 714.0
 offset_bottom = 264.0
 
-[node name="Choose Zombie" type="Button" parent="MarginContainer/VBoxContainer/CharacterSelection"]
+[node name="Confirm" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
+visible = false
 layout_mode = 0
-offset_left = 438.0
-offset_top = 244.0
-offset_right = 714.0
-offset_bottom = 252.0
-text = "Zombie"
+offset_left = 43.0
+offset_top = 420.0
+offset_right = 385.0
+offset_bottom = 471.0
+text = "CONFIRM
+"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="Choose Zombie" type="Button" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 276.0
+offset_right = 385.0
+offset_bottom = 329.0
+text = "ZOMBIE"
+
+[node name="Title" type="Label" parent="Container/MarginContainer/VBoxContainer/CharacterSelection"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 73.0
+offset_right = 447.0
+offset_bottom = 137.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ECHO NIGHT
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Container"]
 _spawnable_scenes = PackedStringArray("res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn", "res://Map/Scene/light_spawn.tscn")
-spawn_path = NodePath("..")
+spawn_path = NodePath("../..")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Confirm" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Choose Human" to="." method="_on_choose_human_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CharacterSelection/Choose Zombie" to="." method="_on_choose_zombie_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_0prda")
+}
+
+[connection signal="mouse_entered" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Choose Human" to="." method="_on_choose_human_mouse_entered"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Choose Human" to="." method="_on_choose_human_pressed"]
+[connection signal="mouse_entered" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Confirm" to="." method="_on_confirm_mouse_entered"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="mouse_entered" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Choose Zombie" to="." method="_on_choose_zombie_mouse_entered"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/CharacterSelection/Choose Zombie" to="." method="_on_choose_zombie_pressed"]

@@ -8,6 +8,8 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D_human/RayCast3D
 @onready var sound = $Camera3D_human/Shotgun/Sound
 @onready var ArtiSound = $AudioStreamPlayer3D_human_whistle
+@onready var audio = $Audio
+@onready var humanModelAniPlayer = $Human72/AnimationPlayer
 
 var liReady = true
 
@@ -32,6 +34,8 @@ func setLightPosition(pos):
 	instance.position = pos
 
 func toggle_pause():
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
+	audio.play()
 	if is_paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		is_paused = false
@@ -79,6 +83,15 @@ func _unhandled_input(event):
 		#if raycast.is_colliding():
 			#var hit_player = raycast.get_collider()
 			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+@rpc("call_local")
+func aniIdel():
+	humanModelAniPlayer.play("Idle")
+	
+
+
+@rpc("call_local")
+func aniWalk():
+	humanModelAniPlayer.play("Walk")
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -99,9 +112,11 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			aniWalk.rpc()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
+			aniIdel.rpc()
 
 	if anim_player.current_animation == "shoot":
 		pass
