@@ -12,7 +12,7 @@ signal health_changed(health_value)
 @onready var humanModelAniPlayer = $Human72/AnimationPlayer
 
 var liReady = true
-
+var shotgun_enabled = false
 var is_paused = false
 
 
@@ -71,7 +71,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape"):
 		toggle_pause()
 	
-	if Input.is_action_just_pressed("shoot") and not sound.playing and not is_paused:
+	if Input.is_action_just_pressed("shoot") and not sound.playing and not is_paused and shotgun_enabled:
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()

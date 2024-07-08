@@ -31,40 +31,38 @@ func _on_confirm_pressed():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
 	audio.play()
 	if type == "Zombie":
-		
 		var Zombieplayer = Zombie.instantiate()
 		Zombieplayer.name = name
 		container.hide()
+		Zombieplayer.position = Vector3(0,10,0)
 		zombie.visible = false
 		human.visible = false
 		add_child(Zombieplayer)
-	if type == "Human":
+
+	elif type == "Human":
 		var Humanplayer = Human.instantiate()
 		Humanplayer.name = name
 		container.hide()
+		Humanplayer.position = Vector3(0,10,0)
 		zombie.visible = false
 		human.visible = false
 		add_child(Humanplayer)
 		
-	if type == null:
-		audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Error.wav") # Replace with function body.
+	else:
+		audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Error.wav")
 		audio.play()
-	
-	
 
 func _on_choose_zombie_pressed():
-	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav")
 	audio.play()
 	confirm.show()
 	
-	type = "Zombie" # Replace with function body.
+	type = "Zombie"
 	textBoxForCharSelection.clear()
 	textBoxForCharSelection.add_text("You are currently playing as a : " + type)
 	aniplayer.play("spin")
 	human.visible = false
 	zombie.visible = true
-
-
 
 func _on_choose_human_pressed():
 	type = "Human" 
@@ -77,20 +75,16 @@ func _on_choose_human_pressed():
 	zombie.visible = false
 	human.visible = true
 
-
-
-
-
 func _on_confirm_mouse_entered():
-	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav") # Replace with function body.
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
 	audio.play()
 
 
 func _on_choose_human_mouse_entered():
-	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav") # Replace with function body.
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
 	audio.play()
 
 
 func _on_choose_zombie_mouse_entered():
-	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav") # Replace with function body.
+	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
 	audio.play()
