@@ -24,7 +24,7 @@ script = ExtResource("1_ttpee")
 environment = SubResource("Environment_vjujj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.948782, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -0.948782, 0)
 mesh = SubResource("PlaneMesh_4fh0f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
