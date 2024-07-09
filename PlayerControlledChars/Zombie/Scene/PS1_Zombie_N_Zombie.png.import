@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bk55ocft14vdg"
+path.s3tc="res://.godot/imported/PS1_Zombie_N_Zombie.png-a752f0530dd000f7d27d235d3a789472.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "c55323e4fd73256e58b253570dba9d6d"
+}
+
+[deps]
+
+source_file="res://PlayerControlledChars/Zombie/Scene/PS1_Zombie_N_Zombie.png"
+dest_files=["res://.godot/imported/PS1_Zombie_N_Zombie.png-a752f0530dd000f7d27d235d3a789472.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://PlayerControlledChars/Zombie/Scene/PS1_Zombie_N_Zombie.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
