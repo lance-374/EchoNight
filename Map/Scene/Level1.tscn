@@ -11,8 +11,7 @@ environment = ExtResource("1_lt3yd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144397, -0.0164261, 24.6227, 0.0846208)
-light_color = Color(0.215686, 0.231373, 0.301961, 1)
-light_energy = 6.74
+light_color = Color(0.721569, 0.729412, 1, 1)
 light_volumetric_fog_energy = 1.366
 shadow_enabled = true
 directional_shadow_blend_splits = true
@@ -456,10 +455,6 @@ light_volumetric_fog_energy = 0.122
 shadow_enabled = true
 omni_range = 24.8767
 
-[node name="Street2" type="OmniLight3D" parent="Street"]
-transform = Transform3D(-0.548249, -3.02194e-09, 0.836315, -2.98023e-08, 1, -1.59236e-08, -0.836315, -3.36542e-08, -0.548249, -69.4441, 6.03568, -238.067)
-omni_range = 24.8767
-
 [node name="Lighting4" type="SpotLight3D" parent="Street"]
 transform = Transform3D(-0.647945, -0.299047, 0.700527, 0.745894, -0.0627986, 0.663098, -0.154306, 0.95217, 0.263748, -66.4613, 7.56529, -105.675)
 light_energy = 6.489
@@ -468,8 +463,8 @@ spot_range = 33.8196
 spot_angle = 31.8046
 
 [node name="Street7" type="OmniLight3D" parent="Street"]
-transform = Transform3D(-0.132966, 6.6441e-08, 0.991121, 2.98023e-08, 1, -6.30381e-08, -0.991121, 2.11558e-08, -0.132966, 13.5144, 6.03569, -231.269)
-omni_range = 24.8767
+transform = Transform3D(-0.132966, 6.6441e-08, 0.991121, 2.98023e-08, 1, -6.3038e-08, -0.991121, 2.11557e-08, -0.132966, 25.0112, 6.03569, -93.8824)
+omni_range = 36.0094
 
 [node name="Lighting6" type="SpotLight3D" parent="Street"]
 transform = Transform3D(-0.517621, -0.681186, 0.51774, 0.745894, -0.0627986, 0.663098, -0.41918, 0.729412, 0.540598, -41.0128, 7.56529, -110.591)
