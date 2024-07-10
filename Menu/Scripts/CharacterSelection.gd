@@ -33,7 +33,7 @@ func _on_confirm_pressed():
 		var Zombieplayer = Zombie.instantiate()
 		Zombieplayer.name = name
 		container.hide()
-		Zombieplayer.position = Vector3(10.211,40,-0.38)
+		Zombieplayer.position = Vector3(10.211,5,-0.38)
 		zombie.visible = false
 		human.visible = false
 		add_child(Zombieplayer)
@@ -42,7 +42,7 @@ func _on_confirm_pressed():
 		var Humanplayer = Human.instantiate()
 		Humanplayer.name = name
 		container.hide()
-		Humanplayer.position = Vector3(10.211,40,-0.38)
+		Humanplayer.position = Vector3(10.211,5,-0.38)
 		zombie.visible = false
 		human.visible = false
 		add_child(Humanplayer)
