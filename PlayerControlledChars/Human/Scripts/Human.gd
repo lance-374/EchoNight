@@ -10,15 +10,14 @@ signal health_changed(health_value)
 @onready var ArtiSound = $AudioStreamPlayer3D_human_whistle
 @onready var audio = $Audio
 @onready var humanModelAniPlayer = $Human72/AnimationPlayer
+@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
 
 var liReady = true
-var shotgun_enabled = false
 var is_paused = false
-
-
-@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
 var instance
-# Called when the node enters the scene tree for the first time.
+var has_shotgun = false
+var has_battery = false
+var is_in_car_area = false
 
 func spawnLight(pos):
 	instance = lightNode.instantiate()
@@ -29,7 +28,7 @@ func spawnLight(pos):
 func removeLight():
 	instance.queue_free()
 	instance = load("res://Map/Scene/light_spawn.tscn")
-	
+
 func setLightPosition(pos):
 	instance.position = pos
 
@@ -71,7 +70,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape"):
 		toggle_pause()
 	
-	if Input.is_action_just_pressed("shoot") and not sound.playing and not is_paused and shotgun_enabled:
+	if Input.is_action_just_pressed("shoot") and not sound.playing and not is_paused and has_shotgun:
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
@@ -83,11 +82,10 @@ func _unhandled_input(event):
 		#if raycast.is_colliding():
 			#var hit_player = raycast.get_collider()
 			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+
 @rpc("call_local")
 func aniIdel():
 	humanModelAniPlayer.play("Idle")
-	
-
 
 @rpc("call_local")
 func aniWalk():
@@ -127,6 +125,26 @@ func _physics_process(delta):
 		
 	makeSound.rpc()
 	move_and_slide()
+	
+	#car battery objective
+	if Input.is_action_just_pressed("action") and is_in_car_area:
+		$BatteryTimer.start()
+		print("Player started getting car battery")
+	if $BatteryTimer.time_left > 0 and not has_battery and (Input.is_action_just_released("action") or not is_in_car_area):
+		$BatteryTimer.stop()
+		print("Cancel get car battery")
+
+func _on_battery_timer_timeout():
+	print("Player got car battery")
+	has_battery = true
+
+func entered_car_area():
+	print("Player entered car area")
+	is_in_car_area = true
+
+func exited_car_area():
+	print("Player exited car area")
+	is_in_car_area = false
 
 @rpc("call_local")
 func makeSound():
@@ -141,8 +159,6 @@ func makeSound():
 			liReady = true
 	if liReady == false:
 		setLightPosition($Camera3D_human.position)
-		
-		
 
 @rpc("any_peer")
 func receive_damage():

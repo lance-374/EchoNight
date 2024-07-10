@@ -4,15 +4,15 @@ extends MenuBar
 const Human = preload("res://PlayerControlledChars/Human/Scene/Human.tscn")
 const Zombie = preload("res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
 var player
-@onready var textBoxForCharSelection =$"Container/MarginContainer/VBoxContainer/CharacterSelection/Display Currently Playing"
 var type
 var my_peer_id
-@onready var audio = $Container/AudioStreamPlayer
-@onready var zombie = $Container/PS1_Zombie
-@onready var aniplayer = $Container/AnimationPlayer
-@onready var container = $Container
-@onready var human = $Container/Human
-@onready var confirm = $Container/MarginContainer/VBoxContainer/CharacterSelection/Confirm
+@onready var textBoxForCharSelection = $"Control/MarginContainer/VBoxContainer/CharacterSelection/Display Currently Playing"
+@onready var audio = $Control/AudioStreamPlayer
+@onready var zombie = $Control/PS1_Zombie
+@onready var aniplayer = $Control/AnimationPlayer
+@onready var container = $Control
+@onready var human = $Control/Human
+@onready var confirm = $Control/MarginContainer/VBoxContainer/CharacterSelection/Confirm
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +24,6 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	if !is_multiplayer_authority():
 		self.hide()
-		
 
 func _on_confirm_pressed():
 	print(type)
@@ -34,7 +33,7 @@ func _on_confirm_pressed():
 		var Zombieplayer = Zombie.instantiate()
 		Zombieplayer.name = name
 		container.hide()
-		Zombieplayer.position = Vector3(0,10,0)
+		Zombieplayer.position = Vector3(10.211,40,-0.38)
 		zombie.visible = false
 		human.visible = false
 		add_child(Zombieplayer)
@@ -43,11 +42,11 @@ func _on_confirm_pressed():
 		var Humanplayer = Human.instantiate()
 		Humanplayer.name = name
 		container.hide()
-		Humanplayer.position = Vector3(0,10,0)
+		Humanplayer.position = Vector3(10.211,40,-0.38)
 		zombie.visible = false
 		human.visible = false
 		add_child(Humanplayer)
-		
+
 	else:
 		audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Error.wav")
 		audio.play()
@@ -79,11 +78,9 @@ func _on_confirm_mouse_entered():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
 	audio.play()
 
-
 func _on_choose_human_mouse_entered():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
 	audio.play()
-
 
 func _on_choose_zombie_mouse_entered():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Forward.wav")
