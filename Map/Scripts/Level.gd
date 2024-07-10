@@ -4,10 +4,9 @@ extends Node
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
-
-
 const PORT = 3000
 const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
+
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
 var player_character_choices = {}
@@ -36,7 +35,6 @@ func joinAddressEntered(address):
 	enet_peer.create_client(address, PORT)
 	multiplayer.multiplayer_peer = enet_peer
 
-
 func add_player(peer_id):
 	var player = PlayerSelection.instantiate()
 	print(peer_id)
@@ -58,6 +56,16 @@ func _on_multiplayer_spawner_spawned(node):
 	if node.is_multiplayer_authority():
 		node.health_changed.connect(update_health_bar)
 
+func _on_car_area_body_entered(body):
+	print(body)
+	if body.has_method("entered_car_area"):
+		body.entered_car_area()
+
+func _on_car_area_body_exited(body):
+	print(body)
+	if body.has_method("exited_car_area"):
+		body.exited_car_area()
+
 func upnp_setup():
 	var upnp = UPNP.new()
 	
@@ -73,4 +81,3 @@ func upnp_setup():
 		"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address())
-

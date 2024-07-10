@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://1c4ihmbyalm4"]
+[gd_scene load_steps=5 format=3 uid="uid://1c4ihmbyalm4"]
 
-[ext_resource type="Environment" uid="uid://dhnwq5io26fe4" path="res://BlueFog.tres" id="1_lt3yd"]
+[ext_resource type="Environment" uid="uid://dhnwq5io26fe4" path="res://BlueFog.tres" id="1_2xv2g"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bpx71"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_lt3yd")
+environment = ExtResource("1_2xv2g")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144396, -0.0164261, 24.6227, 0.0846208)
@@ -18,6 +20,7 @@ directional_shadow_blend_splits = true
 
 [node name="Map" type="GridMap" parent="."]
 mesh_library = ExtResource("2_07j2x")
+physics_material = SubResource("PhysicsMaterial_bpx71")
 cell_octant_size = 18
 cell_scale = 2.0
 data = {
@@ -578,45 +581,45 @@ light_energy = 16.0
 spot_range = 40.155
 spot_angle = 43.3339
 
-[node name="LightingKey\'" type="SpotLight3D" parent="."]
+[node name="LightingKey" type="SpotLight3D" parent="."]
 transform = Transform3D(0.996228, -0.00738323, 0.0864585, -0.0867732, -0.0847656, 0.992615, 0, -0.996374, -0.0850865, 38.0335, 9.03927, 57.4598)
 light_energy = 7.718
 spot_range = 13.5737
 
-[node name="LightingKey\'2" type="SpotLight3D" parent="LightingKey\'"]
+[node name="LightingKey\'2" type="SpotLight3D" parent="LightingKey"]
 transform = Transform3D(0.976056, -0.00835493, -0.217357, -0.0596131, 0.950728, -0.304242, 0.209189, 0.309914, 0.927466, 14.638, 31.3782, 4.9131)
 light_color = Color(1, 0.937255, 0.811765, 1)
 light_energy = 7.718
 shadow_enabled = true
 spot_range = 31.8213
 
-[node name="OmniLight3D" type="OmniLight3D" parent="LightingKey\'"]
+[node name="OmniLight3D" type="OmniLight3D" parent="LightingKey"]
 transform = Transform3D(1, 4.65661e-10, -8.19564e-08, -9.03063e-10, 1, -7.45058e-08, 8.2436e-08, 8.19564e-08, 1, 15.0472, 18.3069, 2.87875)
 light_energy = 11.015
 light_volumetric_fog_energy = 0.0
 omni_range = 26.7958
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="LightingKey\'"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="LightingKey"]
 transform = Transform3D(1, 4.65661e-10, -8.19564e-08, -9.03063e-10, 1, -7.45058e-08, 8.2436e-08, 8.19564e-08, 1, 15.0472, -6.01682, 0.801601)
 light_energy = 10.527
 light_volumetric_fog_energy = 0.0
 omni_range = 26.7958
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="LightingKey\'"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="LightingKey"]
 transform = Transform3D(1, 1.86265e-09, -1.63913e-07, -1.65832e-09, 1, -1.56462e-07, 1.64924e-07, 1.63913e-07, 1, -18.6215, -2.56508, 0.823082)
 light_energy = 6.008
 light_volumetric_fog_energy = 0.122
 shadow_enabled = true
 omni_range = 26.7958
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="LightingKey\'"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="LightingKey"]
 transform = Transform3D(1, 1.39698e-09, -1.78814e-07, -1.47369e-09, 1, -1.78814e-07, 1.94941e-07, 1.93715e-07, 1, -44.8239, -2.18845, -3.58743)
 light_energy = 8.084
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 26.7958
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="LightingKey\'"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="LightingKey"]
 transform = Transform3D(1, 9.31323e-10, -3.27826e-07, -1.0559e-09, 1, -3.35276e-07, 3.45062e-07, 3.42727e-07, 1, -5.04874, 34.404, 3.01454)
 light_energy = 8.084
 light_volumetric_fog_energy = 0.0
