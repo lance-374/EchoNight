@@ -18,6 +18,7 @@ var instance
 var has_shotgun = false
 var has_battery = false
 var is_in_car_area = false
+var car_alarm
 
 func spawnLight(pos):
 	instance = lightNode.instantiate()
@@ -127,23 +128,29 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#car battery objective
-	if Input.is_action_just_pressed("action") and is_in_car_area:
-		$BatteryTimer.start()
-		print("Player started getting car battery")
-	if $BatteryTimer.time_left > 0 and not has_battery and (Input.is_action_just_released("action") or not is_in_car_area):
-		$BatteryTimer.stop()
-		print("Cancel get car battery")
+	if not has_battery:
+		if Input.is_action_just_pressed("action") and is_in_car_area:
+			$BatteryTimer.start()
+			car_alarm.play()
+			print("Player started getting car battery")
+		if $BatteryTimer.time_left > 0 and (Input.is_action_just_released("action") or not is_in_car_area):
+			$BatteryTimer.stop()
+			print("Player cancelled getting car battery")
 
 func _on_battery_timer_timeout():
 	print("Player got car battery")
+	car_alarm.stop()
+	$BatteryTimer.stop()
 	has_battery = true
 
-func entered_car_area():
+func entered_car_area(node):
 	print("Player entered car area")
+	car_alarm = node
 	is_in_car_area = true
 
-func exited_car_area():
+func exited_car_area(node):
 	print("Player exited car area")
+	car_alarm = node
 	is_in_car_area = false
 
 @rpc("call_local")

@@ -59,12 +59,12 @@ func _on_multiplayer_spawner_spawned(node):
 func _on_car_area_body_entered(body):
 	print(body)
 	if body.has_method("entered_car_area"):
-		body.entered_car_area()
+		body.entered_car_area($Car/CarAlarm)
 
 func _on_car_area_body_exited(body):
 	print(body)
 	if body.has_method("exited_car_area"):
-		body.exited_car_area()
+		body.exited_car_area($Car/CarAlarm)
 
 func upnp_setup():
 	var upnp = UPNP.new()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=9 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
+[ext_resource type="AudioStream" uid="uid://bkt5ot8t3uhsg" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsru"]
@@ -80,7 +81,7 @@ offset_bottom = 40.0
 [node name="Level1" parent="." instance=ExtResource("4_vci86")]
 
 [node name="Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3984, 1.40015, -3.32971)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.31101, 1.1864, -104.799)
 mesh = ExtResource("5_4bf48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Car"]
@@ -96,8 +97,9 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127563, 0.96283, 0.0357361)
 shape = SubResource("BoxShape3D_2un4e")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 1.5825)
+[node name="CarAlarm" type="AudioStreamPlayer3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 2.33214)
+stream = ExtResource("5_3qrrh")
 
 [node name="SpawnLocation" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 0, -0.38)

@@ -56,6 +56,7 @@ script = ExtResource("1_tq3if")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52954, 5)
+current = true
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0

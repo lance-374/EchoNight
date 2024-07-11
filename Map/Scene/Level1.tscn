@@ -1,16 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://1c4ihmbyalm4"]
 
+[ext_resource type="Environment" uid="uid://dhnwq5io26fe4" path="res://BlueFog.tres" id="1_a77mf"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
-
-[sub_resource type="Environment" id="Environment_4frdk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xen46"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4frdk")
+environment = ExtResource("1_a77mf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144397, -0.0164261, 24.6227, 0.0846208)
