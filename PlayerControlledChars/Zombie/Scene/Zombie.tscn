@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvxc5ix0t2i32"]
+[gd_scene load_steps=13 format=3 uid="uid://cvxc5ix0t2i32"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
+[ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Camera3D_zombie.gd" id="3_a4isg"]
+[ext_resource type="Shader" path="res://PlayerControlledChars/Shaders/Zombie.gdshader" id="3_q57uu"]
 [ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
@@ -10,6 +12,26 @@
 albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6o8u"]
+
+[sub_resource type="Environment" id="Environment_0axxg"]
+background_mode = 1
+background_energy_multiplier = 16.0
+ambient_light_source = 2
+ambient_light_energy = 16.0
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 16.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 1.0
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission_energy = 1024.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wng53"]
+render_priority = 0
+shader = ExtResource("3_q57uu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnl86"]
+material = SubResource("ShaderMaterial_wng53")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7esiu"]
 properties/0/path = NodePath(".:position")
@@ -38,6 +60,16 @@ shape = SubResource("CapsuleShape3D_w6o8u")
 
 [node name="Camera3D_zombie" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0.000610865, 0, 1, 0, -0.000610865, 0, 1, 0, 3.06736, -0.276976)
+environment = SubResource("Environment_0axxg")
+script = ExtResource("3_a4isg")
+
+[node name="zombie_blindness_shader" type="MeshInstance3D" parent="Camera3D_zombie"]
+transform = Transform3D(5.5, -0.00335976, 1.4686e-10, 0, -2.40413e-07, -5.5, 0.00335976, 5.5, -2.40413e-07, 0.000362524, -0.697814, -0.593462)
+transparency = 0.25
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("PlaneMesh_wnl86")
+skeleton = NodePath("../..")
 
 [node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_7esiu")

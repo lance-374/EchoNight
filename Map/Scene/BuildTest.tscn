@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkkp7s078jpdv"]
 
-[ext_resource type="PackedScene" uid="uid://cvxc5ix0t2i32" path="res://PlayerControlledChars/Human/Scene/Player.tscn" id="1_8quiu"]
+[ext_resource type="PackedScene" uid="uid://cvxc5ix0t2i32" path="res://PlayerControlledChars/Zombie/Scene/Zombie.tscn" id="1_8quiu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_upk0a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,7 +15,6 @@ sky = SubResource("Sky_h1h6j")
 tonemap_mode = 2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5abrs"]
-load_path = "res://.godot/imported/Industrial_exterior_v2_Asphalt_1-4.png-7247922be873e06a8a5c5bc23ad46b42.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmsrb"]
 resource_name = "Alphalt_Floor"

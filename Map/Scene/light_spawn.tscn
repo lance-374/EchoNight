@@ -4,6 +4,6 @@
 
 [node name="LightSpawn" type="OmniLight3D"]
 light_color = Color(0.0514957, 0.149942, 0.458974, 1)
-light_energy = 1.485
+light_energy = 11.99
 omni_range = 7.61
 script = ExtResource("1_q51cm")
