@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccgnd0xgqe4g0"]
+
+[ext_resource type="PackedScene" uid="uid://dgvd802xappin" path="res://Assets/Map/Trailer_Park/Trees.glb" id="1_jggi4"]
+
+[node name="Trees" instance=ExtResource("1_jggi4")]
