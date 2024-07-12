@@ -18,7 +18,7 @@ var instance
 var has_shotgun = false
 var has_battery = false
 var is_in_car_area = false
-var car_alarm
+var level
 
 func spawnLight(pos):
 	instance = lightNode.instantiate()
@@ -131,7 +131,7 @@ func _physics_process(delta):
 	if not has_battery:
 		if Input.is_action_just_pressed("action") and is_in_car_area:
 			$BatteryTimer.start()
-			car_alarm.play()
+			level.toggle_car_alarm(true)
 			print("Player started getting car battery")
 		if $BatteryTimer.time_left > 0 and (Input.is_action_just_released("action") or not is_in_car_area):
 			$BatteryTimer.stop()
@@ -139,18 +139,18 @@ func _physics_process(delta):
 
 func _on_battery_timer_timeout():
 	print("Player got car battery")
-	car_alarm.stop()
+	level.toggle_car_alarm(false)
 	$BatteryTimer.stop()
 	has_battery = true
 
 func entered_car_area(node):
 	print("Player entered car area")
-	car_alarm = node
+	level = node
 	is_in_car_area = true
 
 func exited_car_area(node):
 	print("Player exited car area")
-	car_alarm = node
+	level = node
 	is_in_car_area = false
 
 @rpc("call_local")
