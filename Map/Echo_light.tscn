@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://iwxd2pmr5ou6"]
+[gd_scene load_steps=8 format=3 uid="uid://iwxd2pmr5ou6"]
 
 [ext_resource type="PackedScene" uid="uid://lhe6icnfr1bh" path="res://Map/Scene/Level.tscn" id="1_ugw4b"]
-[ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="3_3ynmk"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="4_pqn3l"]
 [ext_resource type="ArrayMesh" uid="uid://r5whib0osct2" path="res://Assets/Cars/Car 02/Car2.obj" id="5_f8ssi"]
 
@@ -33,9 +32,6 @@ mesh = SubResource("PlaneMesh_gvxtt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_vqqkv")
-
-[node name="MainMenu2" parent="Level" instance=ExtResource("3_3ynmk")]
-metadata/_edit_use_anchors_ = true
 
 [node name="MultiplayerSpawner2" type="MultiplayerSpawner" parent="Level"]
 _spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn", "res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")

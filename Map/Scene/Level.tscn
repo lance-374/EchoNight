@@ -1,20 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=10 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
-[ext_resource type="PackedScene" uid="uid://5mi8oenvbjka" path="res://Menu/Scene/MainMenu.tscn" id="2_hymrl"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
+[ext_resource type="AudioStream" uid="uid://bkt5ot8t3uhsg" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
+[ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
+properties/0/path = NodePath("..:car_alarm_playing")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsru"]
 bg_color = Color(0.686275, 0, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6tcph"]
+points = PackedVector3Array(-1.1392, 1.25707, 1.32663, 1.37963, 1.57148, 1.45657, 1.37963, 1.27873, 1.45657, 0.7623, 0.521056, -2.99696, -0.899157, 2.08737, -2.01964, -1.08747, -0.022624, 2.19862, -1.15843, 0.400236, -2.93521, 1.1177, -0.0212866, 2.19583, -1.0609, 1.27873, 3.01916, 0.907143, 2.05833, -1.9641, 1.11335, -0.0169431, -1.56129, -0.896836, 2.08483, 0.813915, 0.989002, 1.27873, 3.01916, 0.928921, 2.0847, 0.813807, -1.08281, -0.0183332, -1.56334, 1.18432, 0.498041, -2.93521, 0.5747, 0.428517, 2.97778, -1.01762, 0.894027, -2.91639, 1.03578, 1.08114, -2.79018, -0.984856, 0.443216, 2.81418, -1.15843, 1.27873, 2.92131, 1.18432, 1.27873, 2.82345, 0.929445, 1.90249, -2.19887, 1.12738, 0.0618694, 2.40182, -0.0716677, 2.05832, 0.971063, -0.910128, 1.9141, -2.22821, 1.18432, 0.400236, -2.83796, -1.05247, 1.52487, -1.07642, -1.09553, 0.0627263, 2.3997, -0.978934, 1.9848, 0.897303, 1.01559, 0.444158, 2.80969, -1.15108, 0.900061, -1.26423)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2un4e"]
+size = Vector3(5.78149, 2.92566, 9.2204)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
 
 [node name="Menu" parent="." instance=ExtResource("2_eeuul")]
 
-[node name="MainMenu" parent="." instance=ExtResource("2_hymrl")]
-visible = false
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("../MultiplayerSpawner")
+replication_config = SubResource("SceneReplicationConfig_5b5je")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn", "res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
@@ -75,3 +88,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Level1" parent="." instance=ExtResource("4_vci86")]
+
+[node name="Car" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.68899, 1.1864, -10.7989)
+mesh = ExtResource("5_4bf48")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Car"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6tcph")
+
+[node name="CarArea" type="Area3D" parent="Car"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/CarArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127563, 0.96283, 0.0357361)
+shape = SubResource("BoxShape3D_2un4e")
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 2.33214)
+stream = ExtResource("5_3qrrh")
+
+[node name="SpawnLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 0, -0.38)
+
+[connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
+[connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]
