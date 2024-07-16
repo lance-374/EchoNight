@@ -10,6 +10,7 @@ const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var latestPlayerType
 var player_character_choices = {}
+@export var humans_have_car_battery = false
 @export var car_alarm_playing = false
 
 func _ready():
