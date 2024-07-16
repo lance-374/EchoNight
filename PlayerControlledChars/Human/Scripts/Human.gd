@@ -129,7 +129,7 @@ func _physics_process(delta):
 	
 	#car battery objective
 	if not has_battery:
-		if Input.is_action_just_pressed("action") and is_in_car_area:
+		if Input.is_action_just_pressed("action") and is_in_car_area and not level.humans_have_car_battery:
 			$BatteryTimer.start()
 			level.toggle_car_alarm(true)
 			print("Player started getting car battery")
@@ -140,6 +140,7 @@ func _physics_process(delta):
 func _on_battery_timer_timeout():
 	print("Player got car battery")
 	level.toggle_car_alarm(false)
+	level.humans_have_car_battery = true
 	$BatteryTimer.stop()
 	has_battery = true
 
