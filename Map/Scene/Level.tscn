@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=11 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
+[ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="2_651qj"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
 [ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
@@ -25,6 +26,9 @@ size = Vector3(5.78149, 2.92566, 9.2204)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_651qj")
 
 [node name="Menu" parent="." instance=ExtResource("2_eeuul")]
 
@@ -93,7 +97,7 @@ offset_bottom = 40.0
 [node name="Level1" parent="." instance=ExtResource("4_vci86")]
 
 [node name="Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.68899, 1.1864, -10.7989)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 70.1065, 0.981444, -118.963)
 mesh = ExtResource("5_4bf48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Car"]
