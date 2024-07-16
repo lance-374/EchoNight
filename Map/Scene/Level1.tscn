@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://1c4ihmbyalm4"]
+[gd_scene load_steps=10 format=3 uid="uid://1c4ihmbyalm4"]
 
 [ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="1_qs7pj"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
+[ext_resource type="Shader" path="res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader" id="3_2p1lv"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc8l4"]
+render_priority = 0
+shader = ExtResource("3_2p1lv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xiu6e"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_pn68a"]
+transform_format = 1
+mesh = SubResource("ArrayMesh_xiu6e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cicq0"]
+render_priority = 0
+shader = ExtResource("3_2p1lv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ccog0"]
 
 [node name="Level1" type="Node3D"]
 
@@ -206,6 +223,16 @@ data = {
 "cells": PackedInt32Array(91, 129, 15, 91, 126, 18, 88, 128, 15, 65410, 65284, 131133, 65410, 65224, 1179711, 65350, 65224, 1179709, 65410, 65364, 131133, 65377, 65345, 1179710, 65337, 65345, 1179710, 65463, 65418, 1179709, 7, 65418, 1179709, 87, 65418, 1179709, 166, 65418, 1179709, 246, 65398, 524353, 266, 65318, 131133, 286, 65239, 131136, 42, 65470, 131133, 22, 14, 131132, 65390, 65444, 524353, 3, 74, 1310783, 43, 74, 1310782, 83, 74, 1310782)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.90999, 0)
+material_override = SubResource("ShaderMaterial_fc8l4")
+multimesh = SubResource("MultiMesh_pn68a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34652, 4.19483, 3.99926)
+material_override = SubResource("ShaderMaterial_cicq0")
+mesh = SubResource("BoxMesh_ccog0")
 
 [node name="Lighting" type="Node3D" parent="."]
 

@@ -65,14 +65,20 @@ func makeSound():
 		
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
-	print(name)
-	print_tree_pretty()
+	
+	
 
 func _ready():
 	if not is_multiplayer_authority(): return
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
+	var server_node = get_node("/root/Level/Level1/Map/MultiMeshInstance3D")
+	var shader_material = ShaderMaterial.new()
+	shader_material.shader = load("res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader")
+	server_node.material_override.next_pass = shader_material 
+	
+	
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -96,11 +102,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_paused:
 		velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")

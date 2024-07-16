@@ -1,16 +1,23 @@
 shader_type spatial;
 
-uniform vec4 fog_color: source_color = vec4(0.0, 0.0, 0.0, 1.0);
+// Uniforms are no longer needed since we're not using them
+// uniform float height_scale = 0.5;
+// uniform sampler2D noise;
+// uniform sampler2D normalmap;
+
+varying vec2 tex_position; 
 
 void vertex() {
-	// Called for every vertex the material is visible on.
+    // We still calculate the texture position for consistency, but we don't use it to modify the geometry anymore.
+    tex_position = VERTEX.xz / 2.0 + 0.5;
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-}
+    // Set the output color to black (0, 0, 0)
+    ALBEDO = vec3(0.0); 
 
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
+    // You can also optionally set the alpha to 1.0 for full opacity:
+    // ALPHA = 1.0;
+
+    // We're not using the normal map anymore, so we don't need to set NORMAL_MAP.
+}
