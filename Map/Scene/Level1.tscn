@@ -1,19 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://1c4ihmbyalm4"]
+[gd_scene load_steps=4 format=3 uid="uid://1c4ihmbyalm4"]
 
-[ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="1_qs7pj"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
 [ext_resource type="MeshLibrary" uid="uid://4hyd1qg317te" path="res://Assets/Map/Trees2_meshLib.tres" id="3_504cl"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
 
 [node name="Level1" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_qs7pj")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144397, -0.0164261, 24.6227, 0.0846208)
+layers = 2
 light_color = Color(0.372549, 0.490196, 0.611765, 1)
 light_volumetric_fog_energy = 1.366
+light_cull_mask = 4293918720
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
@@ -221,6 +219,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="LightingSpawn" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.83147, 0.0210171, -0.555172, 0.55557, -0.0314543, 0.830875, 0, -0.999284, -0.0378298, -87.5977, 7.92457, 42.2166)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 7.54
 light_volumetric_fog_energy = 3.076
@@ -232,6 +231,7 @@ spot_angle = 45.8482
 
 [node name="LightingSpawn2" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(0.254513, -0.847166, 0.466404, 0.809479, -0.0772525, -0.582045, 0.52912, 0.525682, 0.666101, 17.0696, -34.7236, -4.04941)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 7.54
 shadow_enabled = true
@@ -241,6 +241,7 @@ spot_angle = 57.9199
 
 [node name="LightingSpawn5" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(0.267582, -0.848071, 0.457357, 0.792491, -0.076277, -0.605096, 0.54805, 0.524363, 0.651678, 39.3704, -33.4633, -18.9133)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 7.54
 shadow_enabled = true
@@ -250,6 +251,7 @@ spot_angle = 57.9199
 
 [node name="LightingSpawn4" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(-0.382613, -0.0231446, 0.923619, -0.046752, -0.997921, -0.0443737, 0.922725, -0.060159, 0.380735, 53.3512, -26.8745, -32.496)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 7.54
 shadow_enabled = true
@@ -258,6 +260,7 @@ spot_angle = 57.9199
 
 [node name="LightingSpawn3" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06912, 54.5786, 16.1405)
+layers = 2
 light_color = Color(1, 0.87451, 0.709804, 1)
 light_energy = 10.471
 shadow_enabled = true
@@ -267,6 +270,7 @@ spot_angle = 57.9199
 
 [node name="LightingSpawn6" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(0.028372, -0.876425, 0.480702, 0.998318, 0.0491675, 0.0307203, -0.050559, 0.479022, 0.876346, -14.3944, 8.60139, 10.1345)
+layers = 2
 light_energy = 6.74
 light_volumetric_fog_energy = 0.634
 spot_range = 37.9629
@@ -274,6 +278,7 @@ spot_angle = 46.2656
 
 [node name="LightingSpawn2" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.202815, 0.881862, 0.425659, -0.61891, -0.221413, 0.753609, 0.758825, -0.416288, 0.500888, -62.0341, 11.0385, 42.4364)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 2.466
 light_volumetric_fog_energy = 1.977
@@ -285,6 +290,7 @@ spot_angle = 27.709
 
 [node name="LightingSpawn2" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
 transform = Transform3D(0.18569, -0.982365, -0.021873, 0.817711, 0.166833, -0.550922, 0.544855, 0.0844148, 0.83427, 2.98137, -57.1876, 8.34423)
+layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 8.45
 light_volumetric_fog_energy = 2.588
@@ -295,6 +301,7 @@ spot_angle = 24.5594
 
 [node name="LightingSpawn6" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
 transform = Transform3D(-0.200143, -0.454601, -0.867917, -0.940493, -0.159151, 0.30024, -0.274619, 0.876361, -0.395696, -8.75677, -67.6141, -14.4873)
+layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 1.122
 light_volumetric_fog_energy = 6.252
@@ -305,6 +312,7 @@ spot_angle = 24.5594
 
 [node name="LightingSpawn4" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
 transform = Transform3D(-0.31594, -0.585868, -0.746284, 0.783644, -0.604561, 0.142852, -0.534867, -0.539688, 0.650118, -32.1854, 23.2492, -34.6613)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 6.374
 light_volumetric_fog_energy = 1.489
@@ -315,12 +323,14 @@ spot_angle = 62.571
 
 [node name="LightingSpawn3" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06912, 54.5786, 16.1405)
+layers = 2
 light_energy = 7.54
 spot_range = 37.9629
 spot_angle = 57.9199
 
 [node name="LightingSpawn5" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
 transform = Transform3D(0.460879, 0.506422, -0.728785, -0.884102, 0.333398, -0.327427, 0.077159, 0.795225, 0.601385, -46.1492, -42.2593, -43.0527)
+layers = 2
 light_energy = 7.54
 shadow_enabled = true
 spot_range = 37.9629
@@ -329,6 +339,7 @@ spot_angle = 37.4833
 
 [node name="Lighting1" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.388478, 0.921272, 0.0185257, 0.660118, -0.292271, 0.691969, 0.642906, -0.256586, -0.721689, -99.4809, 9.49482, -83.3628)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 3.932
 light_volumetric_fog_energy = 3.934
@@ -339,6 +350,7 @@ spot_angle = 31.8046
 
 [node name="Lighting3" type="SpotLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(0.226479, 0.716117, 0.660215, -0.952374, 0.020717, 0.304229, 0.204186, -0.697673, 0.686703, 22.2031, 24.4684, 1.49603)
+layers = 2
 light_color = Color(1, 0.941176, 0.858824, 1)
 light_energy = 8.348
 light_volumetric_fog_energy = 0.533
@@ -348,6 +360,7 @@ spot_angle = 53.2166
 
 [node name="Lighting4" type="SpotLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(0.538842, -0.838476, -0.0812882, 0.533762, 0.414478, -0.737093, 0.651727, 0.353787, 0.670885, -42.1145, -9.75885, 41.8019)
+layers = 2
 light_energy = 16.0
 light_volumetric_fog_energy = 2.835
 shadow_enabled = true
@@ -356,6 +369,7 @@ spot_angle = 32.24
 
 [node name="Lighting5" type="SpotLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(0.0252187, -0.916647, 0.398902, 0.165032, -0.389736, -0.906019, 0.985966, 0.0886803, 0.141448, -14.09, -41.1738, 16.924)
+layers = 2
 light_energy = 16.0
 light_volumetric_fog_energy = 2.835
 shadow_enabled = true
@@ -364,10 +378,12 @@ spot_angle = 32.24
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 0, 0, 0, 1, -24.5394, -28.8814, 3.6452)
+layers = 2
 omni_range = 8.93473
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, -1.49012e-08, 2.98023e-08, -1.49012e-08, 1, 2.98023e-08, 0, 1.49012e-08, 1, 16.4677, -37.0445, -33.2446)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 4.664
 light_volumetric_fog_energy = 3.076
@@ -377,14 +393,17 @@ omni_attenuation = 1.1487
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 0, 0, 0, 1, -11.8973, -34.2202, 4.03834)
+layers = 2
 omni_range = 9.0009
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(0.645664, -0.763611, 0.00406459, 0.655386, 0.551408, -0.516157, 0.391902, 0.335928, 0.856484, -28.1913, 7.65383, 30.141)
+layers = 2
 omni_range = 16.4065
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, -1.49012e-08, 2.98023e-08, -1.49012e-08, 1, 2.98023e-08, 0, 1.49012e-08, 1, -0.545708, -19.4979, -7.49777)
+layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 3.198
 shadow_enabled = true
@@ -392,6 +411,7 @@ omni_range = 12.9158
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, 1.78814e-07, 5.96046e-08, -2.23517e-07, 1, -1.63913e-07, 0, 2.08616e-07, 1, -5.23072, 10.7804, 7.74581)
+layers = 2
 light_energy = 5.289
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -400,6 +420,7 @@ omni_range = 22.6914
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, 1.78814e-07, 5.96046e-08, -2.23517e-07, 1, -1.63913e-07, 0, 2.08616e-07, 1, -8.30345, -7.74814, 2.85114)
+layers = 2
 light_energy = 5.289
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -408,6 +429,7 @@ omni_range = 22.6914
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, 1.78814e-07, -5.96046e-08, -2.08616e-07, 1, -1.63913e-07, 2.98023e-08, 2.08616e-07, 1, -21.3619, 0.945663, 20.2718)
+layers = 2
 light_energy = 5.289
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -416,10 +438,12 @@ omni_range = 21.4912
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting/Lighting1"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 0, 0, 0, 1, -37.0542, -10.9165, 13.7254)
+layers = 2
 omni_range = 8.93473
 
 [node name="Lighting2" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.960335, 0.169788, 0.221198, -0.226607, 0.012921, 0.973901, 0.162499, -0.985396, 0.0508838, -153.835, 6.88115, 70.1546)
+layers = 2
 light_color = Color(1, 0.0313726, 0.0313726, 1)
 light_energy = 5.555
 shadow_enabled = true
@@ -428,6 +452,7 @@ spot_angle = 50.94
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(1, -1.49012e-08, 4.19095e-08, 0, 1, 0, -4.84288e-08, 0, 1, 17.0367, -15.9888, 9.14206)
+layers = 2
 light_energy = 5.889
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -435,6 +460,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.994143, -0.108071, 7.10925e-05, 0.108035, 0.993827, 0.0252194, -0.00279613, -0.025064, 0.999682, -6.69986, -19.4938, 2.20784)
+layers = 2
 light_energy = 10.774
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -442,6 +468,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.994143, -0.108071, 7.10925e-05, 0.108035, 0.993827, 0.0252194, -0.00279613, -0.025064, 0.999682, -12.3388, -5.73595, 1.35415)
+layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 5.889
 light_volumetric_fog_energy = 3.443
@@ -450,6 +477,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.994143, -0.108071, 7.10925e-05, 0.108035, 0.993827, 0.0252194, -0.00279613, -0.025064, 0.999682, -49.3691, 145.661, -1.34614)
+layers = 2
 light_energy = 4.391
 light_volumetric_fog_energy = 9.183
 shadow_enabled = true
@@ -457,6 +485,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.994143, -0.108071, 7.1092e-05, 0.108035, 0.993827, 0.0252194, -0.00279613, -0.025064, 0.999682, -46.2959, 127.025, -0.383797)
+layers = 2
 light_energy = 4.391
 light_volumetric_fog_energy = 9.183
 shadow_enabled = true
@@ -464,6 +493,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(1, 1.49012e-08, 3.91155e-08, 0, 1, 3.72529e-09, -2.23517e-08, 0, 1, -0.644882, 28.5632, 7.45422)
+layers = 2
 light_color = Color(1, 0.894118, 0.85098, 1)
 light_energy = 3.565
 light_volumetric_fog_energy = 6.139
@@ -472,6 +502,7 @@ omni_range = 20.6125
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(1, 1.49012e-08, 2.32831e-08, 0, 1, 3.72529e-09, -2.23517e-08, 0, 1, -4.86478, 54.1525, 6.13284)
+layers = 2
 light_color = Color(1, 0.894118, 0.85098, 1)
 light_energy = 3.565
 light_volumetric_fog_energy = 6.139
@@ -480,6 +511,7 @@ omni_range = 20.6125
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.997415, 0.0120586, -0.070835, 0.0192905, 0.904689, 0.425635, 0.0692162, -0.425901, 0.902118, 8.45372, 86.8083, 12.8992)
+layers = 2
 light_energy = 5.438
 light_volumetric_fog_energy = 2.835
 shadow_enabled = true
@@ -488,6 +520,7 @@ spot_angle = 28.2765
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.625799, 0.146508, -0.766101, -0.012946, 0.984016, 0.177607, 0.779877, -0.101228, 0.617693, 19.9907, -16.5429, 7.1988)
+layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 5.438
 light_volumetric_fog_energy = 7.476
@@ -498,12 +531,14 @@ spot_angle = 44.7714
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.915656, 0.088086, -0.392193, 0.0153239, 0.967335, 0.253039, 0.401671, -0.237706, 0.884396, 34.3712, 45.1303, 2.55123)
+layers = 2
 light_energy = 6.372
 spot_range = 20.1871
 spot_angle = 31.8046
 
 [node name="Lighting3" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.453746, 0.890658, -0.0290341, 0.779303, -0.380793, 0.497678, 0.432205, -0.248446, -0.866876, 157.646, 10.2869, -238.29)
+layers = 2
 light_energy = 11.016
 light_volumetric_fog_energy = 0.244
 shadow_enabled = true
@@ -512,6 +547,7 @@ spot_angle = 47.1171
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328694, -0.191718, 0.185221, 0.828948, -0.527767, 0.332398, 0.452554, 0.82747, -1.62371, -58.3433, -43.2484)
+layers = 2
 light_energy = 16.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -519,6 +555,7 @@ omni_range = 14.3357
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328693, -0.191718, 0.185221, 0.828948, -0.527767, 0.332398, 0.452554, 0.82747, 0.118687, -41.091, -32.7765)
+layers = 2
 light_energy = 16.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -526,6 +563,7 @@ omni_range = 14.3357
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328693, -0.191718, 0.185221, 0.828948, -0.527767, 0.332398, 0.452554, 0.82747, -11.069, -51.2039, -27.5483)
+layers = 2
 light_energy = 1.855
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -533,6 +571,7 @@ omni_range = 14.3357
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328693, -0.191718, 0.185221, 0.828949, -0.527766, 0.332397, 0.452554, 0.82747, 3.45844, -30.0383, -29.4883)
+layers = 2
 light_energy = 7.351
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -540,12 +579,14 @@ omni_range = 14.3357
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328693, -0.191718, 0.185221, 0.828949, -0.527766, 0.332397, 0.452554, 0.82747, 8.34481, -32.8472, -39.2889)
+layers = 2
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 14.3357
 
 [node name="Lighting4" type="SpotLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.924773, -0.328694, -0.191719, 0.185221, 0.828948, -0.527767, 0.332398, 0.452554, 0.82747, -33.4356, -65.968, 1.88142)
+layers = 2
 light_energy = 10.986
 light_volumetric_fog_energy = 1.327
 shadow_enabled = true
@@ -555,6 +596,7 @@ spot_angle = 34.0475
 
 [node name="Lighting5" type="SpotLight3D" parent="Lighting/Lighting3"]
 transform = Transform3D(0.999431, 0.0335839, -0.00325263, -0.0336946, 0.998463, -0.0440028, 0.0017699, 0.0440873, 0.999026, 18.2068, 35.1416, -1.62192)
+layers = 2
 light_energy = 16.0
 shadow_enabled = true
 spot_range = 29.4762
@@ -562,13 +604,15 @@ spot_angle = 23.1929
 
 [node name="Street" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.344349, 9.40419, -8.36266)
+layers = 2
 light_energy = 16.0
 light_volumetric_fog_energy = 0.122
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="Lighting4" type="SpotLight3D" parent="Lighting/Street"]
-transform = Transform3D(-0.65461, 0.114729, 0.747211, 0.745894, -0.0627982, 0.663098, 0.123, 0.99141, -0.0444675, -67.6743, 7.56529, -105.675)
+transform = Transform3D(-0.647945, -0.299047, 0.700527, 0.745894, -0.0627986, 0.663098, -0.154306, 0.95217, 0.263748, -66.4613, 7.56529, -105.675)
+layers = 2
 light_energy = 6.489
 light_volumetric_fog_energy = 4.571
 shadow_enabled = true
@@ -578,12 +622,14 @@ spot_angle = 35.92
 
 [node name="Street7" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(-0.132966, 6.6441e-08, 0.991121, 2.98023e-08, 1, -6.3038e-08, -0.991121, 2.11557e-08, -0.132966, 25.0112, 6.03569, -93.8824)
+layers = 2
 light_color = Color(1, 0.94902, 0.768627, 1)
 omni_range = 61.0173
 omni_attenuation = 0.0301855
 
 [node name="Lighting6" type="SpotLight3D" parent="Lighting/Street"]
-transform = Transform3D(-0.517621, -0.681186, 0.51774, 0.745894, -0.0627987, 0.663098, -0.41918, 0.729412, 0.540598, -41.0128, 7.56529, -111.391)
+transform = Transform3D(-0.517621, -0.681186, 0.51774, 0.745894, -0.0627986, 0.663098, -0.41918, 0.729412, 0.540598, -41.0128, 7.56529, -110.591)
+layers = 2
 light_energy = 6.489
 shadow_enabled = true
 spot_range = 33.8196
@@ -591,6 +637,7 @@ spot_angle = 31.8046
 
 [node name="Street9" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(-0.567772, -3.5881e-08, -0.823186, -2.38419e-07, 1, 1.20856e-07, 0.823186, 2.64882e-07, -0.567772, -1.28387, 1.37992, -50.1832)
+layers = 2
 light_energy = 9.059
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -598,6 +645,7 @@ omni_range = 35.5065
 
 [node name="Street10" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(-0.567772, -3.58807e-08, -0.823186, -2.38419e-07, 1, 1.20856e-07, 0.823186, 2.64881e-07, -0.567772, 26.6572, 1.37992, -22.7504)
+layers = 2
 light_energy = 9.059
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -605,6 +653,7 @@ omni_range = 35.5065
 
 [node name="Lighting5" type="SpotLight3D" parent="Lighting/Street"]
 transform = Transform3D(0.629023, 0.393787, -0.67027, 0.745893, -0.0627982, 0.663098, 0.219028, -0.917054, -0.333225, -66.3988, 7.56529, -35.1929)
+layers = 2
 light_energy = 2.221
 light_volumetric_fog_energy = 6.188
 shadow_enabled = true
@@ -614,6 +663,7 @@ spot_angle = 31.8046
 
 [node name="Street3" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4368, 0, -21.629)
+layers = 2
 light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -621,11 +671,13 @@ omni_range = 24.8767
 
 [node name="Street5" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4368, 0, -83.7571)
+layers = 2
 light_energy = 4.0
 omni_range = 89.4772
 
 [node name="Street14" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.005, 4.58088, -80.4728)
+layers = 2
 light_color = Color(1, 0.968627, 0.933333, 1)
 light_energy = 7.912
 light_volumetric_fog_energy = 0.122
@@ -635,6 +687,7 @@ omni_attenuation = 0.554785
 
 [node name="Street22" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7695, 1.00298, -22.4953)
+layers = 2
 light_color = Color(1, 0.968627, 0.933333, 1)
 light_energy = 3.271
 light_volumetric_fog_energy = 0.122
@@ -644,18 +697,21 @@ omni_attenuation = 0.554785
 
 [node name="Street18" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.5826, -2.17303, -96.9116)
+layers = 2
 light_energy = 2.588
 light_volumetric_fog_energy = 0.0
 omni_range = 24.8767
 
 [node name="Street20" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.7725, -2.17303, -153.783)
+layers = 2
 light_energy = 3.565
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="Street21" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.576, 3.65211, -186.155)
+layers = 2
 light_energy = 3.565
 shadow_enabled = true
 omni_range = 24.8767
@@ -663,18 +719,21 @@ omni_attenuation = 0.757858
 
 [node name="Street15" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.897, -2.17303, -117.036)
+layers = 2
 light_energy = 7.423
 light_volumetric_fog_energy = 0.0
 omni_range = 24.8767
 
 [node name="Street16" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.691, 0.697205, -118.837)
+layers = 2
 light_energy = 7.423
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="Street17" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.95, -2.17303, -152.027)
+layers = 2
 light_energy = 3.882
 light_volumetric_fog_energy = 0.878
 shadow_enabled = true
@@ -683,6 +742,7 @@ omni_attenuation = 0.615573
 
 [node name="Street11" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.834, -2.08327, -45.7872)
+layers = 2
 light_color = Color(1, 0.894118, 0.729412, 1)
 light_energy = 3.452
 light_volumetric_fog_energy = 1.489
@@ -691,30 +751,35 @@ omni_range = 24.8767
 
 [node name="Street6" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1916, 0, -19.212)
+layers = 2
 light_energy = 3.0
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="Street12" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8455, 0, -64.6506)
+layers = 2
 light_energy = 3.0
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="Street19" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3116, 0, -96.3426)
+layers = 2
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_range = 24.8767
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Street"]
 transform = Transform3D(0.933668, -0.016802, -0.357746, 0.35814, 0.0438028, 0.93264, 0, -0.998899, 0.0469147, -34.8952, 11.6866, -102.487)
+layers = 2
 light_energy = 16.0
 spot_range = 40.155
 spot_angle = 43.3339
 
 [node name="LightingKey\'" type="SpotLight3D" parent="Lighting"]
 transform = Transform3D(0.844094, -0.045623, 0.534251, -0.536195, -0.071821, 0.841033, 0, -0.996374, -0.0850865, 38.865, 9.29233, 57.4598)
+layers = 2
 light_energy = 7.718
 light_volumetric_fog_energy = 3.809
 shadow_enabled = true
@@ -724,6 +789,7 @@ spot_angle = 57.285
 
 [node name="LightingKey\'2" type="SpotLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(0.976057, -0.0083548, -0.217357, -0.0596131, 0.950728, -0.304241, 0.209189, 0.309914, 0.927466, 10.9177, 30.8799, 10.7485)
+layers = 2
 light_color = Color(1, 0.937255, 0.811765, 1)
 light_energy = 7.718
 shadow_enabled = true
@@ -731,18 +797,21 @@ spot_range = 31.8213
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(1, 7.43707e-09, -5.92877e-08, -8.59886e-09, 1, -8.19564e-08, 8.9627e-08, 9.68575e-08, 1, 10.7334, 17.7291, 9.64502)
+layers = 2
 light_energy = 11.015
 light_volumetric_fog_energy = 0.0
 omni_range = 26.7958
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(1, 1.86129e-08, -5.92877e-08, -2.26598e-08, 1, -1.19209e-07, 8.84263e-08, 1.3411e-07, 1, 10.8343, 1.86587, 8.13089)
+layers = 2
 light_energy = 10.527
 light_volumetric_fog_energy = 0.0
 omni_range = 26.7958
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(1, 1.39698e-09, -1.63913e-07, -1.60675e-09, 1, -1.56462e-07, 1.64969e-07, 1.63913e-07, 1, -18.2711, -2.2228, -3.18517)
+layers = 2
 light_energy = 2.71
 light_volumetric_fog_energy = 0.122
 shadow_enabled = true
@@ -751,6 +820,7 @@ omni_attenuation = 0.307786
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(1, 1.39698e-09, -1.93715e-07, -1.91981e-09, 1, -1.93715e-07, 1.94983e-07, 1.93715e-07, 1, -44.5827, -1.95285, -6.34635)
+layers = 2
 light_energy = 2.832
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
@@ -759,6 +829,7 @@ omni_attenuation = 0.225313
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting/LightingKey\'"]
 transform = Transform3D(1, 9.31323e-10, -3.27826e-07, -1.0559e-09, 1, -3.35276e-07, 3.45062e-07, 3.42727e-07, 1, -5.04874, 34.404, 3.01454)
+layers = 2
 light_energy = 8.084
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true

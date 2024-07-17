@@ -1,19 +1,11 @@
 shader_type spatial;
 
-uniform sampler2D depth_texture : source_color, hint_depth_texture;
-
 void vertex() {
-	
-	}
-
+	// Called for every vertex the material is visible on.
+}
 
 void fragment() {
-	vec4 color;
-	
-	color.r = 0.0;
-	color.g = 0.0;
-	color.b = 0.0;
-	color = vec4(0.8, 0.0, 0.0, 1.0);  // Set only the RGB channels
+	// Called for every pixel the material is visible on.
 }
 
 //void light() {
