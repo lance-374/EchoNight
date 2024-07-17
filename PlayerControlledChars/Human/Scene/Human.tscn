@@ -153,7 +153,7 @@ _data = {
 
 [node name="Human" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
-collision_layer = 2
+collision_layer = 6
 script = ExtResource("1_fbt8g")
 
 [node name="Human72" parent="." instance=ExtResource("2_4356e")]
@@ -208,3 +208,9 @@ _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+
+[node name="BatteryTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 15.0
+
+[connection signal="timeout" from="BatteryTimer" to="." method="_on_battery_timer_timeout"]
