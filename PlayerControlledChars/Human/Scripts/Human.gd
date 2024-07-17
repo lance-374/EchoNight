@@ -12,7 +12,7 @@ signal health_changed(health_value)
 @onready var humanModelAniPlayer = $Human72/AnimationPlayer
 
 var liReady = true
-var shotgun_enabled = false
+var shotgun_enabled = true
 var is_paused = false
 
 

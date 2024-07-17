@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://blgu378sm5vga" path="res://PlayerControlledChars/Human/Scene/Human72.glb" id="2_4356e"]
 [ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="2_wc5jn"]
 [ext_resource type="Texture2D" uid="uid://b4rilk3tl63ly" path="res://Assets/spark_particle.png" id="3_s76oe"]
-[ext_resource type="AudioStream" uid="uid://dyjpelnbk5c7o" path="res://Assets/Sound effects/shotgun.wav" id="4_cal7m"]
+[ext_resource type="AudioStream" uid="uid://y5tb75pkkt1v" path="res://Assets/Menu/Audio/Characters/544675__clueless79__shotgun-03.wav" id="5_duxuc"]
 [ext_resource type="AudioStream" uid="uid://cpq4e47wmueq3" path="res://Assets/Sound effects/human_whistling.mp3" id="5_qf4kq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
@@ -189,7 +189,7 @@ draw_pass_1 = SubResource("PlaneMesh_70yys")
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="Camera3D_human/Shotgun"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.92009, 2.52623, -1.32924)
-stream = ExtResource("4_cal7m")
+stream = ExtResource("5_duxuc")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D_human"]
 visible = false

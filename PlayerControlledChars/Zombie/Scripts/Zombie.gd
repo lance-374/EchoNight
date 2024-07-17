@@ -2,12 +2,13 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
-@onready var camera = $PS1_Zombie/Armature/Skeleton3D/Camera3D
+@onready var camera = $PS1_Zombie/Camera3D_zombie
 @onready var aniPlayer = $PS1_Zombie/AnimationPlayer
 @onready var ArtiSound = $AudioStreamPlayer3D_groaning
 @onready var liReady = true
 @onready var audio = $Audio
-
+@onready var shaderHandler = $SubViewportContainer/SubViewport/ColorRect
+@onready var airCon = get_node("/root/Level/Level1/AudioStreamPlayer3D")
 var health = 3
 var is_paused = false
 const SPEED = 5.0
@@ -15,6 +16,15 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
+
+
+@export var reveal_threshold = -100.0  # dB (adjust as needed)
+@export var reveal_duration = 1.0      # Seconds
+
+@onready var viewport = $SubViewportContainer/SubViewport/ColorRect        
+var reveal_timer = 0.0
+
+
 @rpc("call_local")
 func playWalk():
 	aniPlayer.play("WalkZ")
@@ -23,21 +33,12 @@ func playWalk():
 func playIdle():
 	aniPlayer.play("IdleZ")
 
-@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
-var instance
-# Called when the node enters the scene tree for the first time.
 
-func spawnLight(pos):
-	instance = lightNode.instantiate()
-	instance.position = pos
-	add_child(instance)
-
-func removeLight():
-	instance.queue_free()
-	instance = load("res://Map/Scene/light_spawn.tscn")
-	
-func setLightPosition(pos):
-	instance.position = pos
+func _on_sound_detected(detected):
+	if detected:
+		shaderHandler.material.set_shader_param("reveal_amount", 1.0) 
+	else:
+		shaderHandler.material.set_shader_param("reveal_amount", 0.0)
 
 func toggle_pause():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
@@ -55,14 +56,10 @@ func makeSound():
 	if Input.is_action_just_pressed("clap") and not is_paused:
 		if liReady == true:
 			liReady = false
-			spawnLight(camera.position)
 			ArtiSound.play()
 			await get_tree().create_timer(2).timeout
-			removeLight()
 			liReady = true
-	if liReady == false:
-		setLightPosition(camera.position)
-		
+	
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	
@@ -73,12 +70,10 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
-	var server_node = get_node("/root/Level/Level1/Map/MultiMeshInstance3D")
-	var shader_material = ShaderMaterial.new()
-	shader_material.shader = load("res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader")
-	server_node.material_override.next_pass = shader_material 
 	
-	
+
+
+
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
@@ -102,6 +97,24 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	var peak_volume = AudioServer.get_bus_peak_volume_left_db((AudioServer.get_bus_index("enviromentalBus")), 0)
+	print(peak_volume)
+	if peak_volume > reveal_threshold:
+		reveal_timer = reveal_duration  # Trigger reveal effect
+		print("I HEAR THINGS")
+	if reveal_timer > 0.0:
+		var reveal_amount = reveal_timer / reveal_duration 
+		var sound_x = airCon.position.x
+		var sound_y =airCon.position.y
+		var sound_z =airCon.position.z
+		viewport.get_material().set_shader_parameter("reveal_amount", reveal_amount)
+		viewport.get_material().set_shader_parameter("sound_source_pos", Vector2(sound_x, sound_y))
+		viewport.get_material().set_shader_parameter("sound_source_pos", Vector2(position.x, position.y))
+		viewport.get_material().set_shader_parameter("simulated_depth", float(sound_z))
+		
+		reveal_timer -= delta
+	else:
+		viewport.get_material().set_shader_parameter("reveal_amount", 0)
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_paused:
 		velocity.y = JUMP_VELOCITY

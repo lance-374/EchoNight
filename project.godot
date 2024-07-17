@@ -28,6 +28,10 @@ window/stretch/mode="canvas_items"
 
 import/fbx/enabled=false
 
+[global]
+
+enviromentalBus=false
+
 [input]
 
 up={

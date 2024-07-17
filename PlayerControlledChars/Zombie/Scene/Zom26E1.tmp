@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvxc5ix0t2i32"]
+
+[ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
+[ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
+[ext_resource type="Shader" path="res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader" id="4_j0ta2"]
+[ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssr0x"]
+shader = ExtResource("4_j0ta2")
+shader_parameter/reveal_amount = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epghw"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6o8u"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7esiu"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Zombie" type="CharacterBody3D"]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_81amh")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 180.0
+offset_bottom = 130.0
+scale = Vector2(1.81261, 0.915267)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+modulate = Color(1, 1, 1, 0.0666667)
+material = SubResource("ShaderMaterial_ssr0x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.0509804)
+
+[node name="PS1_Zombie" parent="." instance=ExtResource("2_t0aq3")]
+
+[node name="Camera3D_zombie" type="Camera3D" parent="PS1_Zombie"]
+transform = Transform3D(-1.81818, 0, -0.0011105, 0, 1.81818, 0, 0.0011105, 0, -1.81818, -2.4214e-08, 3.06736, 0.276976)
+fov = 37.8493
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+layers = 8
+mesh = SubResource("CapsuleMesh_2km28")
+surface_material_override/0 = SubResource("StandardMaterial3D_epghw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape3D_w6o8u")
+
+[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7esiu")
+
+[node name="AudioStreamPlayer3D_groaning" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07025, 0)
+stream = ExtResource("4_k01k8")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
+spawn_path = NodePath("..")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
