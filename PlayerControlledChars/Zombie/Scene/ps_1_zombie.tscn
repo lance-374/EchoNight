@@ -37,9 +37,6 @@ bones/28/position = Vector3(0, 4.55045, 3.30676)
 bones/31/position = Vector3(-2.46436, 4.6489, 7.19251)
 bones/32/position = Vector3(-1.34858, 5.89303, 1.90866)
 
-[node name="Zombie" parent="Armature/Skeleton3D" index="0"]
-layers = 524288
-
 [node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -4.36571e-08, 5.97639, 0.727463)
 cull_mask = 524289
