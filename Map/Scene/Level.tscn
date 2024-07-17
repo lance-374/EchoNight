@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
-[ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="2_651qj"]
+[ext_resource type="Environment" uid="uid://bx4ety6200015" path="res://BlueFog_final.tres" id="2_651qj"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
-[ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
+[ext_resource type="AudioStream" uid="uid://dm763ss1thn5n" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 2.33214)
 stream = ExtResource("5_3qrrh")
 
 [node name="SpawnLocation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 0, -0.38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 1.04703, -0.38)
 
 [connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
 [connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]

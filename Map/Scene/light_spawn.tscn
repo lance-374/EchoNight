@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" path="res://Map/Scripts/light_spawn.gd" id="1_q51cm"]
 
-[node name="LightSpawn" type="OmniLight3D"]
+[node name="LightSpawn" type="OmniLight3D" groups=["zombie_light"]]
+layers = 524288
 light_color = Color(0.0514957, 0.149942, 0.458974, 1)
-light_energy = 11.99
-omni_range = 7.61
+light_energy = 16.0
+light_cull_mask = 4294443009
+omni_range = 13.6853
 script = ExtResource("1_q51cm")

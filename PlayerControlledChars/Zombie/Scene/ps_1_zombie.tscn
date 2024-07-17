@@ -42,4 +42,5 @@ layers = 524288
 
 [node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -4.36571e-08, 5.97639, 0.727463)
+cull_mask = 524289
 near = 0.5

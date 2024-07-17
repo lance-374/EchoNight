@@ -124,7 +124,7 @@ func _physics_process(delta):
 	else:
 		anim_player.play("idle")
 		
-	makeSound.rpc()
+
 	move_and_slide()
 	
 	#car battery objective
@@ -154,19 +154,7 @@ func exited_car_area(node):
 	level = node
 	is_in_car_area = false
 
-@rpc("call_local")
-func makeSound():
-	if not is_multiplayer_authority(): return
-	if Input.is_action_just_pressed("clap") and not is_paused:
-		if liReady == true:
-			liReady = false
-			spawnLight($Camera3D_human.position)
-			ArtiSound.play()
-			await get_tree().create_timer(0.5).timeout
-			removeLight()
-			liReady = true
-	if liReady == false:
-		setLightPosition($Camera3D_human.position)
+
 
 @rpc("any_peer")
 func receive_damage():
