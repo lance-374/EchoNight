@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://fr3f67twjyfw"
+path="res://.godot/imported/Car_Door_Close.ogg-c161f7fc1378e3bce5596d154fd1d4ff.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sound effects/Car_Door_Close.ogg"
+dest_files=["res://.godot/imported/Car_Door_Close.ogg-c161f7fc1378e3bce5596d154fd1d4ff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

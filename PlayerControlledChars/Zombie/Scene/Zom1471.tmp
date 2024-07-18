@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvxc5ix0t2i32"]
+
+[ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
+[ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
+[ext_resource type="Shader" path="res://PlayerControlledChars/Shaders/Zombie.gdshader" id="3_q57uu"]
+[ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scene/zombie_blindness_shader.gd" id="4_hn6jg"]
+[ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epghw"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6o8u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lroh0"]
+render_priority = 0
+shader = ExtResource("3_q57uu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnl86"]
+material = SubResource("ShaderMaterial_lroh0")
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7esiu"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Zombie" type="CharacterBody3D"]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_81amh")
+
+[node name="PS1_Zombie" parent="." instance=ExtResource("2_t0aq3")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+layers = 8
+mesh = SubResource("CapsuleMesh_2km28")
+surface_material_override/0 = SubResource("StandardMaterial3D_epghw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape3D_w6o8u")
+
+[node name="Camera3D_zombie" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0.000610865, 0, 1, 0, -0.000610865, 0, 1, 0, 3.06736, -0.276976)
+
+[node name="zombie_blindness_shader" type="MeshInstance3D" parent="Camera3D_zombie"]
+transform = Transform3D(5.5, -0.00335976, 1.4686e-10, 0, -2.40413e-07, -5.5, 0.00335976, 5.5, -2.40413e-07, 0.000539289, -0.241705, -0.882829)
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("PlaneMesh_wnl86")
+skeleton = NodePath("../..")
+script = ExtResource("4_hn6jg")
+
+[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7esiu")
+
+[node name="AudioStreamPlayer3D_groaning" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07025, 0)
+stream = ExtResource("4_k01k8")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
+spawn_path = NodePath("..")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]

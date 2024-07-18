@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsm7mx3v8b1pf"
+path="res://.godot/imported/210929-Human_Whistle_Notification_Sound_04.wav-0e6d9c894f5354022c03097d7262f334.sample"
+
+[deps]
+
+source_file="res://Assets/Sound effects/210929-Human_Whistle_Notification_Sound_04.wav"
+dest_files=["res://.godot/imported/210929-Human_Whistle_Notification_Sound_04.wav-0e6d9c894f5354022c03097d7262f334.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
