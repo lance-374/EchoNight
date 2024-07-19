@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://bx4ety6200015" path="res://BlueFog_final.tres" id="2_651qj"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
-[ext_resource type="AudioStream" uid="uid://dm763ss1thn5n" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
+[ext_resource type="AudioStream" uid="uid://gtci86eqnl6d" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
