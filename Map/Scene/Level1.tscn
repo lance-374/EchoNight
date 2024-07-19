@@ -232,6 +232,16 @@ spot_range = 37.9629
 spot_attenuation = 0.535887
 spot_angle = 57.9199
 
+[node name="LightingSpawn7" type="SpotLight3D" parent="Lighting/LightingSpawn"]
+transform = Transform3D(0.254513, -0.847166, 0.466404, 0.809479, -0.0772523, -0.582045, 0.52912, 0.525682, 0.666101, -9.09876, -35.3851, 13.4232)
+layers = 2
+light_color = Color(1, 0.878431, 0.721569, 1)
+light_energy = 7.54
+shadow_enabled = true
+spot_range = 37.9629
+spot_attenuation = 0.535887
+spot_angle = 57.9199
+
 [node name="LightingSpawn5" type="SpotLight3D" parent="Lighting/LightingSpawn"]
 transform = Transform3D(0.267582, -0.848071, 0.457357, 0.792491, -0.076277, -0.605096, 0.54805, 0.524363, 0.651678, 39.3704, -33.4633, -18.9133)
 layers = 2
@@ -269,20 +279,11 @@ light_volumetric_fog_energy = 0.634
 spot_range = 37.9629
 spot_angle = 46.2656
 
-[node name="LightingSpawn2" type="SpotLight3D" parent="Lighting"]
+[node name="LightingSpawn_" type="Node3D" parent="Lighting"]
 transform = Transform3D(0.202815, 0.881862, 0.425659, -0.61891, -0.221413, 0.753609, 0.758825, -0.416288, 0.500888, -62.0341, 11.0385, 42.4364)
-layers = 2
-light_color = Color(1, 0.878431, 0.721569, 1)
-light_energy = 2.466
-light_volumetric_fog_energy = 1.977
-shadow_enabled = true
-distance_fade_enabled = true
-spot_range = 31.0184
-spot_attenuation = 0.341511
-spot_angle = 27.709
 
-[node name="LightingSpawn2" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
-transform = Transform3D(0.18569, -0.982365, -0.021873, 0.817711, 0.166833, -0.550922, 0.544855, 0.0844148, 0.83427, 2.98137, -57.1876, 8.34423)
+[node name="LightingSpawn2" type="SpotLight3D" parent="Lighting/LightingSpawn_"]
+transform = Transform3D(0.277712, -0.960652, -0.00492004, 0.753125, 0.220893, -0.619685, 0.596388, 0.168389, 0.784836, 6.80917, -65.0966, 9.16414)
 layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 8.45
@@ -292,8 +293,8 @@ spot_range = 34.3219
 spot_attenuation = 0.196146
 spot_angle = 24.5594
 
-[node name="LightingSpawn6" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
-transform = Transform3D(-0.200143, -0.454601, -0.867917, -0.940493, -0.159151, 0.30024, -0.274619, 0.876361, -0.395696, -8.75677, -67.6141, -14.4873)
+[node name="LightingSpawn6" type="SpotLight3D" parent="Lighting/LightingSpawn_"]
+transform = Transform3D(-0.200143, -0.454601, -0.867918, -0.940493, -0.159151, 0.30024, -0.274619, 0.876361, -0.395696, -8.75677, -67.6141, -14.4873)
 layers = 2
 light_color = Color(1, 0.776471, 0.694118, 1)
 light_energy = 1.122
@@ -303,8 +304,8 @@ spot_range = 34.3219
 spot_attenuation = 0.225313
 spot_angle = 24.5594
 
-[node name="LightingSpawn4" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
-transform = Transform3D(-0.31594, -0.585868, -0.746284, 0.783644, -0.604561, 0.142852, -0.534867, -0.539688, 0.650118, -32.1854, 23.2492, -34.6613)
+[node name="LightingSpawn4" type="SpotLight3D" parent="Lighting/LightingSpawn_"]
+transform = Transform3D(-0.31594, -0.585869, -0.746284, 0.783645, -0.604561, 0.142853, -0.534867, -0.539689, 0.650118, -32.1854, 23.2492, -34.6613)
 layers = 2
 light_color = Color(1, 0.878431, 0.721569, 1)
 light_energy = 6.374
@@ -314,17 +315,17 @@ spot_range = 25.8759
 spot_attenuation = 0.435275
 spot_angle = 62.571
 
-[node name="LightingSpawn3" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06912, 54.5786, 16.1405)
+[node name="LightingSpawn3" type="SpotLight3D" parent="Lighting/LightingSpawn_"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 5.96046e-08, 1.49012e-08, 1, -8.06912, 54.5786, 16.1405)
 layers = 2
 light_energy = 7.54
 spot_range = 37.9629
 spot_angle = 57.9199
 
-[node name="LightingSpawn5" type="SpotLight3D" parent="Lighting/LightingSpawn2"]
-transform = Transform3D(0.460879, 0.506422, -0.728785, -0.884102, 0.333398, -0.327427, 0.077159, 0.795225, 0.601385, -46.1492, -42.2593, -43.0527)
+[node name="LightingSpawn5" type="SpotLight3D" parent="Lighting/LightingSpawn_"]
+transform = Transform3D(0.460879, 0.506422, -0.728785, -0.884102, 0.333398, -0.327428, 0.077159, 0.795225, 0.601385, -46.1492, -42.2593, -43.0527)
 layers = 2
-light_energy = 7.54
+light_energy = 3.0
 shadow_enabled = true
 spot_range = 37.9629
 spot_attenuation = 0.217638
@@ -503,13 +504,14 @@ shadow_enabled = true
 omni_range = 20.6125
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Lighting2"]
-transform = Transform3D(0.997415, 0.0120586, -0.070835, 0.0192905, 0.904689, 0.425635, 0.0692162, -0.425901, 0.902118, 8.45372, 86.8083, 12.8992)
+transform = Transform3D(0.994782, 0.0666585, -0.0772353, -0.00813349, 0.806446, 0.591251, 0.101698, -0.587538, 0.802781, 8.85567, 86.6474, 11.2775)
 layers = 2
-light_energy = 5.438
+light_energy = 3.0
 light_volumetric_fog_energy = 2.835
 shadow_enabled = true
-spot_range = 18.7594
-spot_angle = 28.2765
+spot_range = 17.0948
+spot_attenuation = 0.554785
+spot_angle = 36.2844
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lighting/Lighting2"]
 transform = Transform3D(0.625799, 0.146508, -0.766101, -0.012946, 0.984016, 0.177607, 0.779877, -0.101228, 0.617693, 19.9907, -16.5429, 7.1988)
@@ -746,6 +748,22 @@ light_energy = 3.0
 shadow_enabled = true
 omni_range = 24.8767
 
+[node name="Street8" type="OmniLight3D" parent="Lighting/Street"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.0843, 0, -1.97744)
+layers = 2
+light_color = Color(1, 0.878431, 0.721569, 1)
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 24.8767
+
+[node name="Street13" type="OmniLight3D" parent="Lighting/Street"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.0843, 0, 36.2368)
+layers = 2
+light_color = Color(1, 0.878431, 0.721569, 1)
+light_energy = 3.0
+shadow_enabled = true
+omni_range = 24.8767
+
 [node name="Street12" type="OmniLight3D" parent="Lighting/Street"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8455, 0, -64.6506)
 layers = 2
@@ -809,7 +827,7 @@ omni_range = 18.1831
 omni_attenuation = 0.307786
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting/LightingKey\'"]
-transform = Transform3D(1, 1.39698e-09, -1.93715e-07, -1.91981e-09, 1, -1.93715e-07, 1.94983e-07, 1.93715e-07, 1, -44.5827, -1.95285, -6.34635)
+transform = Transform3D(1, 1.35087e-11, -2.68538e-07, 2.61596e-09, 1, -1.86265e-07, 2.10112e-07, 1.86265e-07, 1, -37.9211, -1.06055, -16.7952)
 layers = 2
 light_energy = 2.832
 light_volumetric_fog_energy = 0.0
