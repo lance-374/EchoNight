@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3oa3ph6m687b"]
+[gd_scene load_steps=23 format=3 uid="uid://c3oa3ph6m687b"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Human/Scripts/Human.gd" id="1_fbt8g"]
 [ext_resource type="PackedScene" uid="uid://cyfa7q4j780qy" path="res://PlayerControlledChars/Human/Scene/Human72.glb" id="2_4356e"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b4rilk3tl63ly" path="res://Assets/spark_particle.png" id="3_s76oe"]
 [ext_resource type="AudioStream" uid="uid://dyjpelnbk5c7o" path="res://Assets/Sound effects/shotgun.wav" id="4_cal7m"]
 [ext_resource type="AudioStream" uid="uid://cpq4e47wmueq3" path="res://Assets/Sound effects/human_whistling.mp3" id="5_qf4kq"]
+[ext_resource type="Texture2D" uid="uid://cfayxkpcwgv5m" path="res://Assets/circle_02.png" id="7_5vsqh"]
+[ext_resource type="Texture2D" uid="uid://ck5qqatew6ugl" path="res://Assets/Blood/BoodLight.png" id="8_jgtdr"]
+[ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="9_71887"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
 
@@ -155,7 +158,8 @@ _data = {
 
 [node name="Human" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
-collision_layer = 6
+collision_layer = 7
+safe_margin = 0.26
 script = ExtResource("1_fbt8g")
 
 [node name="Human72" parent="." instance=ExtResource("2_4356e")]
@@ -170,6 +174,7 @@ shape = SubResource("CapsuleShape3D_0hf2x")
 
 [node name="Camera3D_human" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.970972, -0.41977)
+cull_mask = 15
 
 [node name="Shotgun" type="MeshInstance3D" parent="Camera3D_human"]
 transform = Transform3D(-1.81e-06, 0, 0.5, 0, 0.5, 0, -0.5, 0, -1.81e-06, 0.674712, -1.25561, -0.147322)
@@ -217,5 +222,54 @@ spawn_path = NodePath("..")
 [node name="BatteryTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 15.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_5vsqh")
+
+[node name="BloodLight" type="TextureRect" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_jgtdr")
+expand_mode = 1
+
+[node name="BloodHeavy" type="TextureRect" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_71887")
+expand_mode = 1
 
 [connection signal="timeout" from="BatteryTimer" to="." method="_on_battery_timer_timeout"]
