@@ -1,9 +1,9 @@
 extends SpotLight3D
 
 # Parameters for flickering effect
-var min_intensity: float = 0
-var max_intensity: float = 3
-var flicker_speed: float = 1
+@export var min_intensity: float = 0
+@export var max_intensity: float = 20
+#@export var flicker_speed: float = 1
 
 func _process(delta: float) -> void:
 	# Flicker intensity
