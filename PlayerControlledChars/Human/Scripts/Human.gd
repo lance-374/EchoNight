@@ -37,6 +37,8 @@ func _ready():
 	camera.current = true
 
 func toggle_pause():
+	if dead:
+		return
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
 	audio.play()
 	if is_paused:
@@ -48,7 +50,7 @@ func toggle_pause():
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
-	if not is_paused:
+	if not is_paused and not dead:
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x * .005)
 			camera.rotate_x(-event.relative.y * .005)
@@ -65,12 +67,6 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("action") and not dead:
 		pick_up_shotgun()
-	
-	#if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot":
-		#play_shoot_effects.rpc()
-		#if raycast.is_colliding():
-			#var hit_player = raycast.get_collider()
-			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 @rpc("call_local")
 func aniIdel():
@@ -196,10 +192,10 @@ func pick_up_shotgun():
 	has_shotgun = true
 
 func update_health(new_health):
-	health = new_health
+	if new_health:
+		health = new_health
 	if health > 3:
 		health = 3
-		print("ERROR: Invalid health value")
 	elif health == 3:
 		blood_light.hide()
 		blood_heavy.hide()
@@ -210,12 +206,14 @@ func update_health(new_health):
 		blood_light.hide()
 		blood_heavy.show()
 	else:
+		health = 0
 		blood_light.show()
 		blood_heavy.show()
 		kill_player()
 
 func kill_player():
 	dead = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#TODO: change rotation or animation of player so it is lying down
 
 #health bar
