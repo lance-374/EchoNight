@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://dyjpelnbk5c7o" path="res://Assets/Sound effects/shotgun.wav" id="4_cal7m"]
 [ext_resource type="AudioStream" uid="uid://cpq4e47wmueq3" path="res://Assets/Sound effects/human_whistling.mp3" id="5_qf4kq"]
 [ext_resource type="Texture2D" uid="uid://cfayxkpcwgv5m" path="res://Assets/circle_02.png" id="7_5vsqh"]
-[ext_resource type="Texture2D" uid="uid://ck5qqatew6ugl" path="res://Assets/Blood/BoodLight.png" id="8_jgtdr"]
-[ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="9_71887"]
+[ext_resource type="Texture2D" path="res://Assets/Blood/BoodLight.png" id="8_jgtdr"]
+[ext_resource type="Texture2D" path="res://Assets/Blood/BloodHeavy.png" id="9_71887"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
 

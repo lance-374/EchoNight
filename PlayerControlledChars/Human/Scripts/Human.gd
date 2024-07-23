@@ -21,6 +21,8 @@ var is_paused = false
 var instance
 var has_shotgun = false
 var has_battery = false
+var has_key = false
+var is_in_key_area = false
 var is_in_car_area = false
 var level
 var health = 3
@@ -120,6 +122,13 @@ func _physics_process(delta):
 		if $BatteryTimer.time_left > 0 and (Input.is_action_just_released("action") or not is_in_car_area):
 			$BatteryTimer.stop()
 			print("Player cancelled getting car battery")
+	
+	#key objective
+	if not has_key and not dead:
+		if Input.is_action_just_pressed("action") and is_in_key_area and not level.humans_have_key:
+			level.get_key()
+			has_key = true
+			print("Player got key")
 
 func _on_battery_timer_timeout():
 	print("Player got car battery")
@@ -133,10 +142,18 @@ func entered_car_area(node):
 	level = node
 	is_in_car_area = true
 
-func exited_car_area(node):
+func exited_car_area():
 	print("Player exited car area")
-	level = node
 	is_in_car_area = false
+
+func entered_key_area(node):
+	print("Player entered key area")
+	level = node
+	is_in_key_area = true
+
+func exited_key_area():
+	print("Player exited key area")
+	is_in_key_area = false
 	
 #shader stuff
 func spawnLight(pos):

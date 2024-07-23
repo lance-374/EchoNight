@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=12 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
 [ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
+[ext_resource type="PackedScene" uid="uid://bncbdpy6i2ggb" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
 
 [sub_resource type="Environment" id="Environment_ho5j5"]
 
@@ -21,6 +22,8 @@ points = PackedVector3Array(-1.1392, 1.25707, 1.32663, 1.37963, 1.57148, 1.45657
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2un4e"]
 size = Vector3(5.78149, 2.92566, 9.2204)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ht4k"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
@@ -64,5 +67,16 @@ stream = ExtResource("5_3qrrh")
 [node name="SpawnLocation" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 0, -0.38)
 
+[node name="Key" parent="." instance=ExtResource("6_u5cty")]
+transform = Transform3D(1, 0, 0, 0, 0.997844, -0.0656295, 0, 0.0656295, 0.997844, 9.15343, 1.22149, 7.65879)
+
+[node name="KeyArea" type="Area3D" parent="Key"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KeyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)
+shape = SubResource("SphereShape3D_7ht4k")
+
 [connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
 [connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]
+[connection signal="body_entered" from="Key/KeyArea" to="." method="_on_key_area_body_entered"]
+[connection signal="body_exited" from="Key/KeyArea" to="." method="_on_key_area_body_exited"]

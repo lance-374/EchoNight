@@ -10,6 +10,9 @@ var latestPlayerType
 var player_character_choices = {}
 @export var humans_have_car_battery = false
 @export var car_alarm_playing = false
+@export var humans_have_key = false
+@export var human_has_shotgun_1 = false
+@export var human_has_shotgun_2 = false
 
 func _ready():
 	main_menu.connect("addressEntered", joinAddressEntered)
@@ -58,13 +61,27 @@ func _on_car_area_body_entered(body):
 	if body.has_method("entered_car_area"):
 		body.entered_car_area(self)
 
-func toggle_car_alarm(mode):
-	car_alarm_playing = mode
-
 func _on_car_area_body_exited(body):
 	print(body)
 	if body.has_method("exited_car_area"):
-		body.exited_car_area(self)
+		body.exited_car_area()
+
+func toggle_car_alarm(mode):
+	car_alarm_playing = mode
+	
+func _on_key_area_body_entered(body):
+	print(body)
+	if body.has_method("entered_key_area"):
+		body.entered_key_area(self)
+
+func _on_key_area_body_exited(body):
+	print(body)
+	if body.has_method("exited_key_area"):
+		body.exited_key_area()
+		
+func get_key():
+	humans_have_key = true
+	$Key.queue_free()
 
 func upnp_setup():
 	var upnp = UPNP.new()
