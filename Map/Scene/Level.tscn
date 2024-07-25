@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=14 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
 [ext_resource type="PackedScene" uid="uid://bncbdpy6i2ggb" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
+[ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="7_1r1i3"]
 
 [sub_resource type="Environment" id="Environment_ho5j5"]
 
@@ -24,6 +25,9 @@ points = PackedVector3Array(-1.1392, 1.25707, 1.32663, 1.37963, 1.57148, 1.45657
 size = Vector3(5.78149, 2.92566, 9.2204)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7ht4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kaqpw"]
+size = Vector3(6.33489, 2.1699, 3.46411)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
@@ -76,7 +80,31 @@ transform = Transform3D(1, 0, 0, 0, 0.997844, -0.0656295, 0, 0.0656295, 0.997844
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)
 shape = SubResource("SphereShape3D_7ht4k")
 
+[node name="Shotgun1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.884092, -0.466873, 0.0202698, 0, -0.0433753, -0.999059, 0.467313, -0.88326, 0.0383477, 8.38064, 1.59106, -24.1098)
+mesh = ExtResource("7_1r1i3")
+
+[node name="Shotgun1Area" type="Area3D" parent="Shotgun1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shotgun1/Shotgun1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140263, 1.56981, -0.467162)
+shape = SubResource("BoxShape3D_kaqpw")
+
+[node name="Shotgun2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.952651, 0.30378, -0.013189, 0, -0.0433753, -0.999059, -0.304066, 0.951754, -0.0413215, 10.3605, 1.59106, -0.468674)
+mesh = ExtResource("7_1r1i3")
+
+[node name="Shotgun2Area" type="Area3D" parent="Shotgun2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shotgun2/Shotgun2Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140263, 1.56981, -0.467162)
+shape = SubResource("BoxShape3D_kaqpw")
+
 [connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
 [connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]
 [connection signal="body_entered" from="Key/KeyArea" to="." method="_on_key_area_body_entered"]
 [connection signal="body_exited" from="Key/KeyArea" to="." method="_on_key_area_body_exited"]
+[connection signal="body_entered" from="Shotgun1/Shotgun1Area" to="." method="_on_shotgun_1_area_body_entered"]
+[connection signal="body_exited" from="Shotgun1/Shotgun1Area" to="." method="_on_shotgun_1_area_body_exited"]
+[connection signal="body_entered" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_entered"]
+[connection signal="body_exited" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_exited"]

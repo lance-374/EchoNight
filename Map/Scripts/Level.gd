@@ -54,8 +54,6 @@ func remove_player(peer_id):
 	if player:
 		player.queue_free()
 
-
-
 func _on_car_area_body_entered(body):
 	print(body)
 	if body.has_method("entered_car_area"):
@@ -83,18 +81,46 @@ func get_key():
 	humans_have_key = true
 	$Key.queue_free()
 
-func upnp_setup():
-	var upnp = UPNP.new()
-	
-	var discover_result = upnp.discover()
-	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Discover Failed! Error %s" % discover_result)
+func _on_shotgun_1_area_body_entered(body):
+	print(body)
+	if body.has_method("entered_shotgun_1_area"):
+		body.entered_shotgun_1_area(self)
 
-	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
-		"UPNP Invalid Gateway!")
+func _on_shotgun_1_area_body_exited(body):
+	print(body)
+	if body.has_method("exited_shotgun_1_area"):
+		body.exited_shotgun_1_area()
 
-	var map_result = upnp.add_port_mapping(PORT)
-	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Port Mapping Failed! Error %s" % map_result)
-	
-	print("Success! Join Address: %s" % upnp.query_external_address())
+func get_shotgun_1():
+	$Shotgun1.queue_free()
+	human_has_shotgun_1 = true
+
+func _on_shotgun_2_area_body_entered(body):
+	print(body)
+	if body.has_method("entered_shotgun_2_area"):
+		body.entered_shotgun_2_area(self)
+
+func _on_shotgun_2_area_body_exited(body):
+	print(body)
+	if body.has_method("exited_shotgun_2_area"):
+		body.exited_shotgun_2_area()
+
+func get_shotgun_2():
+	$Shotgun2.queue_free()
+	human_has_shotgun_2 = true
+
+#func upnp_setup():
+	#var upnp = UPNP.new()
+	#
+	#var discover_result = upnp.discover()
+	#assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
+		#"UPNP Discover Failed! Error %s" % discover_result)
+#
+	#assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
+		#"UPNP Invalid Gateway!")
+#
+	#var map_result = upnp.add_port_mapping(PORT)
+	#assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
+		#"UPNP Port Mapping Failed! Error %s" % map_result)
+	#
+	#print("Success! Join Address: %s" % upnp.query_external_address())

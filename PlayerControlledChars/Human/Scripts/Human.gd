@@ -24,6 +24,8 @@ var has_battery = false
 var has_key = false
 var is_in_key_area = false
 var is_in_car_area = false
+var is_in_shotgun_1_area = false
+var is_in_shotgun_2_area = false
 var level
 var health = 3
 var gravity = 9.8
@@ -66,9 +68,19 @@ func _unhandled_input(event):
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
-	
+
+	#key objective
 	if Input.is_action_just_pressed("action") and not dead:
-		pick_up_shotgun()
+		if is_in_key_area:
+			level.get_key()
+			has_key = true
+			print("Player got key")
+		if is_in_shotgun_1_area:
+			pick_up_shotgun()
+			level.get_shotgun_1()
+		elif is_in_shotgun_2_area:
+			pick_up_shotgun()
+			level.get_shotgun_2()
 
 @rpc("call_local")
 func aniIdel():
@@ -102,14 +114,14 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			aniIdel.rpc()
-
+	
 	if anim_player.current_animation == "shoot":
 		pass
 	elif input_dir != Vector2.ZERO and is_on_floor():
 		anim_player.play("move")
 	else:
 		anim_player.play("idle")
-		
+	
 	makeSound.rpc()
 	move_and_slide()
 	
@@ -122,13 +134,6 @@ func _physics_process(delta):
 		if $BatteryTimer.time_left > 0 and (Input.is_action_just_released("action") or not is_in_car_area):
 			$BatteryTimer.stop()
 			print("Player cancelled getting car battery")
-	
-	#key objective
-	if not has_key and not dead:
-		if Input.is_action_just_pressed("action") and is_in_key_area and not level.humans_have_key:
-			level.get_key()
-			has_key = true
-			print("Player got key")
 
 func _on_battery_timer_timeout():
 	print("Player got car battery")
@@ -155,6 +160,24 @@ func exited_key_area():
 	print("Player exited key area")
 	is_in_key_area = false
 	
+func entered_shotgun_1_area(node):
+	print("Player entered shotgun 1 area")
+	level = node
+	is_in_shotgun_1_area = true
+
+func exited_shotgun_1_area():
+	print("Player exited shotgun 1 area")
+	is_in_shotgun_1_area = false
+
+func entered_shotgun_2_area(node):
+	level = node
+	print("Player entered shotgun 2 area")
+	is_in_shotgun_2_area = true
+
+func exited_shotgun_2_area():
+	print("Player exited shotgun 2 area")
+	is_in_shotgun_2_area = false
+
 #shader stuff
 func spawnLight(pos):
 	instance = lightNode.instantiate()
