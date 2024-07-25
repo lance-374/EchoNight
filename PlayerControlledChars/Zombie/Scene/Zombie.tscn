@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvxc5ix0t2i32"]
+[gd_scene load_steps=11 format=3 uid="uid://cvxc5ix0t2i32"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
-[ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Camera3D_zombie.gd" id="3_a4isg"]
+[ext_resource type="Texture2D" uid="uid://ck5qqatew6ugl" path="res://Assets/Blood/BoodLight.png" id="4_dmtck"]
 [ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
+[ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="5_xxat8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
 
@@ -34,9 +35,9 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Zombie" type="CharacterBody3D"]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 collision_layer = 7
-safe_margin = 0.6
+safe_margin = 0.26
 script = ExtResource("1_81amh")
 
 [node name="PS1_Zombie" parent="." instance=ExtResource("2_t0aq3")]
@@ -55,7 +56,6 @@ shape = SubResource("CapsuleShape3D_w6o8u")
 transform = Transform3D(1.81818, 0, 0.00111066, 0, 1.81818, 0, -0.00111066, 0, 1.81818, 0, 2.76871, -0.276976)
 cull_mask = 524289
 environment = SubResource("Environment_0axxg")
-script = ExtResource("3_a4isg")
 
 [node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_7esiu")
@@ -69,3 +69,36 @@ _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BloodLight" type="TextureRect" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dmtck")
+expand_mode = 1
+
+[node name="BloodHeavy" type="TextureRect" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xxat8")
+expand_mode = 1
