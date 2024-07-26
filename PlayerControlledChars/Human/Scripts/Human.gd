@@ -69,16 +69,16 @@ func _unhandled_input(event):
 			var hit_player = raycast.get_collider()
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
-	#key objective
+	#key objective and guns
 	if Input.is_action_just_pressed("action") and not dead:
 		if is_in_key_area:
 			level.get_key()
 			has_key = true
 			print("Player got key")
-		if is_in_shotgun_1_area:
+		if is_in_shotgun_1_area and not has_shotgun:
 			pick_up_shotgun()
 			level.get_shotgun_1()
-		elif is_in_shotgun_2_area:
+		elif is_in_shotgun_2_area and not has_shotgun:
 			pick_up_shotgun()
 			level.get_shotgun_2()
 
