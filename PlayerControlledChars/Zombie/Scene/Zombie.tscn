@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvxc5ix0t2i32"]
+[gd_scene load_steps=10 format=3 uid="uid://cvxc5ix0t2i32"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
@@ -6,12 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
 [ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="5_xxat8"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2km28"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epghw"]
-albedo_color = Color(0, 1, 1, 1)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6o8u"]
+radius = 0.788046
+height = 6.0
 
 [sub_resource type="Environment" id="Environment_0axxg"]
 background_energy_multiplier = 16.0
@@ -34,6 +31,9 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8jls"]
+size = Vector3(2.17944, 5.59857, 1.99023)
+
 [node name="Zombie" type="CharacterBody3D"]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 collision_layer = 7
@@ -41,19 +41,14 @@ safe_margin = 0.26
 script = ExtResource("1_81amh")
 
 [node name="PS1_Zombie" parent="." instance=ExtResource("2_t0aq3")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-layers = 11
-mesh = SubResource("CapsuleMesh_2km28")
-surface_material_override/0 = SubResource("StandardMaterial3D_epghw")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.81818, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
 shape = SubResource("CapsuleShape3D_w6o8u")
 
 [node name="Camera3D_zombie" type="Camera3D" parent="."]
-transform = Transform3D(1.81818, 0, 0.00111066, 0, 1.81818, 0, -0.00111066, 0, 1.81818, 0, 2.76871, -0.276976)
+transform = Transform3D(1.81818, 0, 0.00111066, 0, 1.81818, 0, -0.00111066, 0, 1.81818, 0, 4.58689, -0.276976)
 cull_mask = 524289
 environment = SubResource("Environment_0axxg")
 
@@ -102,3 +97,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_xxat8")
 expand_mode = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81818, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0347901, 0.765001, -1.09753)
+shape = SubResource("BoxShape3D_h8jls")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,23 @@
+coordinates for echo night objects:
+rotation in degrees:
+
+level1:
+--------------------------------------------
+car
+position: 68.689 0.988 -118.799
+rotation: 0 90 0
+
+key
+position: 49.105 1.04 49.397
+rotation 3.8 0 0
+
+shotgun1
+position: -100.427 1.294 -15.719
+rotation: 87.5 27.9 180
+
+shotgun2
+position: -97.92 1.171 -0.469
+rotation: 87.5 -162.3 180
+--------------------------------------------
+
+trap idea: put a bunch of dead car batteries with keys to distract players

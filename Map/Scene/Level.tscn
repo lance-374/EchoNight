@@ -73,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)
 shape = SubResource("SphereShape3D_7ht4k")
 
 [node name="Shotgun1" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.884092, -0.466873, 0.0202698, 0, -0.0433753, -0.999059, 0.467313, -0.88326, 0.0383477, -100.427, 1.2939, -15.7193)
+transform = Transform3D(-0.884092, -0.466873, 0.0202698, 0, -0.0433753, -0.999059, 0.467313, -0.88326, 0.0383477, -100.427, 1.294, -15.719)
 mesh = ExtResource("7_1r1i3")
 
 [node name="Shotgun1Area" type="Area3D" parent="Shotgun1"]

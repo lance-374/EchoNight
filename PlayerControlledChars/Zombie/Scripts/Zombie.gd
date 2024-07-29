@@ -11,8 +11,12 @@ extends CharacterBody3D
 var health = 3
 var is_paused = false
 var dead = false
+var ready_to_attack = false
+var player_to_attack
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const HUMAN = false
+const ZOMBIE = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
@@ -23,6 +27,10 @@ func playWalk():
 @rpc("call_local")
 func playIdle():
 	aniPlayer.play("IdleZ")
+
+@rpc("call_local")
+func playAttack():
+	aniPlayer.play("GrabBiteZ")
 
 @onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
 var instance
@@ -87,6 +95,11 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("escape"):
 		toggle_pause()
+	
+	if Input.is_action_just_pressed("left_click"):
+		if ready_to_attack:
+			playAttack()
+			player_to_attack.receive_damage.rpc_id(player_to_attack.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -119,11 +132,12 @@ func receive_damage():
 	update_health(health-1)
 
 func update_health(new_health):
-	if new_health:
-		health = new_health
+	print("Health")
+	print(new_health)
+	health = new_health
 	if health > 3:
 		health = 3
-	elif health == 3:
+	if health == 3:
 		blood_light.hide()
 		blood_heavy.hide()
 	elif health == 2:
@@ -140,5 +154,18 @@ func update_health(new_health):
 
 func kill_player():
 	dead = true
+	print("Killed zombie")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#TODO: change rotation or animation of player so it is lying down
+
+func _on_area_3d_body_entered(body):
+	if body.has_method("receive_damage") and body.HUMAN:
+		print("Human entered zombie attack area")
+		ready_to_attack = true
+		player_to_attack = body
+
+func _on_area_3d_body_exited(body):
+	if body.has_method("receive_damage") and body.HUMAN:
+		print("Human exited zombie attack area")
+		ready_to_attack = false
+		player_to_attack = null

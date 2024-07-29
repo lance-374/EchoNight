@@ -16,6 +16,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const HUMAN = true
+const ZOMBIE = false
 var liReady = true
 var is_paused = false
 var instance
@@ -60,13 +62,14 @@ func _unhandled_input(event):
 			camera.rotate_x(-event.relative.y * .005)
 			camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 		
-	if Input.is_action_just_pressed("escape"):
+	if Input.is_action_just_pressed("escape") and not dead:
 		toggle_pause()
 	
 	if Input.is_action_just_pressed("shoot") and not shotgun_sound.playing and not is_paused and has_shotgun and not dead:
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
+			print(hit_player)
 			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
 
 	#key objective and guns
@@ -232,11 +235,12 @@ func pick_up_shotgun():
 	has_shotgun = true
 
 func update_health(new_health):
-	if new_health:
-		health = new_health
+	print("Health")
+	print(new_health)
+	health = new_health
 	if health > 3:
 		health = 3
-	elif health == 3:
+	if health == 3:
 		blood_light.hide()
 		blood_heavy.hide()
 	elif health == 2:
@@ -245,7 +249,7 @@ func update_health(new_health):
 	elif health == 1:
 		blood_light.hide()
 		blood_heavy.show()
-	else:
+	elif health <= 0:
 		health = 0
 		blood_light.show()
 		blood_heavy.show()
@@ -253,6 +257,7 @@ func update_health(new_health):
 
 func kill_player():
 	dead = true
+	print("Killed human")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#TODO: change rotation or animation of player so it is lying down
 
