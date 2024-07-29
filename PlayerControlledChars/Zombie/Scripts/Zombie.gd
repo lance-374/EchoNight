@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var camera = $PS1_Zombie/Armature/Skeleton3D/Camera3D
-@onready var aniPlayer = $PS1_Zombie/AnimationPlayer
+@onready var aniPlayer = $PS1_Zombie/AnimationPlayer2
 @onready var ArtiSound = $AudioStreamPlayer3D_groaning
 @onready var liReady = true
 @onready var audio = $Audio
@@ -13,12 +13,12 @@ var is_paused = false
 var dead = false
 var ready_to_attack = false
 var player_to_attack
+var attacking = false
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const HUMAN = false
 const ZOMBIE = true
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 @rpc("call_local")
 func playWalk():
@@ -34,7 +34,6 @@ func playAttack():
 
 @onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
 var instance
-# Called when the node enters the scene tree for the first time.
 
 func spawnLight(pos):
 	instance = lightNode.instantiate()
@@ -97,8 +96,9 @@ func _unhandled_input(event):
 		toggle_pause()
 	
 	if Input.is_action_just_pressed("left_click"):
-		if ready_to_attack:
-			playAttack()
+		if ready_to_attack and not attacking:
+			attacking = true
+			playAttack.rpc()
 			player_to_attack.receive_damage.rpc_id(player_to_attack.get_multiplayer_authority())
 
 func _physics_process(delta):
@@ -118,11 +118,13 @@ func _physics_process(delta):
 	if direction and not is_paused and not dead:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		playWalk.rpc()
+		if not attacking:
+			playWalk.rpc()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		playIdle.rpc()
+		if not attacking:
+			playIdle.rpc()
 		makeSound.rpc()
 	
 	move_and_slide()
@@ -169,3 +171,8 @@ func _on_area_3d_body_exited(body):
 		print("Human exited zombie attack area")
 		ready_to_attack = false
 		player_to_attack = null
+
+
+func _on_animation_player_2_animation_finished(anim_name):
+	if anim_name == "GrabBiteZ":
+		attacking = false
