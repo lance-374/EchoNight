@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3oa3ph6m687b"]
+[gd_scene load_steps=22 format=3 uid="uid://c3oa3ph6m687b"]
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Human/Scripts/Human.gd" id="1_fbt8g"]
 [ext_resource type="PackedScene" uid="uid://cyfa7q4j780qy" path="res://PlayerControlledChars/Human/Scene/Human72.glb" id="2_4356e"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cfayxkpcwgv5m" path="res://Assets/circle_02.png" id="7_5vsqh"]
 [ext_resource type="Texture2D" uid="uid://ck5qqatew6ugl" path="res://Assets/Blood/BoodLight.png" id="8_jgtdr"]
 [ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="9_71887"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_x8wjk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hf2x"]
 
@@ -163,11 +161,7 @@ safe_margin = 0.26
 script = ExtResource("1_fbt8g")
 
 [node name="Human72" parent="." instance=ExtResource("2_4356e")]
-transform = Transform3D(-0.18, 0, -1.57361e-08, 0, 0.18, 0, 1.57361e-08, 0, -0.18, 0.998746, -1.00185, 0.0541913)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CapsuleMesh_x8wjk")
+transform = Transform3D(-0.18, 0, -2.71792e-08, 0, 0.18, 0, 2.71792e-08, 0, -0.18, 0.998746, -1.00185, 0.0541913)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0hf2x")
@@ -211,6 +205,7 @@ libraries = {
 playback_default_blend_time = 0.05
 
 [node name="AudioStreamPlayer3D_human_whistle" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.772741, 0)
 stream = ExtResource("5_qf4kq")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
