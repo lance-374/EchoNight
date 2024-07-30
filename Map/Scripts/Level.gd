@@ -4,7 +4,7 @@ extends Node
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
-
+@onready var listOfPlayers = []
 
 const PORT = 3000
 const PlayerSelection = preload("res://Menu/Scene/CharacterSelection.tscn")
@@ -15,6 +15,7 @@ var player_character_choices = {}
 func _ready():
 	main_menu.connect("addressEntered", joinAddressEntered)
 	main_menu.connect("hostWorldStart", startHost)
+	
 
 func startHost():
 	main_menu.hide()
@@ -41,8 +42,8 @@ func add_player(peer_id):
 	var player = PlayerSelection.instantiate()
 	print(peer_id)
 	player.name = str(peer_id)
+	listOfPlayers.append(player.name)
 	add_child(player)
-	
 	#if player.is_multiplayer_authority():
 		#player.health_changed.connect(update_health_bar)
 

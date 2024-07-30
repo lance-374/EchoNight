@@ -5,7 +5,11 @@
 [node name="PS1_Zombie" instance=ExtResource("1_5v0x8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Armature" index="0"]
+[node name="Camera3D" type="Camera3D" parent="Armature" index="0"]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -4.36571e-08, 5.97639, 0.727463)
+near = 0.5
+
+[node name="Skeleton3D" parent="Armature" index="1"]
 bones/0/position = Vector3(0, 0, 0)
 bones/2/rotation = Quaternion(-0.0431647, 1.19098e-07, -5.14563e-09, 0.999068)
 bones/3/rotation = Quaternion(0.000253592, -9.69476e-08, -9.37355e-09, 1)
@@ -38,7 +42,3 @@ bones/32/position = Vector3(-1.66871, 2.4597, 3.41063)
 
 [node name="Zombie" parent="Armature/Skeleton3D" index="0"]
 layers = 524288
-
-[node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -4.36571e-08, 5.97639, 0.727463)
-near = 0.5

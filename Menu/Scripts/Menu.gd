@@ -6,13 +6,22 @@ signal characterType(type)
 var host: bool
 var type
 @onready var audio = $AudioStreamPlayer
-var pauseSound =  "res://Assets/Menu/Audio/NewMenuAudio/error_02.wav"#Press
-var forwardSound =  "res://Assets/Menu/Audio/NewMenuAudio/menu_scroll_03.wav"#Mouse Enter"res://Assets/Menu/Audio/Menu_Sound_Forward.wav"
+
+var pauseSound =  "res://Assets/Menu/Audio/Menu_Sound_Pause.wav"#Press
+var forwardSound = "res://Assets/Menu/Audio/Menu_Sound_Forward.wav" #Mouse Enter"res://Assets/Menu/Audio/Menu_Sound_Forward.wav"
+
+
+func _ready():
+	audio.bus = "MenuAudio"
+
+
+
 
 #TitleScreen
 func _on_play_button_pressed():
 	audio.stream = load(pauseSound) # Replace with function body.
 	audio.play()
+	$FogLayer.hide()
 	$TitleScreen.hide()
 	$MultiplayerScreen.show()
 
@@ -66,9 +75,10 @@ func _on_start_button_pressed():
 	$MultiplayerScreen.hide()
 
 func _on_back_button_pressed():
-	$MultiplayerScreen.hide()
 	audio.stream = load(pauseSound) # Replace with function body.
 	audio.play()
+	$MultiplayerScreen.hide()
+	$FogLayer.show()
 	$TitleScreen.show()
 
 

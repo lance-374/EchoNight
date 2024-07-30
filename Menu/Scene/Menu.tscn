@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4wy7sc18164g"]
+[gd_scene load_steps=8 format=3 uid="uid://b4wy7sc18164g"]
 
 [ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_0h8p5"]
 [ext_resource type="Texture2D" uid="uid://bnpf3yipj6hqn" path="res://Assets/Menu/main_menu_background.png" id="2_6o3ge"]
 [ext_resource type="Script" path="res://Menu/Scripts/Menu.gd" id="2_ykd71"]
+[ext_resource type="Script" path="res://Menu/Scene/FogLayer.gd" id="4_fqr4h"]
+[ext_resource type="Shader" path="res://Menu/Scene/Menu.gdshader" id="4_qdrko"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2lcc"]
 properties/0/path = NodePath(".:visible")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qt13"]
+shader = ExtResource("4_qdrko")
+shader_parameter/mouse_position = null
+shader_parameter/fog_density = null
+shader_parameter/viewport_size = null
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -52,26 +60,26 @@ grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="TitleScreen"]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 302.0
-offset_right = 366.0
-offset_bottom = 353.0
+offset_left = 88.0
+offset_top = 281.0
+offset_right = 319.0
+offset_bottom = 332.0
 text = "PLAY"
 
 [node name="OptionsButton" type="Button" parent="TitleScreen"]
 layout_mode = 0
-offset_left = 650.0
-offset_top = 302.0
-offset_right = 858.0
-offset_bottom = 352.0
+offset_left = 91.0
+offset_top = 367.0
+offset_right = 288.0
+offset_bottom = 417.0
 text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="TitleScreen"]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 429.0
-offset_right = 578.0
-offset_bottom = 480.0
+offset_left = 95.0
+offset_top = 451.0
+offset_right = 225.0
+offset_bottom = 502.0
 text = "QUIT"
 
 [node name="MultiplayerScreen" type="Control" parent="."]
@@ -135,6 +143,18 @@ replication_config = SubResource("SceneReplicationConfig_g2lcc")
 spawn_path = NodePath("..")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FogLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_fqr4h")
+
+[node name="ColorRect" type="ColorRect" parent="FogLayer"]
+material = SubResource("ShaderMaterial_7qt13")
+offset_left = -336.0
+offset_top = -242.0
+offset_right = 1785.0
+offset_bottom = 890.0
+mouse_filter = 2
+color = Color(0.181798, 0.181798, 0.181798, 1)
 
 [connection signal="mouse_entered" from="TitleScreen/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]

@@ -3,14 +3,22 @@
 [ext_resource type="Shader" path="res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader" id="1_sanfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dqot7"]
+render_priority = 0
 shader = ExtResource("1_sanfv")
-shader_parameter/reveal_amount = 1.0
-shader_parameter/sound_source = Vector2(0.5, 0.5)
-shader_parameter/reveal_radius = 0.2
-shader_parameter/z_index = null
-shader_parameter/pulse_intensity = 1.0
-shader_parameter/pulse_frequency = 2.0
-shader_parameter/depth_influence = 0.9
+shader_parameter/audio_intensity = 0.5
+shader_parameter/wave_frequency = 2.0
+shader_parameter/max_distance = 10.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/threshold = 0.1
+shader_parameter/player_position = null
+shader_parameter/audio_source_position = null
+shader_parameter/sweep_direction = Vector3(1, 0, 0)
+shader_parameter/wave_variation = 0.2
+shader_parameter/noise_scale = 1.0
+shader_parameter/isHuman = false
+shader_parameter/delay_duration = 0.2
+shader_parameter/last_time = 0.0
+shader_parameter/pulse_thickness = 0.1
 
 [sub_resource type="Sky" id="Sky_h1h6j"]
 sky_material = SubResource("ShaderMaterial_dqot7")

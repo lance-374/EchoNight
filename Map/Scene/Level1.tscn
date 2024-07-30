@@ -1,20 +1,28 @@
 [gd_scene load_steps=11 format=3 uid="uid://1c4ihmbyalm4"]
 
-[ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="1_qs7pj"]
+[ext_resource type="Environment" uid="uid://dulmamvd38boi" path="res://BlueFog_final.tres" id="1_b11w4"]
 [ext_resource type="MeshLibrary" uid="uid://0b6y3jopuj2v" path="res://Assets/Map/Industrial_ext_meshLib.tres" id="2_07j2x"]
 [ext_resource type="Shader" path="res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader" id="3_2p1lv"]
 [ext_resource type="MeshLibrary" uid="uid://tygilxs6mis8" path="res://Assets/Map/Trees_mesLib.tres" id="3_iilnx"]
 [ext_resource type="AudioStream" uid="uid://taryotx5r6ti" path="res://Assets/Menu/Audio/air-conditioner-in-car-83788.mp3" id="5_wkjdi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc8l4"]
+render_priority = 0
 shader = ExtResource("3_2p1lv")
-shader_parameter/reveal_amount = 0.0
-shader_parameter/sound_source = Vector2(0.5, 0.5)
-shader_parameter/reveal_radius = 0.2
-shader_parameter/z_index = 0.5
-shader_parameter/pulse_intensity = 2.0
-shader_parameter/pulse_frequency = 5.0
-shader_parameter/depth_influence = 0.9
+shader_parameter/audio_intensity = 0.5
+shader_parameter/wave_frequency = 2.0
+shader_parameter/max_distance = 10.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/threshold = 0.5
+shader_parameter/player_position = null
+shader_parameter/audio_source_position = null
+shader_parameter/sweep_direction = Vector3(1, 0, 0)
+shader_parameter/wave_variation = 0.2
+shader_parameter/noise_scale = 50.0
+shader_parameter/isHuman = false
+shader_parameter/delay_duration = 0.5
+shader_parameter/last_time = 0.0
+shader_parameter/pulse_thickness = 0.1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xiu6e"]
 
@@ -23,21 +31,29 @@ transform_format = 1
 mesh = SubResource("ArrayMesh_xiu6e")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cicq0"]
+render_priority = 0
 shader = ExtResource("3_2p1lv")
-shader_parameter/reveal_amount = 0.0
-shader_parameter/sound_source = Vector2(0.5, 0.5)
-shader_parameter/reveal_radius = 0.2
-shader_parameter/z_index = 0.5
-shader_parameter/pulse_intensity = 2.0
-shader_parameter/pulse_frequency = 5.0
-shader_parameter/depth_influence = 0.9
+shader_parameter/audio_intensity = 0.5
+shader_parameter/wave_frequency = 2.0
+shader_parameter/max_distance = 10.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/threshold = 0.5
+shader_parameter/player_position = null
+shader_parameter/audio_source_position = null
+shader_parameter/sweep_direction = Vector3(1, 0, 0)
+shader_parameter/wave_variation = 0.2
+shader_parameter/noise_scale = 50.0
+shader_parameter/isHuman = false
+shader_parameter/delay_duration = 0.5
+shader_parameter/last_time = 0.0
+shader_parameter/pulse_thickness = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccog0"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_qs7pj")
+environment = ExtResource("1_b11w4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0222426, 0.833848, -0.551547, 0.187531, 0.538411, 0.821551, 0.982007, -0.121705, -0.144397, -0.0164261, 24.6227, 0.0846208)
@@ -50,7 +66,7 @@ directional_shadow_blend_splits = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80004, 1.6854)
 stream = ExtResource("5_wkjdi")
 attenuation_model = 1
-volume_db = 79.335
+volume_db = 6.514
 max_db = 6.0
 autoplay = true
 bus = &"enviromentalBus"

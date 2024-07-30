@@ -158,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983017, 0)
 collision_layer = 2
 script = ExtResource("1_fbt8g")
 
-[node name="Human72" parent="." instance=ExtResource("2_4356e")]
+[node name="Sprite" parent="." instance=ExtResource("2_4356e")]
 transform = Transform3D(-0.18, 0, -1.57361e-08, 0, 0.18, 0, 1.57361e-08, 0, -0.18, 0.998746, -1.00185, 0.0541913)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

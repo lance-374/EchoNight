@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c1fp424gfsp5y"]
+
+[ext_resource type="Shader" path="res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader" id="1_slj3f"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_slj3f")
+shader_parameter/audio_intensity = 0.5
+shader_parameter/wave_frequency = 2.0
+shader_parameter/max_distance = 10.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/threshold = 0.058
+shader_parameter/player_position = null
+shader_parameter/audio_source_position = null
+shader_parameter/sweep_direction = Vector3(1, 0, 0)
+shader_parameter/wave_variation = 0.2
+shader_parameter/noise_scale = 1.0
+shader_parameter/isHuman = false
+shader_parameter/delay_duration = 0.2
+shader_parameter/last_time = 0.0
+shader_parameter/pulse_thickness = 0.1

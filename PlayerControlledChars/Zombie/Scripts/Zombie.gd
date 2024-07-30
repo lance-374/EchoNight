@@ -2,26 +2,28 @@ extends CharacterBody3D
 
 signal health_changed(health_value)
 
-@onready var camera = $PS1_Zombie/Camera3D_zombie
+@onready var camera = $PS1_Zombie/Armature/Camera3D
 @onready var aniPlayer = $PS1_Zombie/AnimationPlayer
 @onready var ArtiSound = $AudioStreamPlayer3D_groaning
 @onready var liReady = true
 @onready var audio = $Audio
-@onready var shaderHandler = $SubViewportContainer/SubViewport/ColorRect
+@onready var materialHandler = get_node("/root/Level/Level1/Map").mesh_library
 @onready var airCon = get_node("/root/Level/Level1/AudioStreamPlayer3D")
+@onready var shaderMaterial = "res://PlayerControlledChars/Shaders/shaderMaterial.tres"
+@onready var enviromentalFog = "res://Map/Scene/WorlEnviromentalBlack.tres"
+@onready var worldEnvirmentNode = get_node("/root/Level/Level1/WorldEnvironment")
 var health = 3
 var is_paused = false
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
+var players;
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
-
 
 @export var reveal_threshold = -100.0  # dB (adjust as needed)
 @export var reveal_duration = 1.0      # Seconds
 
-@onready var viewport = $SubViewportContainer/SubViewport/ColorRect        
+
 var reveal_timer = 0.0
 
 
@@ -33,12 +35,6 @@ func playWalk():
 func playIdle():
 	aniPlayer.play("IdleZ")
 
-
-func _on_sound_detected(detected):
-	if detected:
-		shaderHandler.material.set_shader_param("reveal_amount", 1.0) 
-	else:
-		shaderHandler.material.set_shader_param("reveal_amount", 0.0)
 
 func toggle_pause():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
@@ -64,15 +60,17 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	
 	
-
+var i = 0;
 func _ready():
 	if not is_multiplayer_authority(): return
-	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
-	
-
-
+	seen = []
+	worldEnvirmentNode.set_environment(load(enviromentalFog))
+	for mesh in materialHandler.get_item_list():
+		var shader_material = ShaderMaterial.new()
+		shader_material.set_shader(load("res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader"))
+		materialHandler.get_item_mesh(mesh).surface_set_material(0, shader_material)
 
 
 func _unhandled_input(event):
@@ -91,30 +89,57 @@ func _unhandled_input(event):
 		#if raycast.is_colliding():
 			#var hit_player = raycast.get_collider()
 			#hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+@onready var amountOfPlayers =  get_node("/root/Level").listOfPlayers.size()
+@onready var checkPlayers = 0
+var seen = []
 
-func _physics_process(delta):
+
+
+
+func setAllShadersOnPlayers(player):
+			
+				var formatted = "/root/Level/%s/%s/Sprite/Armature/Skeleton3D" % [player, player] 
+				var skele_node = get_node_or_null(formatted)
+				if get_node_or_null(formatted) == null:
+					formatted =  "/root/Level/%s/%s/PS1_Zombie/Armature/Skeleton3D" % [player, player] 
+					skele_node = get_node_or_null(formatted)
+				if skele_node:
+					for children in skele_node.get_children():
+							for surface in children.get_surface_override_material_count():
+								var shader_material = ShaderMaterial.new()
+								shader_material.set_shader(load("res://PlayerControlledChars/Zombie/Scene/Zombie.gdshader"))
+								children.set_surface_override_material(surface, shader_material)
+								children.get_surface_override_material(surface).set_shader_parameter("isHuman", true)
+								children.get_surface_override_material(surface).set_shader_parameter("pluse_thickness", 2000)
+								children.get_surface_override_material(surface).set_shader_parameter("wave_speed", 2000)
+					seen.append(player)
+					
+
+
+func updateshader(player, peak_volume):
+	var formatted = "/root/Level/%s/%s/Sprite/Armature/Skeleton3D" % [player, player] 
+	var skele_node = get_node_or_null(formatted)
+	if get_node_or_null(formatted) == null:
+		formatted =  "/root/Level/%s/%s/PS1_Zombie/Armature/Skeleton3D" % [player, player] 
+		skele_node = get_node_or_null(formatted)
+	if skele_node:
+		for children in skele_node.get_children():
+				for surface in children.get_surface_override_material_count():
+						children.get_surface_override_material(surface).set_shader_parameter("audio_intensity", peak_volume)
+
+func _physics_process(delta):  
 	if not is_multiplayer_authority(): return
-	# Add the gravity.
+	var peak_volume = AudioServer.get_bus_peak_volume_left_db((AudioServer.get_bus_index("enviromentalBus")), 0) + 40
+	var playerList = multiplayer.get_peers()
+	for player in playerList:
+		if !seen.has(player):
+			setAllShadersOnPlayers(player)
+		updateshader(player,peak_volume)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	var peak_volume = AudioServer.get_bus_peak_volume_left_db((AudioServer.get_bus_index("enviromentalBus")), 0)
-	print(peak_volume)
-	if peak_volume > reveal_threshold:
-		reveal_timer = reveal_duration  # Trigger reveal effect
-		print("I HEAR THINGS")
-	if reveal_timer > 0.0:
-		var reveal_amount = reveal_timer / reveal_duration 
-		var sound_x = airCon.position.x
-		var sound_y =airCon.position.y
-		var sound_z =airCon.position.z
-		viewport.get_material().set_shader_parameter("reveal_amount", reveal_amount)
-		viewport.get_material().set_shader_parameter("sound_source_pos", Vector2(sound_x, sound_y))
-		viewport.get_material().set_shader_parameter("sound_source_pos", Vector2(position.x, position.y))
-		viewport.get_material().set_shader_parameter("simulated_depth", float(sound_z))
-		
-		reveal_timer -= delta
-	else:
-		viewport.get_material().set_shader_parameter("reveal_amount", 0)
+	for mesh in materialHandler.get_item_list():
+		materialHandler.get_item_mesh(mesh).surface_get_material(0).set_shader_parameter("audio_intensity", peak_volume)
+	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_paused:
 		velocity.y = JUMP_VELOCITY
@@ -158,3 +183,4 @@ func receive_damage():
 #func _on_animation_player_animation_finished(anim_name):
 	#if anim_name == "shoot":
 		#anim_player.play("idle")
+

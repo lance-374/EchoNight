@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_8slnw"]
 [ext_resource type="Script" path="res://Menu/Scripts/CharacterSelection.gd" id="1_tq3if"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="3_52se5"]
-[ext_resource type="PackedScene" uid="uid://c3oa3ph6m687b" path="res://PlayerControlledChars/Human/Scene/Human.tscn" id="3_fte10"]
+[ext_resource type="PackedScene" uid="uid://blgu378sm5vga" path="res://PlayerControlledChars/Human/Scene/Human72.glb" id="3_u2eeb"]
 
 [sub_resource type="Animation" id="Animation_5qqmb"]
 resource_name = "spin"
@@ -65,8 +65,8 @@ offset_bottom = 40.0
 [node name="OmniLight3D" type="OmniLight3D" parent="Container"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
-[node name="Human" parent="Container" instance=ExtResource("3_fte10")]
-transform = Transform3D(0.802712, 0, 0.596367, 0, 1, 0, -0.596367, 0, 0.802712, 0, 0.983017, 0)
+[node name="Human" parent="Container" instance=ExtResource("3_u2eeb")]
+transform = Transform3D(0.0627723, 0, -0.0644953, 0, 0.09, 0, 0.0644953, 0, 0.0627723, -0.328881, 0.682125, -0.376756)
 
 [node name="PS1_Zombie" parent="Container" instance=ExtResource("3_52se5")]
 transform = Transform3D(-0.348735, 0, 0.358307, 0, 0.5, 0, -0.358307, 0, -0.348735, 0, 1.18305, 0)

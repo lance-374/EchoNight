@@ -22,7 +22,7 @@ Debug="*res://debug.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [filesystem]
 

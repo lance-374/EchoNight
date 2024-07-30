@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4wy7sc18164g"]
+
+[ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_0h8p5"]
+[ext_resource type="Texture2D" uid="uid://bnpf3yipj6hqn" path="res://Assets/Menu/main_menu_background.png" id="2_6o3ge"]
+[ext_resource type="Script" path="res://Menu/Scripts/Menu.gd" id="2_ykd71"]
+[ext_resource type="Script" path="res://Menu/Scene/FogLayer.gd" id="4_fqr4h"]
+[ext_resource type="Shader" path="res://Menu/Scene/Menu.gdshader" id="4_qdrko"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2lcc"]
+properties/0/path = NodePath(".:visible")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qt13"]
+shader = ExtResource("4_qdrko")
+shader_parameter/mouse_position = null
+shader_parameter/fog_density = null
+shader_parameter/viewport_size = null
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0h8p5")
+script = ExtResource("2_ykd71")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(696, 347)
+texture = ExtResource("2_6o3ge")
+
+[node name="Title" type="Label" parent="."]
+z_index = 3
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 377.0
+offset_top = -168.0
+offset_right = 785.0
+offset_bottom = -104.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "ECHO NIGHT
+"
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -21.0
+offset_right = 81.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 281.0
+offset_right = 319.0
+offset_bottom = 332.0
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 367.0
+offset_right = 288.0
+offset_bottom = 417.0
+text = "OPTIONS"
+
+[node name="QuitButton" type="Button" parent="TitleScreen"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 451.0
+offset_right = 225.0
+offset_bottom = 502.0
+text = "QUIT"
+
+[node name="MultiplayerScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 290.0
+offset_right = 356.0
+offset_bottom = 337.0
+text = "HOST"
+
+[node name="JoinButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 355.0
+offset_right = 353.0
+offset_bottom = 406.0
+text = "JOIN"
+
+[node name="AddressEntry" type="LineEdit" parent="MultiplayerScreen"]
+visible = false
+layout_mode = 0
+offset_left = 453.0
+offset_top = 363.0
+offset_right = 694.0
+offset_bottom = 414.0
+theme = ExtResource("1_0h8p5")
+theme_override_font_sizes/font_size = 21
+placeholder_text = "Enter Address to Join Here"
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MultiplayerScreen"]
+visible = false
+layout_mode = 0
+offset_left = 452.0
+offset_top = 289.0
+offset_right = 698.0
+offset_bottom = 340.0
+text = "START SERVER"
+
+[node name="BackButton" type="Button" parent="MultiplayerScreen"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 417.0
+offset_right = 352.0
+offset_bottom = 468.0
+text = "BACK"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_g2lcc")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FogLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_fqr4h")
+
+[node name="ColorRect" type="ColorRect" parent="FogLayer"]
+material = SubResource("ShaderMaterial_7qt13")
+offset_left = -336.0
+offset_top = 641.0
+offset_right = -31.0
+offset_bottom = 886.0
+mouse_filter = 2
+color = Color(0.181798, 0.181798, 0.181798, 1)
+
+[connection signal="mouse_entered" from="TitleScreen/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="TitleScreen/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="TitleScreen/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="MultiplayerScreen/HostButton" to="." method="_on_host_button_mouse_entered"]
+[connection signal="pressed" from="MultiplayerScreen/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="mouse_entered" from="MultiplayerScreen/JoinButton" to="." method="_on_join_button_mouse_entered"]
+[connection signal="pressed" from="MultiplayerScreen/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="mouse_entered" from="MultiplayerScreen/AddressEntry" to="." method="_on_address_entry_mouse_entered"]
+[connection signal="mouse_entered" from="MultiplayerScreen/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MultiplayerScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MultiplayerScreen/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="MultiplayerScreen/BackButton" to="." method="_on_back_button_pressed"]

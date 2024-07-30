@@ -9,29 +9,13 @@ signal health_changed(health_value)
 @onready var sound = $Camera3D_human/Shotgun/Sound
 @onready var ArtiSound = $AudioStreamPlayer3D_human_whistle
 @onready var audio = $Audio
-@onready var humanModelAniPlayer = $Human72/AnimationPlayer
+@onready var humanModelAniPlayer = $Sprite/AnimationPlayer
 
 var liReady = true
 var shotgun_enabled = true
 var is_paused = false
 
 
-@onready var lightNode = preload("res://Map/Scene/light_spawn.tscn")
-var instance
-# Called when the node enters the scene tree for the first time.
-
-func spawnLight(pos):
-	instance = lightNode.instantiate()
-	instance.position = pos
-	add_child(instance)
-
-
-func removeLight():
-	instance.queue_free()
-	instance = load("res://Map/Scene/light_spawn.tscn")
-	
-func setLightPosition(pos):
-	instance.position = pos
 
 func toggle_pause():
 	audio.stream = load("res://Assets/Menu/Audio/Menu_Sound_Pause.wav") # Replace with function body.
@@ -56,7 +40,6 @@ func _enter_tree():
 
 func _ready():
 	if not is_multiplayer_authority() or is_paused: return
-	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 
@@ -132,15 +115,7 @@ func _physics_process(delta):
 func makeSound():
 	if not is_multiplayer_authority(): return
 	if Input.is_action_just_pressed("clap") and not is_paused:
-		if liReady == true:
-			liReady = false
-			spawnLight($Camera3D_human.position)
 			ArtiSound.play()
-			await get_tree().create_timer(0.5).timeout
-			removeLight()
-			liReady = true
-	if liReady == false:
-		setLightPosition($Camera3D_human.position)
 		
 		
 
@@ -158,9 +133,6 @@ func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
 	sound.play(0.5)
-	spawnLight($Camera3D_human/Shotgun/Sound.position)
-	await get_tree().create_timer(1.15).timeout
-	removeLight()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 

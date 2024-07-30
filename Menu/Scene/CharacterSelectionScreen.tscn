@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_6xp15"]
 [ext_resource type="Script" path="res://Menu/Scripts/CharacterSelectionScreen.gd" id="1_m5fwo"]
-[ext_resource type="Texture2D" uid="uid://p1pdp6d1u1e6" path="res://Assets/Menu/human.png" id="2_w7hof"]
-[ext_resource type="Texture2D" uid="uid://df3vis6qghg0g" path="res://Assets/Menu/zombie.png" id="3_5dl17"]
-[ext_resource type="Texture2D" uid="uid://dpkrox7nwpxcj" path="res://Assets/Menu/main_menu_background.png" id="3_bpncm"]
+[ext_resource type="Texture2D" uid="uid://cl6kfnvplvbba" path="res://Assets/Menu/human.png" id="2_w7hof"]
+[ext_resource type="Texture2D" uid="uid://d0pj5ptpo4dxb" path="res://Assets/Menu/zombie.png" id="3_5dl17"]
+[ext_resource type="Texture2D" uid="uid://bnpf3yipj6hqn" path="res://Assets/Menu/main_menu_background.png" id="3_bpncm"]
 
 [node name="CharacterSelectionScreen" type="Control"]
 layout_mode = 3
