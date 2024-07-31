@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
-[ext_resource type="AudioStream" uid="uid://md46ucs7ot3e" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
+[ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
-[ext_resource type="PackedScene" uid="uid://djyr8ge3huvcu" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
+[ext_resource type="PackedScene" uid="uid://g7yny1drdbql" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
 [ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="7_1r1i3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]

@@ -65,7 +65,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("escape") and not dead:
 		toggle_pause()
 	
-	if Input.is_action_just_pressed("shoot") and not shotgun_sound.playing and not is_paused and has_shotgun and not dead:
+	if Input.is_action_just_pressed("shoot") and not shotgun_sound.playing and not is_paused and has_shotgun and not dead and not $AudioStreamPlayer3D_human_whistle.is_playing():
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
@@ -197,7 +197,7 @@ func setLightPosition(pos):
 @rpc("call_local")
 func makeSound():
 	if not is_multiplayer_authority(): return
-	if Input.is_action_just_pressed("clap") and not is_paused and not dead:
+	if Input.is_action_just_pressed("clap") and not is_paused and not dead and not shotgun_sound.is_playing():
 		if liReady == true:
 			liReady = false
 			spawnLight($Camera3D_human.position)
