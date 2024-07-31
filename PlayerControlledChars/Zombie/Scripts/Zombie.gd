@@ -220,7 +220,7 @@ func setAllShadersOnPlayers(player):
 					
 					
 func updateshader(player, peak_volume):
-	var formatted = "/root/Level/%s/%s/Sprite/Armature/Skeleton3D" % [player, player] 
+	var formatted = "/root/Level/%s/%s/Human72/Armature/Skeleton3D" % [player, player] 
 	var skele_node = get_node_or_null(formatted)
 	if get_node_or_null(formatted) == null:
 		formatted =  "/root/Level/%s/%s/PS1_Zombie/Armature/Skeleton3D" % [player, player] 
