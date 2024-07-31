@@ -46,6 +46,9 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath("AudioStreamPlayer3D_human_whistle:volume_db")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [sub_resource type="Animation" id="Animation_jm5r2"]
 length = 0.001
@@ -215,6 +218,7 @@ _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+bus = &"enviromentalBus"
 
 [node name="BatteryTimer" type="Timer" parent="."]
 process_callback = 0
