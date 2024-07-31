@@ -35,6 +35,7 @@ func _on_host_button_pressed():
 	$MultiplayerScreen/StartButton.text = "START SERVER"
 	$MultiplayerScreen/StartButton.show()
 	
+	
 
 
 func _on_join_button_pressed():
@@ -61,7 +62,7 @@ func _on_start_button_pressed():
 	else:
 		emit_signal("hostWorldStart")
 	emit_signal("characterType", type)
-	
+	$TitleScreen/CanvasLayer.hide()
 	$MultiplayerScreen.hide()
 
 func _on_back_button_pressed():
