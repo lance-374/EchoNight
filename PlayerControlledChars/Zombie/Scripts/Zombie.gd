@@ -118,6 +118,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	var peak_volume = AudioServer.get_bus_peak_volume_left_db((AudioServer.get_bus_index("enviromentalBus")), 0) + 40
 	var playerList = multiplayer.get_peers()
+	print(peak_volume)
 	for player in playerList:
 		if !seen.has(player):
 			setAllShadersOnPlayers(player)

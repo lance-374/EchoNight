@@ -1429,6 +1429,7 @@ _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
 spawn_path = NodePath("..")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+bus = &"enviromentalBus"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
