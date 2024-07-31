@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4wy7sc18164g"]
+[gd_scene load_steps=8 format=3 uid="uid://b4wy7sc18164g"]
 
 [ext_resource type="Theme" uid="uid://ktsay1520tgv" path="res://Menu/Scene/MainTheme.tres" id="1_0h8p5"]
-[ext_resource type="Texture2D" uid="uid://c8o36lpscdywq" path="res://Assets/Menu/main_menu_background.png" id="2_6o3ge"]
+[ext_resource type="Texture2D" uid="uid://bnpf3yipj6hqn" path="res://Assets/Menu/main_menu_background.png" id="2_6o3ge"]
 [ext_resource type="Script" path="res://Menu/Scripts/Menu.gd" id="2_ykd71"]
+[ext_resource type="Script" path="res://Map/Scripts/FogScriptMainMenu.gd" id="4_or5iv"]
+[ext_resource type="Shader" path="res://Map/Scene/MainMenuFog.gdshader" id="5_oushl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tt3tl"]
+shader = ExtResource("5_oushl")
+shader_parameter/mouse_position = null
+shader_parameter/fog_density = null
+shader_parameter/viewport_size = null
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2lcc"]
 properties/0/path = NodePath(".:visible")
@@ -69,6 +77,16 @@ offset_right = 400.0
 offset_bottom = 486.0
 text = "QUIT"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="TitleScreen"]
+script = ExtResource("4_or5iv")
+
+[node name="ColorRect" type="ColorRect" parent="TitleScreen/CanvasLayer"]
+material = SubResource("ShaderMaterial_tt3tl")
+offset_right = 1196.0
+offset_bottom = 702.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="MultiplayerScreen" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -129,6 +147,7 @@ replication_config = SubResource("SceneReplicationConfig_g2lcc")
 spawn_path = NodePath("..")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"menuAudio"
 
 [connection signal="mouse_entered" from="TitleScreen/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]

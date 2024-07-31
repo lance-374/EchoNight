@@ -1,8 +1,36 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dsdsp6lp7jw4d"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://dsdsp6lp7jw4d"]
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_17abf"]
 resource_name = "SpectrumAnalyzer"
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_xpkp1"]
+resource_name = "LowPassFilter"
+cutoff_hz = 500.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_e8nth"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_k7g3i"]
+resource_name = "Distortion"
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_17abf")
 bus/0/effect/0/enabled = true
+bus/1/name = &"enviromentalBus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"menuAudio"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLowPassFilter_xpkp1")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectReverb_e8nth")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectDistortion_k7g3i")
+bus/2/effect/2/enabled = true

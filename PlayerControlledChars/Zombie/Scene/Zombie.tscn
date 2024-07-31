@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://PlayerControlledChars/Zombie/Scripts/Zombie.gd" id="1_81amh"]
 [ext_resource type="PackedScene" uid="uid://degm7m1bxnoj6" path="res://PlayerControlledChars/Zombie/Scene/ps_1_zombie.tscn" id="2_t0aq3"]
-[ext_resource type="Texture2D" uid="uid://ck5qqatew6ugl" path="res://Assets/Blood/BoodLight.png" id="4_dmtck"]
+[ext_resource type="Texture2D" uid="uid://byvubm11wxnqk" path="res://Assets/Blood/BoodLight.png" id="4_dmtck"]
 [ext_resource type="AudioStream" uid="uid://c5sejkvodg3pu" path="res://Assets/Sound effects/idle.mp3" id="4_k01k8"]
-[ext_resource type="Texture2D" uid="uid://dovdb83wfprad" path="res://Assets/Blood/BloodHeavy.png" id="5_xxat8"]
+[ext_resource type="Texture2D" uid="uid://tbqpv8ecjlcf" path="res://Assets/Blood/BloodHeavy.png" id="5_xxat8"]
 
 [sub_resource type="Animation" id="Animation_5kogr"]
 resource_name = "DamageZ"
@@ -1422,6 +1422,7 @@ replication_config = SubResource("SceneReplicationConfig_7esiu")
 [node name="AudioStreamPlayer3D_groaning" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1.81818, 0, 0, 0, 1.81818, 0, 0, 0, 1.81818, 0, 2.72713, 0)
 stream = ExtResource("4_k01k8")
+bus = &"enviromentalBus"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Map/Scene/light_spawn.tscn")
