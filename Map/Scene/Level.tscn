@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=13 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
-[ext_resource type="Environment" uid="uid://bx4ety6200015" path="res://BlueFog_final.tres" id="2_651qj"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
-[ext_resource type="AudioStream" uid="uid://dm763ss1thn5n" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
+[ext_resource type="AudioStream" uid="uid://md46ucs7ot3e" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
+[ext_resource type="PackedScene" uid="uid://djyr8ge3huvcu" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
+[ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="7_1r1i3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
 properties/0/path = NodePath("..:car_alarm_playing")
@@ -15,20 +16,19 @@ properties/1/path = NodePath("..:humans_have_car_battery")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsru"]
-bg_color = Color(0.686275, 0, 0, 1)
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6tcph"]
 points = PackedVector3Array(-1.1392, 1.25707, 1.32663, 1.37963, 1.57148, 1.45657, 1.37963, 1.27873, 1.45657, 0.7623, 0.521056, -2.99696, -0.899157, 2.08737, -2.01964, -1.08747, -0.022624, 2.19862, -1.15843, 0.400236, -2.93521, 1.1177, -0.0212866, 2.19583, -1.0609, 1.27873, 3.01916, 0.907143, 2.05833, -1.9641, 1.11335, -0.0169431, -1.56129, -0.896836, 2.08483, 0.813915, 0.989002, 1.27873, 3.01916, 0.928921, 2.0847, 0.813807, -1.08281, -0.0183332, -1.56334, 1.18432, 0.498041, -2.93521, 0.5747, 0.428517, 2.97778, -1.01762, 0.894027, -2.91639, 1.03578, 1.08114, -2.79018, -0.984856, 0.443216, 2.81418, -1.15843, 1.27873, 2.92131, 1.18432, 1.27873, 2.82345, 0.929445, 1.90249, -2.19887, 1.12738, 0.0618694, 2.40182, -0.0716677, 2.05832, 0.971063, -0.910128, 1.9141, -2.22821, 1.18432, 0.400236, -2.83796, -1.05247, 1.52487, -1.07642, -1.09553, 0.0627263, 2.3997, -0.978934, 1.9848, 0.897303, 1.01559, 0.444158, 2.80969, -1.15108, 0.900061, -1.26423)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2un4e"]
 size = Vector3(5.78149, 2.92566, 9.2204)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_7ht4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kaqpw"]
+size = Vector3(6.33489, 2.1699, 3.46411)
+
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_651qj")
 
 [node name="Menu" parent="." instance=ExtResource("2_eeuul")]
 
@@ -40,64 +40,10 @@ replication_config = SubResource("SceneReplicationConfig_5b5je")
 _spawnable_scenes = PackedStringArray("res://Menu/Scene/CharacterSelection.tscn", "res://PlayerControlledChars/Human/Scene/Human.tscn", "res://PlayerControlledChars/Zombie/Scene/Zombie.tscn")
 spawn_path = NodePath("..")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Crosshair" type="TextureRect" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -111.5
-offset_top = -36.0
-offset_right = 111.5
-offset_bottom = -9.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_tnsru")
-max_value = 3.0
-value = 3.0
-show_percentage = false
-
-[node name="GunIcon" type="TextureRect" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BatteryIcon" type="TextureRect" parent="CanvasLayer/HUD"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Level1" parent="." instance=ExtResource("4_vci86")]
 
 [node name="Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 70.1065, 0.981444, -118.963)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68.689, 0.988374, -118.799)
 mesh = ExtResource("5_4bf48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Car"]
@@ -117,8 +63,40 @@ shape = SubResource("BoxShape3D_2un4e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 2.33214)
 stream = ExtResource("5_3qrrh")
 
-[node name="SpawnLocation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.211, 1.04703, -0.38)
+[node name="Key" parent="." instance=ExtResource("6_u5cty")]
+transform = Transform3D(1, 0, 0, 0, 0.997844, -0.0656295, 0, 0.0656295, 0.997844, 49.1046, 1.04029, 49.3972)
+
+[node name="KeyArea" type="Area3D" parent="Key"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KeyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)
+shape = SubResource("SphereShape3D_7ht4k")
+
+[node name="Shotgun1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.884092, -0.466873, 0.0202698, 0, -0.0433753, -0.999059, 0.467313, -0.88326, 0.0383477, -100.427, 1.294, -15.719)
+mesh = ExtResource("7_1r1i3")
+
+[node name="Shotgun1Area" type="Area3D" parent="Shotgun1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shotgun1/Shotgun1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140263, 1.56981, -0.467162)
+shape = SubResource("BoxShape3D_kaqpw")
+
+[node name="Shotgun2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.952651, 0.30378, -0.013189, 0, -0.0433753, -0.999059, -0.304066, 0.951754, -0.0413215, -97.92, 1.17074, -0.468674)
+mesh = ExtResource("7_1r1i3")
+
+[node name="Shotgun2Area" type="Area3D" parent="Shotgun2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shotgun2/Shotgun2Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140263, 1.56981, -0.467162)
+shape = SubResource("BoxShape3D_kaqpw")
 
 [connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
 [connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]
+[connection signal="body_entered" from="Key/KeyArea" to="." method="_on_key_area_body_entered"]
+[connection signal="body_exited" from="Key/KeyArea" to="." method="_on_key_area_body_exited"]
+[connection signal="body_entered" from="Shotgun1/Shotgun1Area" to="." method="_on_shotgun_1_area_body_entered"]
+[connection signal="body_exited" from="Shotgun1/Shotgun1Area" to="." method="_on_shotgun_1_area_body_exited"]
+[connection signal="body_entered" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_entered"]
+[connection signal="body_exited" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_exited"]

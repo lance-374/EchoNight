@@ -22,11 +22,7 @@ Debug="*res://debug.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
-
-[filesystem]
-
-import/fbx/enabled=false
+window/stretch/mode="viewport"
 
 [input]
 

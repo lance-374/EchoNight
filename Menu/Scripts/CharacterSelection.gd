@@ -24,7 +24,6 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 	if !is_multiplayer_authority():
 		self.hide()
-		
 
 func _on_confirm_pressed():
 	print(type)
