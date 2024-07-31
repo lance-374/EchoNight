@@ -118,6 +118,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	var peak_volume = AudioServer.get_bus_peak_volume_left_db((AudioServer.get_bus_index("enviromentalBus")), 0) + 40
 	var playerList = multiplayer.get_peers()
+	print(peak_volume)
 	for player in playerList:
 		if !seen.has(player):
 			setAllShadersOnPlayers(player)
@@ -221,7 +222,7 @@ func setAllShadersOnPlayers(player):
 					
 					
 func updateshader(player, peak_volume):
-	var formatted = "/root/Level/%s/%s/Sprite/Armature/Skeleton3D" % [player, player] 
+	var formatted = "/root/Level/%s/%s/Human72/Armature/Skeleton3D" % [player, player] 
 	var skele_node = get_node_or_null(formatted)
 	if get_node_or_null(formatted) == null:
 		formatted =  "/root/Level/%s/%s/PS1_Zombie/Armature/Skeleton3D" % [player, player] 

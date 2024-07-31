@@ -198,15 +198,7 @@ func setLightPosition(pos):
 func makeSound():
 	if not is_multiplayer_authority(): return
 	if Input.is_action_just_pressed("clap") and not is_paused and not dead and not shotgun_sound.is_playing():
-		if liReady == true:
-			liReady = false
-			spawnLight($Camera3D_human.position)
-			ArtiSound.play()
-			await get_tree().create_timer(0.5).timeout
-			removeLight()
-			liReady = true
-	if liReady == false:
-		setLightPosition($Camera3D_human.position)
+		ArtiSound.play()
 
 @rpc("any_peer")
 func receive_damage():
