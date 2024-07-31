@@ -164,7 +164,7 @@ cell_scale = 2.0
 data = {
 "cells": PackedInt32Array(655544, 65431, 65561, 655424, 65479, 262175, 720759, 65528, 65562, 1245368, 65223, 1245212, 655369, 65028, 851994, 589799, 65028, 983063, 589763, 65029, 393238, 1310466, 65102, 589850, 1310640, 13, 262168, 1310678, 51, 851995)
 }
-metadata/_editor_floor_ = Vector3(0, 19, 0)
+metadata/_editor_floor_ = Vector3(0, 22, 0)
 
 [node name="Floor1" type="GridMap" parent="Map"]
 mesh_library = ExtResource("1_3vepg")
