@@ -10,7 +10,7 @@ func _ready():
 	fog_material.set_shader_parameter("fog_density", fog_density)
 	update_viewport_size()
 
-func _process(delta):
+func _process(_delta):
 	
 	var mouse_pos = get_viewport().get_mouse_position()
 	fog_material.set_shader_parameter("mouse_position", mouse_pos )
