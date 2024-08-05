@@ -1,0 +1,1557 @@
+[gd_scene load_steps=8 format=3 uid="uid://daa4vbslc0wv5"]
+
+[ext_resource type="MeshLibrary" uid="uid://cd5466msfhbsb" path="res://Assets/Map/MansionWalls.tres" id="1_3vepg"]
+[ext_resource type="Environment" uid="uid://dki2cnpdxhmu0" path="res://GreenFog_final.tres" id="1_crtyo"]
+[ext_resource type="MeshLibrary" uid="uid://c8th2v6b2n7mf" path="res://Assets/Map/MansionItems_.tres" id="3_pk08v"]
+[ext_resource type="MeshLibrary" uid="uid://udog4vemkbex" path="res://Map/Tree2.tres" id="4_8tdml"]
+[ext_resource type="Script" path="res://Map/Scripts/Candle.gd" id="4_dieac"]
+[ext_resource type="Script" path="res://Map/Scripts/RedBlinkingSpotLight3D.gd" id="42_t741o"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hnbng"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.212962, 0, 0.97706, 0, 1, 0, -0.97706, 0, 0.212962, -27.3766, 5.09833, -41.9309)
+fov = 96.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_crtyo")
+
+[node name="Map" type="GridMap" parent="."]
+mesh_library = ExtResource("1_3vepg")
+cell_size = Vector3(1, 4.8, 1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65534, 65534, 41, 2, 65534, 41, 65534, 2, 41, 2, 2, 41, 6, 2, 41, 6, 65534, 41, 65530, 65534, 41, 65530, 2, 41, 65530, 6, 41, 65534, 6, 41, 2, 6, 41, 6, 6, 41, 65526, 6, 41, 65526, 2, 41, 65526, 65534, 41, 10, 65534, 41, 10, 2, 41, 10, 6, 41, 10, 65530, 41, 6, 65530, 41, 2, 65530, 41, 65534, 65530, 41, 65530, 65530, 41, 65526, 65530, 41, 65524, 65528, 1441808, 65524, 65532, 1441808, 65524, 0, 1441808, 65524, 4, 1441808, 12, 65528, 1441808, 12, 65532, 1441808, 12, 0, 1441808, 12, 4, 1441808, 65528, 8, 655376, 12, 8, 655376, 8, 8, 655364, 65532, 8, 655364, 4, 8, 655376, 0, 8, 655376, 65548, 65528, 1441808, 65548, 65532, 1441808, 65548, 0, 1441808, 65548, 4, 1441808, 65544, 8, 16, 65540, 8, 16, 65536, 8, 16, 131068, 8, 16, 131064, 8, 16, 131060, 8, 16, 131060, 4, 1441808, 131060, 0, 1441808, 131060, 65532, 1441808, 131060, 65528, 1441808, 131062, 65530, 41, 131066, 65530, 41, 131070, 65530, 41, 65538, 65530, 41, 65542, 65530, 41, 65546, 65530, 41, 65526, 65535, 1048599, 10, 65535, 1048599, 196598, 65530, 55, 196602, 65530, 55, 196606, 65530, 55, 131074, 65530, 55, 131078, 65530, 55, 131082, 65530, 55, 196598, 65534, 55, 196602, 65534, 55, 196606, 65534, 55, 131074, 65534, 55, 131078, 65534, 55, 131082, 65534, 55, 131082, 2, 55, 131078, 2, 55, 131074, 2, 55, 196606, 2, 55, 196602, 2, 55, 196598, 2, 55, 196598, 6, 55, 196602, 6, 55, 196606, 6, 55, 131074, 6, 55, 131078, 6, 55, 131082, 6, 55, 0, 65526, 41, 0, 65522, 41, 0, 65518, 41, 65532, 65518, 41, 65528, 65518, 41, 65524, 65518, 41, 65520, 65518, 41, 0, 65514, 41, 0, 65510, 41, 0, 65506, 41, 0, 65502, 41, 4, 65511, 41, 8, 65511, 41, 12, 65511, 41, 65520, 65514, 41, 65520, 65522, 41, 65516, 65522, 41, 65516, 65518, 41, 65516, 65514, 41, 65512, 65522, 41, 65512, 65518, 41, 65512, 65514, 41, 65512, 65510, 41, 65512, 65506, 41, 65512, 65502, 41, 65512, 65498, 41, 65512, 65494, 41, 65508, 65494, 41, 65512, 65490, 41, 0, 65498, 41, 65512, 65486, 41, 65512, 65482, 41, 0, 65494, 41, 65532, 65501, 41, 0, 65490, 41, 0, 65486, 41, 65532, 65485, 41, 0, 65482, 41, 65512, 65478, 41, 0, 65474, 41, 0, 65470, 41, 65512, 65474, 41, 65512, 65470, 41, 65528, 65470, 41, 65528, 65466, 41, 65532, 65466, 41, 0, 65466, 41, 4, 65470, 41, 4, 65466, 41, 65512, 65466, 41, 65516, 65466, 41, 65520, 65466, 41, 65524, 65466, 41, 8, 65470, 41, 12, 65470, 41, 12, 65474, 41, 12, 65478, 41, 16, 65478, 41, 16, 65474, 41, 16, 65470, 41, 12, 65481, 41, 12, 65485, 41, 8, 65485, 41, 4, 65485, 41, 65516, 65494, 41, 65534, 65524, 1048591, 65534, 65520, 655375, 2, 65524, 1441807, 2, 65520, 1441807, 2, 65513, 1441807, 2, 65517, 1441807, 6, 65513, 655375, 6, 65509, 655375, 9, 65509, 655375, 2, 65528, 16, 6, 65528, 16, 10, 65528, 16, 65530, 65528, 16, 65526, 65528, 16, 65522, 65528, 16, 65530, 65503, 15, 65530, 65499, 15, 65530, 65507, 1048592, 65526, 65507, 16, 65522, 65507, 16, 65518, 65507, 16, 65530, 65483, 15, 65518, 65496, 655375, 65518, 65500, 1048592, 65518, 65504, 1048592, 65530, 65479, 1441808, 65526, 65479, 16, 65522, 65479, 16, 65514, 65496, 1441807, 65514, 65492, 15, 65514, 65500, 1441807, 65514, 65504, 1441807, 65514, 65512, 15, 65514, 65508, 1441807, 65510, 65500, 1048591, 65510, 65504, 1048591, 65510, 65508, 1048591, 65510, 65512, 1048591, 65514, 65488, 1441807, 65514, 65484, 1441807, 65514, 65480, 1441807, 65514, 65476, 1441807, 65510, 65492, 1048591, 65510, 65488, 1048591, 65510, 65484, 1048591, 65510, 65480, 1048591, 65510, 65476, 1048591, 65514, 65472, 1441807, 65510, 65472, 1048591, 65506, 65492, 15, 65506, 65496, 1441805, 65506, 65500, 655373, 5, 65513, 15, 12, 65507, 1048617, 12, 65503, 1048617, 12, 65499, 1048617, 16, 65499, 1048617, 16, 65503, 1048617, 16, 65507, 1048617, 16, 65511, 1048617, 16, 65497, 20, 12, 65497, 20, 8, 65497, 20, 10, 65505, 1441812, 10, 65501, 1441812, 10, 65497, 1441812, 18, 65497, 1441812, 18, 65501, 1441812, 18, 65505, 1441812, 18, 65509, 1441812, 15, 65513, 655380, 19, 65513, 655380, 11, 65513, 655375, 10, 65509, 655375, 2, 65505, 1441807, 2, 65501, 1441807, 2, 65497, 1441807, 2, 65493, 1441807, 2, 65489, 1441807, 2, 65487, 1441807, 65534, 65495, 1048591, 65534, 65491, 1048591, 65534, 65487, 655375, 65534, 65472, 655375, 2, 65479, 1441807, 2, 65472, 1441807, 2, 65476, 1441807, 10, 65472, 655375, 10, 65476, 1048591, 14, 65480, 1441807, 18, 65476, 1441807, 18, 65468, 1441807, 18, 65472, 1441807, 10, 65468, 15, 14, 65468, 15, 14, 65484, 1441807, 10, 65487, 655375, 6, 65487, 655375, 6, 65483, 15, 2, 65483, 15, 2, 65464, 15, 65534, 65464, 15, 65530, 65464, 15, 65526, 65464, 15, 65522, 65464, 15, 65518, 65464, 15, 65514, 65464, 15, 65510, 65464, 15, 65510, 65468, 1048591, 65518, 65468, 655375, 65522, 65468, 655375, 65526, 65468, 655375, 65530, 65472, 655375, 65526, 65472, 1048591, 65534, 65476, 1048591, 65534, 65480, 1048591, 65534, 65483, 1048591, 18, 65480, 655375, 6, 65468, 15, 6, 65464, 1441807, 6, 65472, 655375, 65518, 65512, 15, 65522, 65512, 1441807, 65510, 65516, 1048591, 65510, 65520, 1048591, 65510, 65524, 1048591, 65514, 65524, 655375, 65522, 65524, 655375, 65514, 65468, 1441807, 65518, 65508, 1048592, 65534, 65499, 1048591, 65530, 65487, 1441808, 65530, 65491, 1441808, 65530, 65495, 1441808, 65530, 65520, 655375, 65526, 65520, 655375, 65530, 65516, 15, 65526, 65516, 15, 65522, 65516, 15, 65522, 65520, 1441807, 65518, 65479, 16, 65518, 65492, 1048592, 65518, 65488, 1048592, 65518, 65484, 1048592, 65518, 65480, 1048592, 65534, 65528, 1048591, 65534, 65516, 1048591, 0, 65478, 41, 65532, 65470, 41, 10, 65480, 1048591, 10, 65483, 1048591, 131068, 65501, 55, 65540, 65511, 55, 65544, 65511, 55, 65548, 65511, 55, 65548, 65507, 55, 65548, 65503, 55, 65548, 65499, 55, 65552, 65499, 55, 65552, 65503, 55, 65552, 65507, 55, 65552, 65511, 55, 131068, 65485, 55, 14, 65487, 655375, 65500, 65498, 40, 65500, 65494, 40, 65500, 65490, 40, 65504, 65490, 40, 65504, 65494, 40, 65504, 65498, 40, 65534, 65507, 1048591, 65534, 65511, 1048591, 65534, 65514, 1048591, 16, 65477, 1441815, 65528, 65505, 38, 65528, 65501, 38, 65528, 65497, 38, 65524, 65505, 38, 65528, 65493, 38, 65524, 65501, 38, 65524, 65497, 38, 65524, 65493, 38, 65520, 65501, 38, 65520, 65497, 38, 65520, 65493, 38, 65520, 65489, 38, 65520, 65485, 38, 65520, 65481, 38, 65524, 65489, 38, 65528, 65489, 38, 65528, 65485, 38, 65524, 65485, 38, 65524, 65481, 38, 65528, 65481, 38, 65520, 65505, 38, 65520, 65482, 1048599, 65521, 65505, 655383, 131052, 65505, 41, 131052, 65501, 41, 131052, 65509, 41, 131048, 65501, 41, 131048, 65505, 41, 131048, 65509, 41, 131048, 65513, 41, 131048, 65517, 41, 131048, 65521, 41, 131048, 65525, 41, 131052, 65497, 41, 131052, 65493, 41, 131048, 65497, 41, 131048, 65493, 41, 131048, 65489, 41, 131048, 65485, 41, 131048, 65481, 41, 131048, 65477, 41, 131048, 65473, 41, 131048, 65469, 41, 131048, 65465, 41, 65544, 65485, 41, 65540, 65485, 41, 65552, 65482, 41, 65552, 65486, 41, 65548, 65482, 41, 131066, 65487, 1441808, 131066, 65491, 1441808, 131066, 65495, 1441808, 131066, 65499, 1441808, 131066, 65503, 1441808, 131066, 65483, 1441808, 131066, 65479, 1441808, 131066, 65507, 655376, 131062, 65507, 655376, 131058, 65507, 655376, 65554, 65472, 1441807, 65554, 65476, 1441807, 65554, 65480, 1441807, 65554, 65484, 1441807, 65546, 65479, 1441807, 65546, 65475, 1441807, 65546, 65471, 1441807, 65546, 65467, 1441807, 65550, 65480, 655375, 65538, 65483, 1048594, 65538, 65479, 1048594, 65538, 65475, 1048594, 65538, 65471, 18, 65542, 65471, 18, 65540, 65481, 41, 65540, 65477, 41, 65540, 65473, 41, 65544, 65481, 41, 65544, 65477, 41, 65544, 65473, 41, 65544, 65469, 131113, 65540, 65469, 131113, 65540, 65465, 131113, 65546, 65468, 15, 65550, 65468, 15, 65554, 65468, 1441807, 131076, 65473, 655415, 131080, 65473, 655415, 131076, 65477, 655415, 131080, 65477, 655415, 131076, 65481, 655415, 131080, 65481, 655415, 131076, 65485, 655415, 131080, 65485, 655415, 131084, 65485, 655415, 131084, 65481, 655415, 131084, 65477, 655415, 131084, 65473, 655415, 131084, 65469, 655415, 131088, 65485, 655415, 131088, 65481, 655415, 131088, 65477, 655415, 131088, 65473, 655415, 131088, 65469, 655415, 65518, 65524, 655363, 65548, 65486, 41, 65538, 65487, 1048591, 65545, 65487, 655363, 65541, 65487, 655375, 65549, 65487, 655375, 65553, 65487, 655363, 65557, 65487, 655375, 196600, 65481, 55, 196600, 65485, 55, 196600, 65489, 55, 196600, 65493, 55, 196600, 65497, 55, 196600, 65501, 55, 196600, 65505, 55, 196596, 65481, 55, 196596, 65485, 55, 196596, 65489, 55, 196596, 65493, 55, 196596, 65497, 55, 196596, 65501, 55, 196596, 65505, 55, 196592, 65481, 55, 196592, 65485, 55, 196592, 65489, 55, 196592, 65493, 55, 196592, 65497, 55, 196592, 65501, 55, 196592, 65505, 55, 131056, 65514, 41, 131056, 65518, 41, 131060, 65518, 41, 131064, 65518, 41, 131068, 65518, 41, 65536, 65526, 41, 65536, 65522, 41, 65536, 65518, 41, 65536, 65514, 41, 65536, 65510, 41, 65536, 65506, 41, 65536, 65502, 41, 65536, 65498, 41, 65536, 65494, 41, 65536, 65490, 41, 65536, 65486, 41, 65536, 65482, 41, 65536, 65478, 41, 65536, 65474, 41, 65536, 65470, 41, 65536, 65466, 41, 65538, 65528, 16, 65542, 65528, 16, 65546, 65528, 16, 196606, 65528, 131088, 196602, 65528, 131088, 196598, 65528, 131088, 65538, 65524, 1441808, 65538, 65520, 1441808, 131070, 65520, 655376, 131066, 65520, 655376, 131062, 65520, 655376, 131066, 65516, 16, 131062, 65516, 16, 131058, 65516, 16, 131054, 65516, 16, 131054, 65512, 1441808, 131054, 65508, 1441808, 131058, 65520, 1441808, 131050, 65524, 1048592, 131050, 65520, 1048592, 131050, 65516, 1048592, 131050, 65512, 1048592, 131052, 65513, 41, 131052, 65517, 41, 131052, 65521, 41, 131052, 65525, 41, 131044, 65494, 41, 131040, 65490, 39, 131040, 65494, 39, 131040, 65498, 39, 131036, 65490, 39, 131036, 65494, 39, 131036, 65498, 39, 65502, 65488, 13, 65498, 65488, 13, 65498, 65492, 1048589, 65498, 65496, 1048589, 65502, 65500, 655373, 65498, 65500, 1048589, 65510, 65496, 655375, 65506, 65488, 1441807, 65529, 65470, 655383, 131068, 65466, 41, 131064, 65466, 41, 131060, 65466, 41, 131060, 65470, 41, 131052, 65489, 41, 131052, 65485, 41, 131052, 65481, 41, 131052, 65477, 41, 131052, 65473, 41, 131052, 65469, 41, 131052, 65465, 41, 196592, 65518, 55, 196592, 65522, 55, 196596, 65518, 1310775, 196600, 65518, 1310775, 196604, 65518, 1310775, 131072, 65526, 1310775, 131072, 65522, 1310775, 131072, 65518, 1310775, 131070, 65528, 1048592, 131070, 65524, 1048592, 131070, 65516, 16, 65538, 65516, 1441808, 131056, 65524, 655364, 131060, 65524, 655376, 131052, 65524, 655376, 131056, 65522, 41, 131056, 65477, 41, 131056, 65473, 41, 131056, 65465, 41, 196588, 65522, 1179703, 196588, 65518, 1179703, 196588, 65514, 1179703, 196588, 65510, 1179703, 196588, 65506, 1179703, 196588, 65502, 1179703, 196588, 65498, 1179703, 196588, 65494, 1179703, 196588, 65490, 1179703, 196588, 65486, 1179703, 196588, 65482, 1179703, 196588, 65478, 1179703, 196588, 65474, 1179703, 196588, 65470, 1179703, 131054, 65511, 1048592, 131050, 65508, 655376, 131046, 65500, 1048592, 131046, 65504, 1048592, 131046, 65508, 1048592, 131046, 65492, 1048592, 131046, 65488, 1048592, 131046, 65484, 1048592, 131046, 65480, 1048592, 131046, 65476, 1048592, 131046, 65472, 1048592, 131062, 65479, 16, 131058, 65479, 16, 131070, 65472, 655376, 131066, 65472, 655376, 131062, 65472, 655376, 131070, 65468, 1441808, 131066, 65468, 16, 131062, 65468, 16, 131058, 65468, 16, 131054, 65468, 16, 131050, 65468, 16, 131046, 65468, 16, 196584, 65506, 1048631, 196584, 65502, 1048631, 196584, 65498, 1048631, 196584, 65494, 1048631, 196584, 65490, 1048631, 196584, 65486, 1048631, 196584, 65482, 1048631, 196584, 65478, 1048631, 196584, 65474, 1048631, 196584, 65470, 1048631, 131058, 65476, 1048592, 131058, 65475, 1441808, 131056, 65469, 41, 196592, 65477, 1441847, 196592, 65473, 1441847, 196592, 65469, 1441847, 196596, 65470, 1441847, 196600, 65470, 1441847, 196604, 65470, 1441847)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="Rooms" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04394, -48.1017)
+
+[node name="Bathroom" type="GridMap" parent="Map/Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4547, -0.650506, 6.59917)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(1, 1, 1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(3, 65532, 16)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Bathroom0025" type="GridMap" parent="Map/Rooms/Bathroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23033, 0.439999)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.5, 1, 0.5)
+cell_scale = 0.25
+data = {
+"cells": PackedInt32Array(1, 10, 655367)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Bathroom007_Candle" type="GridMap" parent="Map/Rooms/Bathroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968372, 0.00654721, 0.349163)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.07, 0.07, 0.07)
+cell_scale = 0.07
+data = {
+"cells": PackedInt32Array(65499, 29, 52, 34, 0, 52, 17, 34, 51, 65495, 65512, 51, 15, 65502, 53)
+}
+metadata/_editor_floor_ = Vector3(0, 23, 0)
+
+[node name="Bathroomx0_5" type="GridMap" parent="Map/Rooms/Bathroom"]
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(1, 1, 1)
+cell_scale = 0.5
+data = {
+"cells": PackedInt32Array(65535, 65531, 1)
+}
+
+[node name="ChandedlierRoom" type="GridMap" parent="Map/Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467742, -0.408417, 48.5705)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65505, 65458, 11, 589793, 65457, 11, 65485, 65458, 11, 65505, 47, 655396, 458825, 65495, 1441801, 1048488, 65458, 14)
+}
+metadata/_editor_floor_ = Vector3(0, 8, 0)
+
+[node name="GreenRoom" type="GridMap" parent="Map/Rooms"]
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.3, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65299, 313, 1376271, 65286, 334, 1048587, 65286, 354, 1048587, 65378, 355, 917516, 65302, 284, 1245197, 261895, 333, 65581)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="SideRoomUp" type="GridMap" parent="Map/Rooms/GreenRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5452, 4.1735, 27.9437)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SideRoomUp2" type="GridMap" parent="Map/Rooms/GreenRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5452, 5.33173, 33.1073)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65498, 20, 1048582, -131036, 23, 1441803, 1179615, 65520, 1048576)
+}
+metadata/_editor_floor_ = Vector3(0, 17, 0)
+
+[node name="Items" type="GridMap" parent="Map/Rooms/GreenRoom/SideRoomUp2"]
+transform = Transform3D(0.95551, 0, -0.294958, 0, 1, 0, 0.294958, 0, 0.95551, 1.964, -1.58942, -3.31475)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(786413, 62, 262157, 327675, 50, 1048596, 327667, 14, 36)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="MasterRoomUp" type="GridMap" parent="Map/Rooms"]
+transform = Transform3D(0.994875, 0, -0.101108, 0, 1, 0, 0.101108, 0, 0.994875, 6.31532, 5.0572, -9.46981)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(0, 65478, 393226, 31, 65479, 262157, -393237, 65521, 36, -393235, 65523, 36, -393234, 65525, 36, -458736, 34, 655396, -458734, 2, 1441828, -458734, 1, 1441828, -393229, 23, 655396, -458721, 72, 655396, 983015, 32, 1441806, 41, 33, 1441803, 56, 25, 11, -458658, 49, 1048595, 196576, 65481, 11)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="GridMap2" type="GridMap" parent="Map/Rooms"]
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+
+[node name="Library" type="GridMap" parent="Map/Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.56753, 0, 5.30246)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(917451, 97, 14, 917450, 40, 14, 852003, 32, 1441806, 852003, 65515, 1441806, 852002, 129, 1048590, 917451, 68, 14, 851982, 65432, 14, 851982, 65405, 14, 917471, 65424, 1441806, 851983, 65486, 655374, 917449, 65513, 14, 917497, 21, 1441806, 851981, 65525, 655374, 4194151, 65478, 1048590, 4194151, 65426, 1441806, 2817928, 65325, 1441811, 3342213, 65321, 5)
+}
+metadata/_editor_floor_ = Vector3(0, 50, 0)
+
+[node name="GridMap" type="GridMap" parent="Map/Rooms/Library"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5927, 4.88211, -20.694)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65538, 65496, 32, 131107, 65498, 11, 196580, 65499, 11, 262146, 28, 917516)
+}
+metadata/_editor_floor_ = Vector3(0, -2, 0)
+
+[node name="LightingSpots" type="GridMap" parent="Map"]
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 2, 0.1)
+cell_scale = 0.5
+data = {
+"cells": PackedInt32Array(196492, 52, 1114146, 131197, 52, 1376290, 196583, 65460, 786466, 131105, 65460, 786466, 262149, 23, 983073, 131176, 65233, 1114146, 131248, 65150, 786466, 131146, 65311, 393250, 196592, 65290, 1114146, 196592, 65161, 1114146, 196542, 65381, 393250, 196352, 65318, 1114146, 196440, 65300, 786466, 196270, 65060, 786466, 196289, 65181, 393250, 196393, 65149, 1376290, 196352, 65005, 1114146, 196352, 64931, 1114146, 196400, 64861, 393250, 196502, 64861, 393250, 131137, 64843, 1376290, 196580, 64901, 393250, 131176, 64912, 1114146, 131103, 65010, 786466, 131161, 65010, 786466, 196576, 65010, 786466, 262290, 64936, 983073, 327569, 65037, 720929, 327569, 65117, 720929, 327545, 64911, 1376290, 327649, 65460, 786466, 262180, 65460, 786466, 327679, 65340, 786466, 327505, 65333, 1376290, 327448, 65261, 393250, 327424, 65146, 1114146, 327424, 65096, 1114146, 327424, 64950, 1114146)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="Paintings" type="GridMap" parent="Map/LightingSpots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.7182)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.1, 0.5, 0.1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(655544, 65431, 65561, 655424, 65479, 262175, 720759, 65528, 65562, 1245368, 65223, 1245212, 655369, 65028, 851994, 589799, 65028, 983063, 589763, 65029, 393238, 1310466, 65102, 589850, 1310640, 13, 262168, 1310678, 51, 851995)
+}
+metadata/_editor_floor_ = Vector3(0, 22, 0)
+
+[node name="Floor1" type="GridMap" parent="Map"]
+mesh_library = ExtResource("1_3vepg")
+
+[node name="Papers" type="GridMap" parent="Map"]
+transform = Transform3D(0.999939, 0, -0.0110303, 0, 1, 0, 0.0110303, 0, 0.999939, 0, 1.44437, 0)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(1.965, 2, 2)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(3, 65534, 655396, 65532, 1, 655396, 65532, 65535, 655397, 65533, 65535, 37, 3, 0, 1441829, 7, 65520, 36, 65518, 65515, 65579, 65518, 65516, 655397, 65518, 65514, 36, 65519, 65516, 655396, 65534, 0, 1441828, 0, 65532, 655396, 65534, 65534, 655398, 65533, 1, 1441830, 0, 65529, 1048615, 65524, 65526, 1441828, 65527, 65525, 1048612, 1, 65501, 655396, 65535, 65503, 36, 65533, 65500, 655396, 65523, 65503, 39, 65523, 65504, 589867, 65523, 65506, 36, 65524, 65503, 36, 65525, 65515, 36, 65524, 65516, 852023, 65530, 65517, 36, 65531, 65515, 36, 65531, 65520, 65581, 65531, 65518, 36, 65530, 65520, 1441828, 65531, 65511, 36, 65528, 65511, 655396, 65531, 65513, 1048613, 65530, 65513, 40, 65530, 65508, 40, 65529, 65510, 40, 5, 65508, 36, 7, 65507, 1441828, 2, 65523, 36, 65535, 65526, 1441828, 65535, 65519, 36, 0, 65511, 36, 65534, 65510, 655396, 65535, 65517, 655397, 0, 65512, 1441829, 65534, 65518, 37, 65535, 65518, 1441829, 0, 65518, 1441829, 65528, 65527, 1441828, 65530, 65527, 1441829, 65530, 65526, 1048613, 65527, 65528, 655397, 65526, 65527, 1048613, 65526, 65526, 655397, 65527, 65500, 1441828, 65527, 65501, 1048613, 65529, 65501, 1179690, 65528, 65500, 1310762)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Rugs" type="GridMap" parent="Map"]
+transform = Transform3D(0.990686, 0, -0.136165, 0, 1, 0, 0.136165, 0, 0.990686, 0, 1.44437, 0)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(1.965, 2, 2)
+cell_scale = 3.0
+data = {
+"cells": PackedInt32Array(3, 65534, 655396, 65532, 1, 655396, 65532, 65535, 655397, 65533, 65535, 37, 3, 0, 1441829, 7, 65520, 36, 0, 0, 20, 2, 65503, 1048594)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="PurpleRoom" type="GridMap" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.63552, 0)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(0.5, 1, 0.5)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(7, 65518, 393231, 29, 65461, 393226, 23, 65461, 11, 36, 65482, 1441824, 35, 65488, 1441803, 31, 65477, 1245197, 32, 65488, 1507341, 29, 65481, 917517, 29, 65485, 917517, 24, 65490, 655371)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Railings" type="GridMap" parent="Map"]
+mesh_library = ExtResource("1_3vepg")
+cell_size = Vector3(0.08, 0.3, 0.08)
+data = {
+"cells": PackedInt32Array(1769389, 65492, 458810, 1769414, 65492, 458810, 1769438, 65492, 458810, 1769463, 65492, 458810, 1703952, 65492, 458810, 1703977, 65492, 458810, 1704002, 65492, 983098, 1704027, 65492, 983098, 1769139, 65041, 458810, 1769115, 65041, 458810, 1769136, 64990, 458810, 1769112, 64990, 458810, 1769099, 64977, 720954, 1769099, 64953, 720954, 1769087, 64941, 983098, 1769064, 64941, 983098, 1769040, 64941, 983098, 1769017, 64941, 983098, 1769004, 64953, 196666, 1769004, 64977, 196666, 1769004, 65001, 196666, 1769004, 65023, 196666, 1769004, 65046, 196666, 1769004, 65070, 196666, 1769102, 65052, 196666, 1769102, 65075, 196666, 1769090, 65089, 458810, 1769065, 65089, 458810, 1769041, 65089, 458810, 1769017, 65089, 458810, 1769004, 65079, 720954, 1769252, 65115, 196666, 1769252, 65091, 196666, 1769252, 65067, 196666, 1769252, 65043, 196666, 1769252, 65021, 196666, 1769252, 64997, 196666, 1769252, 64973, 196666, 1769252, 64949, 196666, 1769252, 64924, 196666, 1769252, 64900, 196666, 1769252, 64875, 196666, 1769251, 64850, 196666)
+}
+metadata/_editor_floor_ = Vector3(0, 26, 0)
+
+[node name="banister" type="GridMap" parent="Map/Railings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0907965, 0)
+mesh_library = ExtResource("1_3vepg")
+cell_size = Vector3(0.08, 0.3, 0.08)
+cell_scale = 0.13
+data = {
+"cells": PackedInt32Array(1638078, 64991, 57, 1638031, 64991, 57, 1638031, 65042, 57, 1638078, 65043, 57, 1638077, 65043, 57, 1638076, 64991, 57, 1572969, 65492, 57, 1638304, 65492, 57, 1638028, 64991, 57, 1638027, 64942, 57, 1637932, 64941, 57, 1637932, 65091, 57, 1638029, 65088, 57, 1638179, 64838, 57, 1638180, 65129, 57)
+}
+metadata/_editor_floor_ = Vector3(0, 24, 0)
+
+[node name="banister2" type="GridMap" parent="Map/Railings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6898, 0)
+mesh_library = ExtResource("3_pk08v")
+cell_size = Vector3(1, 1.5, 1)
+cell_scale = 0.13
+data = {
+"cells": PackedInt32Array(1638078, 64991, 57, 1638031, 64991, 57, 1638031, 64941, 57, 1637930, 64941, 57, 1637930, 65092, 57, 1638032, 65092, 57, 1638031, 65042, 57, 1638078, 65043, 57, 1638077, 65043, 57, 1638076, 64991, 57, 1572969, 65492, 57, 1638304, 65492, 57, 393182, 65494, 1310737)
+}
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="Trees" type="GridMap" parent="Map/Railings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42329, 0, 0)
+mesh_library = ExtResource("4_8tdml")
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(65513, 65502, 7, 65517, 65527, 655362, 65520, 65524, 655362, 65505, 65503, 2, 65507, 65527, 655367, 65504, 65507, 7, 65519, 65503, 1441793, 65511, 65507, 655361, 65516, 65533, 655361, 65510, 65526, 3, 65516, 65523, 5, 65502, 65513, 5, 65515, 65507, 5, 65511, 65519, 1441793, 65512, 65521, 655362, 65520, 65520, 2, 65513, 65522, 1048578, 65512, 65514, 655362, 65514, 65514, 1048578, 65520, 65508, 2, 65513, 65509, 1048578, 65499, 65518, 7, 65515, 65518, 1441793, 65516, 65520, 1048580, 65521, 65522, 1441796, 65518, 65521, 1048580, 65522, 65519, 4, 65521, 65510, 1441796, 65516, 65512, 1048580, 65514, 65516, 6)
+}
+
+[node name="Windows" type="GridMap" parent="Map/Railings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0907965, 0)
+mesh_library = ExtResource("1_3vepg")
+cell_size = Vector3(1, 1, 1)
+cell_scale = 2.0
+data = {
+"cells": PackedInt32Array(393210, 8, 917514, 327686, 8, 262154, 720878, 65524, 393226, 393196, 65524, 262155, 655375, 65487, 262154, 655367, 65487, 262154)
+}
+metadata/_editor_floor_ = Vector3(0, 10, 0)
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="LibraryFirePlace" type="Node3D" parent="Lighting"]
+transform = Transform3D(0.999979, 0, -0.00644022, 0, 1, 0, 0.00644022, 0, 0.999979, -13.9942, 9.12456, -36.8891)
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LibraryFirePlace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54676, -1.17741, -30.0908)
+light_color = Color(1, 0.611765, 0.368627, 1)
+shadow_enabled = true
+shadow_blur = 2.591
+omni_range = 4.8399
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 1.0
+min_y_pos = -2.0
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LibraryFirePlace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.78318, -0.608557, -29.5413)
+light_color = Color(1, 0.611765, 0.368627, 1)
+shadow_enabled = true
+shadow_blur = 2.591
+omni_range = 72.914
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 1.0
+
+[node name="LightPurpleRoom" type="Node3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50576, 0, -31.3181)
+
+[node name="Candle" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59714, 5.23729, 1.15849)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.39
+shadow_blur = 6.802
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70677, 5.60282, 0.812799)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 6.802
+omni_range = 3.70981
+script = ExtResource("4_dieac")
+
+[node name="Candle4" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.91303, 4.89277, -5.86806)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 6.802
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle8" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2569, 5.62937, -6.66163)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 6.802
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle3" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(0.999979, 0, -0.00644022, 0, 1, 0, 0.00644022, 0, 0.999979, 8.94963, 3.19069, 4.77504)
+light_color = Color(1, 0.611765, 0.368627, 1)
+light_volumetric_fog_energy = 6.333
+shadow_enabled = true
+shadow_blur = 2.591
+omni_range = 4.8399
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 1.0
+
+[node name="Candle9" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.98298, 3.19069, 3.86155)
+light_color = Color(1, 0.611765, 0.368627, 1)
+light_volumetric_fog_energy = 6.333
+shadow_enabled = true
+shadow_blur = 5.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 1.0
+
+[node name="LightStick" type="Node3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26717, 5.24429, 8.02011)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightPurpleRoom/LightStick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836692, 0.33474, 0.237082)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightPurpleRoom/LightStick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.378339, -0.234487, -0.183378)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick2" type="Node3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -9.68603, 5.07125, 7.02897)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightPurpleRoom/LightStick2"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.298328, 0.0792766, 0.461221)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightPurpleRoom/LightStick2"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.218945, 0.565345, 0.212922)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle2" type="OmniLight3D" parent="Lighting/LightPurpleRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25372, 4.83208, -5.50992)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.273
+shadow_enabled = true
+shadow_blur = 6.802
+omni_range = 3.4048
+omni_attenuation = 0.241484
+script = ExtResource("4_dieac")
+speed = 1.0
+
+[node name="LightChandelier" type="Node3D" parent="Lighting"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 0.500995, 8.71137, 2.37945)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -1.00238, 0.911287, 0.153705)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.2033
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 1.10895, 0.865948, 0.281248)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 8.53593
+script = ExtResource("4_dieac")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(0.0499809, 0.601231, -0.797511, -0.0951925, 0.797741, 0.595439, 0.994203, 0.0461565, 0.0971046, -8.06479, -1.736, 5.44466)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 2.237
+light_volumetric_fog_energy = 5.778
+shadow_enabled = true
+shadow_blur = 3.0
+spot_range = 28.511
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(0.0499809, 0.601231, -0.797511, -0.0951925, 0.797741, 0.595439, 0.994203, 0.0461565, 0.0971046, -7.15949, -1.736, -6.34768)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 2.285
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 6.196
+shadow_enabled = true
+shadow_blur = 1.556
+spot_range = 20.161
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(0.0499809, 0.601231, -0.797511, -0.0951925, 0.797741, 0.595439, 0.994203, 0.0461565, 0.0971046, 10.7089, -2.23803, -19.6693)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 2.789
+light_volumetric_fog_energy = 1.87
+shadow_enabled = true
+spot_range = 122.438
+spot_attenuation = 0.267943
+spot_angle = 68.3123
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(0.0499809, 0.601231, -0.797511, -0.0951925, 0.797741, 0.595439, 0.994203, 0.0461565, 0.0971046, 10.6255, 3.42715, -18.5829)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 2.789
+light_volumetric_fog_energy = 1.87
+shadow_enabled = true
+shadow_blur = 3.639
+spot_range = 27.269
+spot_attenuation = 0.267943
+spot_angle = 53.31
+
+[node name="LightStick5" type="Node3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49143, -3.1485, -10.306)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick5"]
+transform = Transform3D(1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1, 0.176569, -0.436964, -0.973008)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick5"]
+transform = Transform3D(1, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 1, 0.494094, -0.282737, -1.28266)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick7" type="Node3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(0.232834, 0, -0.972516, 0, 1, 0, 0.972516, 0, 0.232834, 9.39332, -3.43223, -2.20909)
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.378339, 0.299525, 0.225158)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick7"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 8.9407e-08, 0, 1, -3.88368, -1.1031, -1.14766)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick8" type="Node3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1418, -3.57737, 3.15918)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick8"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.966289, 0.33474, 0.402588)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 10.0448
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick8"]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 0.870061, -0.195701, 0.406463)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 8.46291
+script = ExtResource("4_dieac")
+
+[node name="LightStick6" type="Node3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09845, -3.57737, 10.8906)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick6"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.310301, 0.0884218, 0.0752316)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightChandelier/LightStick6"]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 0.605553, 0.643287, 0.2426)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Lighting2" type="Node3D" parent="Lighting/LightChandelier"]
+transform = Transform3D(-0.076545, 0, -0.997066, 0, 1, 0, 0.997066, 0, -0.076545, 2.41082, -8.71137, -0.31739)
+
+[node name="Chandelier" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51688, 9.54978, 2.21208)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="Chandelier2" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463772, 9.54978, 2.21208)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="Chandelier3" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220289, 8.49795, 2.21208)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="Chandelier4" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22954, 8.49795, 2.21208)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="Chandelier5" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411759, 8.76075, 1.75681)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="Chandelier6" type="OmniLight3D" parent="Lighting/LightChandelier/Lighting2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411759, 8.76075, 2.95916)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 11.8374
+
+[node name="LightingHallWay" type="Node3D" parent="Lighting"]
+
+[node name="LightStick3" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -22.4207, 5.07125, -38.7232)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick3"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick3"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.264599, 0.50314, -0.0579548)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 1.486
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick5" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -0.210003, 9.74025, -18.7667)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick5"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick5"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.264599, 0.50314, -0.0579548)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick24" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.003, 9.74025, -45.8616)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick24"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick24"]
+transform = Transform3D(1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1, 0.220909, 0.50314, 0.511061)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick28" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.003, 9.74025, -37.9652)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick28"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.0151978, 1.29136, -0.387535)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick28"]
+transform = Transform3D(1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1, 0.264606, 0.314631, -0.0579548)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick29" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.003, 9.74025, -37.9652)
+
+[node name="LightStick30" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -23.5112, 9.74025, -28.283)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick30"]
+transform = Transform3D(1, 0, 1.63913e-07, 0, 1, 0, -1.63913e-07, 0, 1, 0.816277, -0.621625, 0.381205)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 16.54
+omni_attenuation = 2.14355
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick30"]
+transform = Transform3D(1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, 1, 1.55114, -0.163776, 0.669767)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.42941
+script = ExtResource("4_dieac")
+
+[node name="LightStick25" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.003, 9.74025, -58.3791)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick25"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 1.806
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+omni_attenuation = 1.68179
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick25"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.264599, 0.50314, -0.0579548)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick26" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -14.5154, 9.74025, -62.4299)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick26"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.000793457, -0.645606, -0.199827)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick26"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.221775, -0.0204067, 0.49988)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick23" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -17.7451, 9.74025, -16.3379)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick23"]
+transform = Transform3D(1, 0, 2.23517e-07, 0, 1, 0, -2.23517e-07, 0, 1, 4.07491, -0.220323, -0.019371)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick23"]
+transform = Transform3D(1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, 1, 4.15218, -0.923934, -1.0258)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.0
+light_volumetric_fog_energy = 2.111
+shadow_enabled = true
+shadow_blur = 10.0
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick23"]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, -3.02174, 0.385242, -1.54442)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick6" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -3.10569, 9.73562, -6.95518)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick6"]
+transform = Transform3D(1, 0, 6.70552e-08, 0, 1, 0, -6.70552e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 10.1675
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick6"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, -1.59498, 0.50314, -1.52397)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 1.486
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 10.4489
+script = ExtResource("4_dieac")
+
+[node name="LightStick22" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 3.18371, 9.73562, -6.95518)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick22"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0321579, -0.124802, 0.229298)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick22"]
+transform = Transform3D(0.999977, -0.00678676, -1.69128e-06, 0.00678676, 0.999977, 0.000521022, -1.84774e-06, -0.000521021, 1, 0.239358, 0.50314, 0.270825)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.46815
+script = ExtResource("4_dieac")
+
+[node name="LightStick9" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.556, 5.07125, -52.9451)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick9"]
+transform = Transform3D(1, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 1, 0.135479, 0.0165095, -0.437784)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick9"]
+transform = Transform3D(1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1, -0.0574951, 0.393391, -0.474287)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 12.223
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick9"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.355598, 0.393391, -0.44257)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick10" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -24.556, 5.07125, -60.4863)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick10"]
+transform = Transform3D(1, 0, 1.11759e-07, 0, 1, 0, -1.11759e-07, 0, 1, -0.218227, 0.165494, -0.309664)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick10"]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, -0.0905952, 0.490557, -0.541977)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.791
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick11" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -20.8662, 5.07125, -67.8524)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick11"]
+transform = Transform3D(1, 0, 5.21541e-08, 0, 1, 0, -5.21541e-08, 0, 1, 0.634895, 0.0418582, -0.213826)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick11"]
+transform = Transform3D(1, 0, 8.19564e-08, 0, 1, 0, -8.19564e-08, 0, 1, 0.161957, 0.643538, -0.0952072)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick12" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -10.7344, 5.07125, -67.8524)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick12"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 0.0836716, -0.269057, 0.23708)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick12"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 1.09367, 0.299525, 0.280074)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.936
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick13" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -5.92861, 5.07125, -65.4881)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick13"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, -0.965118, -0.253025, 3.33532)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+light_volumetric_fog_energy = 0.0
+shadow_blur = 10.0
+omni_range = 10.4429
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick13"]
+transform = Transform3D(1, 0, 2.98023e-07, 0, 1, 0, -2.98023e-07, 0, 1, -1.74583, 0.535522, 3.06154)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 1.361
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick14" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 5.82935, 5.07125, -69.0543)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick14"]
+transform = Transform3D(1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, 1, 0.00740051, 0.00503826, -0.250284)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.96348
+omni_shadow_mode = 0
+script = ExtResource("4_dieac")
+speed = 10.0
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick14"]
+transform = Transform3D(1, 0, 6.70552e-08, 0, 1, 0, -6.70552e-08, 0, 1, 0.234207, 0.213571, 0.21409)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 13.2944
+script = ExtResource("4_dieac")
+
+[node name="LightStick15" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 15.2572, 5.07125, -56.1531)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 2.00687, 4.81891, -9.21733)
+visible = false
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.22136
+script = ExtResource("4_dieac")
+
+[node name="Candle8" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 3.20375e-07, 0, 1, 0, -3.20375e-07, 0, 1, 7.52217, 4.6061, -10.6748)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.22136
+script = ExtResource("4_dieac")
+
+[node name="Candle10" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.90573e-07, 0, 1, 0, -2.90573e-07, 0, 1, -1.95473, 4.69174, -3.41361)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.22136
+script = ExtResource("4_dieac")
+
+[node name="Candle9" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 3.20375e-07, 0, 1, 0, -3.20375e-07, 0, 1, -1.7423, 4.79363, -5.58268)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.22136
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 1.41561e-07, 0, 1, 0, -1.41561e-07, 0, 1, 4.72942, 4.72764, -0.256002)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle12" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.01166e-07, 0, 1, 0, -2.01166e-07, 0, 1, 2.83184, 4.63396, -0.454115)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.01166e-07, 0, 1, 0, -2.01166e-07, 0, 1, 3.96073, 4.63382, -1.32251)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle13" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.30968e-07, 0, 1, 0, -2.30968e-07, 0, 1, 3.93171, 3.5856, -0.944502)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle14" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.45869e-07, 0, 1, 0, -2.45869e-07, 0, 1, 3.8255, 3.5856, 0.438974)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle15" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 2.90573e-07, 0, 1, 0, -2.90573e-07, 0, 1, 3.23903, 3.5856, -0.266932)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle16" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 3.05474e-07, 0, 1, 0, -3.05474e-07, 0, 1, 4.63801, 3.5856, -0.159533)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="Candle11" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick15"]
+transform = Transform3D(1, 0, 1.86265e-07, 0, 1, 0, -1.86265e-07, 0, 1, 3.81231, 4.46235, 0.64076)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 14.8232
+script = ExtResource("4_dieac")
+
+[node name="LightStick16" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 11.0076, 5.14663, -62.3295)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick16"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.0838966, 0.468751, 0.224216)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick16"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0.611366, -0.19166, 0.243046)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.74
+shadow_blur = 10.0
+omni_range = 8.97942
+script = ExtResource("4_dieac")
+
+[node name="LightStick17" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 8.83655, 5.14663, -51.4514)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick17"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.559448, -0.307629, 0.0731564)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick17"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.507496, 0.49273, 0.235072)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+flicker_intensity = 0.3
+speed = 7.0
+
+[node name="LightStick18" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, 2.97333, 5.14663, -51.5677)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick18"]
+transform = Transform3D(1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, 1, 0.162918, 0.585044, 0.0288644)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick18"]
+transform = Transform3D(0.999907, -0.0136776, -7.18236e-06, 0.0136776, 0.999906, 0.00105003, -7.18981e-06, -0.00105003, 1, 0.169678, -0.670275, 0.378576)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick19" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -2.42253, 5.14663, -51.5677)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick19"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.462425, 0.481582, -0.499714)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick19"]
+transform = Transform3D(1, 0, 3.20375e-07, 0, 1, 0, -3.20375e-07, 0, 1, 0.309505, -0.336594, -0.668826)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 3.15
+script = ExtResource("4_dieac")
+
+[node name="LightStick20" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -0.950561, 5.14663, -37.2794)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick20"]
+transform = Transform3D(1, 0, 1.93715e-07, 0, 1, 0, -1.93715e-07, 0, 1, -0.234924, -0.251515, 0.0631735)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick20"]
+transform = Transform3D(1, 0, 1.93715e-07, 0, 1, 0, -1.93715e-07, 0, 1, -3.39077, -0.251515, 0.144113)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick20"]
+transform = Transform3D(1, 0, 5.21541e-08, 0, 1, 0, -5.21541e-08, 0, 1, 0.393879, 0.644079, 0.0223749)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 19.022
+script = ExtResource("4_dieac")
+
+[node name="LightStick21" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -12.389, 5.14663, -37.2794)
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.27826e-07, 0, 1, 0, -3.27826e-07, 0, 1, 5.44816, 4.72671, 1.69411)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.27826e-07, 0, 1, 0, -3.27826e-07, 0, 1, 3.47294, 4.72671, 1.54247)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle19" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 3.68134, 3.78506, 1.55846)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle20" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 5.35132, 3.78506, 1.68667)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 4.33021, 4.72671, 2.59438)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle8" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 4.46788, 4.72671, 0.801096)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+omni_attenuation = 2.2974
+script = ExtResource("4_dieac")
+
+[node name="Candle17" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 4.46788, 3.82739, 0.801096)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle18" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 4.36077, 3.82739, 2.19633)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle9" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 12.5257, 4.72671, 1.4197)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.3
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+omni_attenuation = 2.63902
+omni_shadow_mode = 0
+script = ExtResource("4_dieac")
+
+[node name="Candle10" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 12.3936, 4.72671, 3.14126)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle11" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 11.5124, 4.72671, 2.0875)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle12" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 13.302, 4.72671, 2.273)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle13" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 13.012, 3.82108, 2.25073)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle15" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 12.3514, 3.82108, 2.86417)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle16" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 12.4413, 3.82108, 1.69249)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="Candle14" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick21"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, 11.7612, 3.77006, 2.15471)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 17.284
+script = ExtResource("4_dieac")
+
+[node name="LightStick4" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -17.0044, 5.07125, -21.0664)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick4"]
+transform = Transform3D(1, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 1, 1.95034, 0.33474, 0.380386)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick4"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 1.42887, -0.257033, 0.305807)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightStick8" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -6.66331, 5.07125, -16.0127)
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836692, 0.33474, 0.237082)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick8"]
+transform = Transform3D(1, 0, 1.04308e-07, 0, 1, 0, -1.04308e-07, 0, 1, 0.0181389, -0.0439954, 0.139164)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.426
+light_volumetric_fog_energy = 3.51
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 7.52807
+omni_attenuation = 0.707107
+script = ExtResource("4_dieac")
+
+[node name="LightStick7" type="Node3D" parent="Lighting/LightingHallWay"]
+transform = Transform3D(-0.076545, 0, 0.997066, 0, 1, 0, -0.997066, 0, -0.076545, -25.1853, 5.29291, -21.4894)
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick7"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 0.257736, 0.299525, 0.215904)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.15006
+script = ExtResource("4_dieac")
+
+[node name="Candle6" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick7"]
+transform = Transform3D(1, 0, 1.63913e-07, 0, 1, 0, -1.63913e-07, 0, 1, -7.77619, -0.689562, -0.110023)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.478
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 9.15006
+script = ExtResource("4_dieac")
+
+[node name="Candle8" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick7"]
+transform = Transform3D(1, 0, 3.50177e-07, 0, 1, 0, -3.50177e-07, 0, 1, -7.72068, -2.11763, 9.6143)
+light_color = Color(1, 0.686275, 0.372549, 1)
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.7939
+script = ExtResource("4_dieac")
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingHallWay/LightStick7"]
+transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0.378338, 0.299525, 0.225159)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.269
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 5.69413
+script = ExtResource("4_dieac")
+
+[node name="LightingBathroom" type="Node3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5507, 4.80234, -40.8755)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 3.61699e-15, 2.23518e-08, -2.16299e-08, 0.252086, 0.967705, -5.63458e-09, -0.967705, 0.252086, 0.177372, 2.34896, 0.647663)
+light_color = Color(1, 0, 0.0196078, 1)
+light_energy = 11.957
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_blur = 2.515
+distance_fade_begin = 226.18
+distance_fade_shadow = 732.67
+spot_range = 11.0747
+spot_attenuation = 0.840897
+spot_angle = 32.4955
+spot_angle_attenuation = 11.7127
+script = ExtResource("42_t741o")
+
+[node name="Candle5" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 2.67021, 0.327044, 4.73717)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.273
+shadow_blur = 10.0
+omni_range = 4.23882
+script = ExtResource("4_dieac")
+
+[node name="Candle13" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 2.87548, 0.728464, 4.87445)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.273
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 4.23882
+script = ExtResource("4_dieac")
+
+[node name="Candle15" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 2.51321, 0.481069, 4.82933)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.273
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 4.23882
+script = ExtResource("4_dieac")
+
+[node name="Candle8" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, -1.47923, -1.71704, 1.7979)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 1.27955
+omni_attenuation = 0.0693481
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+
+[node name="Candle11" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 3.47388, -1.54728, -0.245884)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 1.23682
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 10.0
+
+[node name="Candle12" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 2.14772, -1.61456, -2.61724)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.076
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 0.917149
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 10.0
+
+[node name="Candle9" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(0.998179, 0, -0.0603168, 0, 1, 0, 0.0603168, 0, 0.998179, -1.71027, -2.03393, -1.92472)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 0.55851
+omni_attenuation = 0.287175
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 10.0
+
+[node name="Candle10" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 2.28923, -2.06601, 2.11074)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 1.21362
+omni_attenuation = 0.277393
+script = ExtResource("4_dieac")
+flicker_intensity = 1.0
+speed = 10.0
+
+[node name="Candle7" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 0.558128, 0.82751, -5.84258)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.515
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 8.35865
+omni_shadow_mode = 0
+script = ExtResource("4_dieac")
+
+[node name="Candle14" type="OmniLight3D" parent="Lighting/LightingBathroom"]
+transform = Transform3D(1, 0, 2.23517e-08, 0, 1, 0, -2.23517e-08, 0, 1, 0.558128, 0.0487976, -4.48774)
+light_color = Color(1, 0.686275, 0.372549, 1)
+light_energy = 0.515
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.75512
+script = ExtResource("4_dieac")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.978742, 0.184164, -0.0902627, -0.0951925, 0.797741, 0.595439, 0.181664, -0.574189, 0.798314, 15.051, 12.0432, -46.2921)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 1.889
+light_volumetric_fog_energy = 3.889
+shadow_enabled = true
+shadow_blur = 1.972
+spot_range = 27.3458
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.989317, 0.00947134, 0.145472, -0.0951925, 0.797741, 0.595439, -0.11041, -0.602926, 0.79012, 7.23877, 12.2509, -46.6557)
+light_color = Color(0.470588, 0.529412, 0.678431, 1)
+light_energy = 2.111
+light_volumetric_fog_energy = 3.889
+shadow_enabled = true
+spot_range = 50.3158
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.989317, 0.00947134, 0.145472, -0.0951925, 0.797741, 0.595439, -0.11041, -0.602926, 0.79012, -35.252, 33.4068, -12.1935)
+light_color = Color(0.486275, 0.498039, 0.580392, 1)
+light_energy = 8.304
+light_volumetric_fog_energy = 7.261
+shadow_enabled = true
+spot_range = 55.6089
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.989317, 0.00947134, 0.145472, -0.0951925, 0.797741, 0.595439, -0.11041, -0.602926, 0.79012, -35.252, 30.5848, -12.1935)
+light_color = Color(0.486275, 0.498039, 0.580392, 1)
+light_energy = 8.304
+light_volumetric_fog_energy = 7.261
+shadow_enabled = true
+spot_range = 55.6089
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.909043, -0.174105, 0.378586, -0.0951925, 0.797741, 0.595439, -0.405683, -0.577318, 0.708608, -25.8827, 30.5848, -12.1935)
+light_color = Color(0.486275, 0.498039, 0.580392, 1)
+light_energy = 8.304
+light_volumetric_fog_energy = 7.261
+shadow_enabled = true
+spot_range = 55.6089
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.797012, 0.419454, -0.434547, -0.0951925, 0.797741, 0.595439, 0.596415, -0.433206, 0.675738, -41.2067, 34.5478, -12.1935)
+light_color = Color(0.486275, 0.498039, 0.580392, 1)
+light_energy = 8.304
+light_volumetric_fog_energy = 7.261
+shadow_enabled = true
+spot_range = 55.6089
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 2.30959, 0)
+mesh = SubResource("PlaneMesh_hnbng")
+metadata/_edit_lock_ = true
