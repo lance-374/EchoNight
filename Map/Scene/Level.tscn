@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=19 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://g7yny1drdbql" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
 [ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="7_1r1i3"]
 [ext_resource type="PackedScene" uid="uid://bi7wsl1cwqqoy" path="res://Assets/GarageDoor/Garage_Door.fbx" id="8_ospqn"]
+[ext_resource type="PackedScene" uid="uid://jtsb0m8mhwgh" path="res://Assets/battery/battery.tscn" id="9_yubs5"]
+[ext_resource type="PackedScene" uid="uid://o1ljdbewrwt5" path="res://Assets/battery/terminals.tscn" id="10_lnqur"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
 properties/0/path = NodePath("..:car_alarm_playing")
@@ -33,6 +35,9 @@ size = Vector3(5.94867, 3.34119, 0.466309)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eaurl"]
 size = Vector3(5.21265, 3.84216, 0.397522)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mwt6"]
+size = Vector3(1, 2.25732, 1.61084)
 
 [node name="Level" type="Node"]
 script = ExtResource("1_ttpee")
@@ -127,6 +132,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182083, 0.495833, 0.0008926
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GarageDoorDummy1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282104, 1.4967, -0.045311)
 shape = SubResource("BoxShape3D_eaurl")
+
+[node name="Battery" parent="." instance=ExtResource("9_yubs5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.387, 0.297691, -181.03)
+
+[node name="Terminals" parent="." instance=ExtResource("10_lnqur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.397, 2.73215, -181.588)
+
+[node name="Area3D" type="Area3D" parent="Terminals"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terminals/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.628662, 0.30542)
+shape = SubResource("BoxShape3D_6mwt6")
 
 [connection signal="body_entered" from="Car/CarArea" to="." method="_on_car_area_body_entered"]
 [connection signal="body_exited" from="Car/CarArea" to="." method="_on_car_area_body_exited"]

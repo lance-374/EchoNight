@@ -13,6 +13,7 @@ var player_character_choices = {}
 @export var humans_have_key = false
 @export var human_has_shotgun_1 = false
 @export var human_has_shotgun_2 = false
+var humans_connected_car_battery = false
 
 func _ready():
 	main_menu.connect("addressEntered", joinAddressEntered)
@@ -125,10 +126,16 @@ func get_shotgun_2():
 	#
 	#print("Success! Join Address: %s" % upnp.query_external_address())
 
-
 func _on_terminals_area_body_entered(body):
-	pass # Replace with function body.
-
+	print(body)
+	if body.has_method("entered_terminals_area"):
+		body.entered_terminals_area()
 
 func _on_terminals_area_body_exited(body):
-	pass # Replace with function body.
+	print(body)
+	if body.has_method("exited_terminals_area"):
+		body.exited_terminals_area()
+
+func connect_car_battery():
+	humans_connected_car_battery = true
+	$Battery.position = Vector3(104.380, 1.321, -181.000)
