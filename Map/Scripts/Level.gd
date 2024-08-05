@@ -124,3 +124,11 @@ func get_shotgun_2():
 		#"UPNP Port Mapping Failed! Error %s" % map_result)
 	#
 	#print("Success! Join Address: %s" % upnp.query_external_address())
+
+
+func _on_terminals_area_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_terminals_area_body_exited(body):
+	pass # Replace with function body.
