@@ -79,7 +79,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="Extra2" type="GridMap" parent="Map/Objective 2"]
+[node name="Extra3" type="GridMap" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9811, 0, 22.0372)
 mesh_library = ExtResource("2_07j2x")
 cell_size = Vector3(0.5, 2, 0.5)
 cell_scale = 2.0
