@@ -1,14 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://lhe6icnfr1bh"]
+[gd_scene load_steps=21 format=3 uid="uid://lhe6icnfr1bh"]
 
 [ext_resource type="Script" path="res://Map/Scripts/Level.gd" id="1_ttpee"]
 [ext_resource type="PackedScene" uid="uid://b4wy7sc18164g" path="res://Menu/Scene/Menu.tscn" id="2_eeuul"]
 [ext_resource type="PackedScene" uid="uid://1c4ihmbyalm4" path="res://Map/Scene/Level1.tscn" id="4_vci86"]
 [ext_resource type="AudioStream" uid="uid://dk2qr8y3u6vct" path="res://Assets/Cars/car_alarm.mp3" id="5_3qrrh"]
 [ext_resource type="ArrayMesh" uid="uid://c66o0m0ykp3o6" path="res://Assets/Cars/Car 01/Car.obj" id="5_4bf48"]
-[ext_resource type="PackedScene" uid="uid://g7yny1drdbql" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
+[ext_resource type="PackedScene" uid="uid://bncbdpy6i2ggb" path="res://Assets/PSX_Keys/key_industrial.fbx" id="6_u5cty"]
 [ext_resource type="ArrayMesh" uid="uid://tgxsx3mo4efd" path="res://Assets/Shotguns/DoubleBarrelShotgun/DoubleBarrelShotgun.obj" id="7_1r1i3"]
-[ext_resource type="PackedScene" uid="uid://bi7wsl1cwqqoy" path="res://Assets/GarageDoor/Garage_Door.fbx" id="8_ospqn"]
+[ext_resource type="PackedScene" uid="uid://bn717ede3113w" path="res://Assets/GarageDoor/Garage_Door.fbx" id="8_ospqn"]
 [ext_resource type="PackedScene" uid="uid://jtsb0m8mhwgh" path="res://Assets/battery/battery.tscn" id="9_yubs5"]
+[ext_resource type="PackedScene" uid="uid://cfvkjlil4qp4k" path="res://Assets/keyhole.tscn" id="10_a6tqd"]
 [ext_resource type="PackedScene" uid="uid://o1ljdbewrwt5" path="res://Assets/battery/terminals.tscn" id="10_lnqur"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5b5je"]
@@ -36,6 +37,9 @@ size = Vector3(5.94867, 3.34119, 0.466309)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eaurl"]
 size = Vector3(5.21265, 3.84216, 0.397522)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xue7i"]
+size = Vector3(1.24463, 2.78906, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mwt6"]
 size = Vector3(1, 2.25732, 1.61084)
 
@@ -55,7 +59,7 @@ spawn_path = NodePath("..")
 [node name="Level1" parent="." instance=ExtResource("4_vci86")]
 
 [node name="Car" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68.689, 0.988374, -118.799)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30.5818, 0.988374, -122.585)
 mesh = ExtResource("5_4bf48")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Car"]
@@ -75,10 +79,14 @@ shape = SubResource("BoxShape3D_2un4e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32434, 2.33214)
 stream = ExtResource("5_3qrrh")
 
-[node name="Key" parent="." instance=ExtResource("6_u5cty")]
-transform = Transform3D(1, 0, 0, 0, 0.997844, -0.0656295, 0, 0.0656295, 0.997844, 49.1046, 1.04029, 49.3972)
+[node name="Key" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2.99353, -0.196888, 0, 0.196888, 2.99353, 55.4293, 1.1168, 43.9382)
+
+[node name="Model" parent="Key" instance=ExtResource("6_u5cty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="KeyArea" type="Area3D" parent="Key"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KeyArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)
@@ -136,12 +144,24 @@ shape = SubResource("BoxShape3D_eaurl")
 [node name="Battery" parent="." instance=ExtResource("9_yubs5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.387, 0.297691, -181.03)
 
+[node name="Keyhole" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102.384, 3.28621, -209.005)
+
+[node name="Model" parent="Keyhole" instance=ExtResource("10_a6tqd")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="KeyholeArea" type="Area3D" parent="Keyhole"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Keyhole/KeyholeArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122314, -0.894531, 0)
+shape = SubResource("BoxShape3D_xue7i")
+
 [node name="Terminals" parent="." instance=ExtResource("10_lnqur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.397, 2.73215, -181.588)
 
-[node name="Area3D" type="Area3D" parent="Terminals"]
+[node name="TerminalsArea" type="Area3D" parent="Terminals"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terminals/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terminals/TerminalsArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.628662, 0.30542)
 shape = SubResource("BoxShape3D_6mwt6")
 
@@ -153,3 +173,7 @@ shape = SubResource("BoxShape3D_6mwt6")
 [connection signal="body_exited" from="Shotgun1/Shotgun1Area" to="." method="_on_shotgun_1_area_body_exited"]
 [connection signal="body_entered" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_entered"]
 [connection signal="body_exited" from="Shotgun2/Shotgun2Area" to="." method="_on_shotgun_2_area_body_exited"]
+[connection signal="body_entered" from="Keyhole/KeyholeArea" to="." method="_on_keyhole_area_body_entered"]
+[connection signal="body_exited" from="Keyhole/KeyholeArea" to="." method="_on_keyhole_area_body_exited"]
+[connection signal="body_entered" from="Terminals/TerminalsArea" to="." method="_on_terminals_area_body_entered"]
+[connection signal="body_exited" from="Terminals/TerminalsArea" to="." method="_on_terminals_area_body_exited"]

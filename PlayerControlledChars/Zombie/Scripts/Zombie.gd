@@ -73,7 +73,7 @@ func toggle_pause():
 @rpc("call_local")
 func makeSound():
 	if not is_multiplayer_authority(): return
-	if Input.is_action_just_pressed("clap") and not is_paused:
+	if Input.is_action_just_pressed("clap") and not is_paused and not dead:
 			ArtiSound.play()
 		
 func _enter_tree():

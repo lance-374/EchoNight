@@ -14,6 +14,7 @@ var player_character_choices = {}
 @export var human_has_shotgun_1 = false
 @export var human_has_shotgun_2 = false
 var humans_connected_car_battery = false
+var humans_inserted_key = false
 
 func _ready():
 	main_menu.connect("addressEntered", joinAddressEntered)
@@ -77,7 +78,7 @@ func _on_key_area_body_exited(body):
 	print(body)
 	if body.has_method("exited_key_area"):
 		body.exited_key_area()
-		
+
 func get_key():
 	humans_have_key = true
 	$Key.queue_free()
@@ -129,13 +130,32 @@ func get_shotgun_2():
 func _on_terminals_area_body_entered(body):
 	print(body)
 	if body.has_method("entered_terminals_area"):
-		body.entered_terminals_area()
+		body.entered_terminals_area(self)
 
 func _on_terminals_area_body_exited(body):
 	print(body)
 	if body.has_method("exited_terminals_area"):
 		body.exited_terminals_area()
 
-func connect_car_battery():
+func connect_battery():
 	humans_connected_car_battery = true
 	$Battery.position = Vector3(104.380, 1.321, -181.000)
+	update_garage_door()
+
+func insert_key():
+	humans_inserted_key = true
+	update_garage_door()
+
+func update_garage_door():
+	if humans_inserted_key and humans_connected_car_battery:
+		$GarageDoor.queue_free()
+
+func _on_keyhole_area_body_entered(body):
+	print(body)
+	if body.has_method("entered_keyhole_area"):
+		body.entered_keyhole_area(self)
+
+func _on_keyhole_area_body_exited(body):
+	print(body)
+	if body.has_method("exited_keyhole_area"):
+		body.exited_keyhole_area()
