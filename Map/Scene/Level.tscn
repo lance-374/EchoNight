@@ -83,10 +83,8 @@ stream = ExtResource("5_3qrrh")
 transform = Transform3D(3, 0, 0, 0, 2.99353, -0.196888, 0, 0.196888, 2.99353, 55.4293, 1.1168, 43.9382)
 
 [node name="Model" parent="Key" instance=ExtResource("6_u5cty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="KeyArea" type="Area3D" parent="Key"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Key/KeyArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0599365, 0)

@@ -8,3 +8,9 @@ blood overlay:
 
 garage door:
 	https://solarcompost.itch.io/garage-asset-pack
+
+garage door sound:
+	https://pixabay.com/sound-effects/opening-old-garage-door-80337/
+
+keyhole:
+	https://www.cgtrader.com/free-3d-models/various/various-models/key-hole
