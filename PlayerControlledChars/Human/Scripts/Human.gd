@@ -28,6 +28,8 @@ var is_in_key_area = false
 var is_in_car_area = false
 var is_in_shotgun_1_area = false
 var is_in_shotgun_2_area = false
+var is_in_terminals_area = false
+var is_in_keyhole_area = false
 var level
 var health = 3
 var gravity = 9.8
@@ -84,6 +86,12 @@ func _unhandled_input(event):
 		elif is_in_shotgun_2_area and not has_shotgun:
 			pick_up_shotgun()
 			level.get_shotgun_2()
+		if is_in_terminals_area and has_battery:
+			level.connect_battery()
+			has_battery = false
+		if is_in_keyhole_area and has_key:
+			level.insert_key()
+			has_key = false
 
 @rpc("call_local")
 func aniIdel():
@@ -153,6 +161,24 @@ func entered_car_area(node):
 func exited_car_area():
 	print("Player exited car area")
 	is_in_car_area = false
+	
+func entered_terminals_area(node):
+	print("Player entered terminals area")
+	level = node
+	is_in_terminals_area = true
+
+func exited_terminals_area():
+	print("Player exited terminals area")
+	is_in_terminals_area = false
+
+func entered_keyhole_area(node):
+	print("Player entered keyhole area")
+	level = node
+	is_in_keyhole_area = true
+
+func exited_keyhole_area():
+	print("Player exited keyhole area")
+	is_in_keyhole_area = false
 
 func entered_key_area(node):
 	print("Player entered key area")
@@ -180,7 +206,7 @@ func entered_shotgun_2_area(node):
 func exited_shotgun_2_area():
 	print("Player exited shotgun 2 area")
 	is_in_shotgun_2_area = false
-
+	
 #shader stuff
 func spawnLight(pos):
 	instance = lightNode.instantiate()
